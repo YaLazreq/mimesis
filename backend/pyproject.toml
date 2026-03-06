@@ -1,0 +1,11 @@
+[project]
+name = "mimesis"
+version = "0.1.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "websockets",
+]
+
+[tool.ruff]
+line-length = 80
