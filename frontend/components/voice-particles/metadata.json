@@ -1,0 +1,5 @@
+{
+  "name": "Voice Particles",
+  "description": "Abstract animation of blue nano particles that animate based on voice intonation.",
+  "requestFramePermissions": ["microphone"]
+}
