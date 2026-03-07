@@ -168,6 +168,19 @@ export const typography = {
         fontWeight: 500,
         letterSpacing: "0px",
     },
+    buttonMedium: {
+        fontFamily: "var(--font-google-sans)",
+        fontSize: "16px",
+        fontWeight: 400,
+        letterSpacing: "0px",
+    },
+    buttonMediumItalic: {
+        fontFamily: "var(--font-google-sans)",
+        fontSize: "16px",
+        fontWeight: 500,
+        letterSpacing: "-1px",
+        fontStyle: "italic",
+    },
     buttonLarge: {
         fontFamily: "var(--font-google-sans)",
         fontSize: "20px",

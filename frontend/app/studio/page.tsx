@@ -1,16 +1,27 @@
-import { typography, colors } from "@/app/designSystem";
+"use client"
+
+import { useRouter } from 'next/navigation';
+import { typography, colors } from "../designSystem";
+import VoiceSession from "@/components/voice/VoiceSession";
 
 export default function StudioPage() {
+    const router = useRouter();
+
     return (
         <div
-            className="flex flex-col min-h-screen items-center justify-center bg-black"
+            className="flex flex-col min-h-screen items-center justify-center"
             style={{ background: colors.background.primary }}
         >
-            <h1 style={typography.h1}>Studio</h1>
+            <h1 style={typography.welcomeTitle}>Mimesis</h1>
 
             <p style={{ ...typography.bodyLarge, color: colors.text.secondary }}>
-                Start building here
+                Listening...
             </p>
+
+            <div className="fixed bottom-[40px]">
+                <VoiceSession onStop={() => router.push('/')} />
+            </div>
+
         </div>
     );
 }

@@ -5,6 +5,8 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "websockets",
+    "google-adk",
+    "python-dotenv",
 ]
 
 [tool.ruff]

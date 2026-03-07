@@ -1,0 +1,2 @@
+[tool.pyrefly]
+python_interpreter = "/Users/yan/Development/mimesis/.venv/bin/python3"

@@ -1,7 +1,12 @@
-import Image from "next/image";
+"use client"
+
+import { useRouter } from 'next/navigation';
 import { typography, colors } from "./designSystem";
+import VoiceWakeUp from "@/components/voice/VoiceWakeUp";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="flex flex-col min-h-screen items-center justify-center bg-zinc-50 dark:bg-black gap-2">
       <h1 style={typography.welcomeTitle}>Mimesis</h1>
@@ -10,27 +15,10 @@ export default function Home() {
         Production Studio
       </p>
 
-      <button
-        style={{
-          ...typography.buttonLarge,
-          width: "250px",
-          height: "70px",
-          position: "fixed",
-          bottom: "40px",
-          borderColor: colors.text.primary,
-          color: colors.text.primary,
-          borderRadius: "100px",
-          border: "2px solid",
-          cursor: "pointer",
-        }}
-      >
-        Say
-        <span> </span>
-        <span style={typography.buttonLargeItalic}>
-          &quot;Mimesis let&apos;s start&quot;
-        </span>
-      </button>
-    </div>
+      <div className="fixed bottom-[40px]">
+        <VoiceWakeUp onActivated={() => router.push('/studio')} />
+      </div>
 
+    </div>
   );
 }
