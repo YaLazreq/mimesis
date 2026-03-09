@@ -96,12 +96,10 @@ async def websocket_endpoint(
     # Phase 2: Session Initialization (once per streaming session)
     # ========================================
 
-    # Automatically determine response modality based on model architecture
-    # Native audio models (containing "native-audio" in name)
-    # ONLY support AUDIO response modality.
-    # Half-cascade models support both TEXT and AUDIO,
-    # we default to TEXT for better performance.
-    model_name = str(agent.model)
+    # Read model name directly from env var — str(agent.model) may return
+    # a BaseLlm object repr instead of the actual model name string.
+    model_name = os.getenv("DEMO_AGENT_MODEL", str(agent.model))
+    logger.info(f"🔍 Model name resolved to: '{model_name}'")
     is_native_audio = "native-audio" in model_name.lower()
 
     if is_native_audio:
@@ -169,50 +167,53 @@ async def websocket_endpoint(
     async def upstream_task() -> None:
         """Receives messages from WebSocket and sends to LiveRequestQueue."""
         logger.debug("upstream_task started")
-        while True:
-            # Receive message from WebSocket (text or binary)
-            message = await websocket.receive()
+        try:
+            while True:
+                # Receive message from WebSocket (text or binary)
+                message = await websocket.receive()
 
-            # Handle binary frames (audio data)
-            if "bytes" in message:
-                audio_data = message["bytes"]
-                logger.debug(f"Received binary audio chunk: {len(audio_data)} bytes")
+                # Handle binary frames (audio data)
+                if "bytes" in message:
+                    audio_data = message["bytes"]
+                    logger.debug(f"Received binary audio chunk: {len(audio_data)} bytes")
 
-                audio_blob = types.Blob(
-                    mime_type="audio/pcm;rate=16000", data=audio_data
-                )
-                live_request_queue.send_realtime(audio_blob)
-
-            # Handle text frames (JSON messages)
-            elif "text" in message:
-                text_data = message["text"]
-                logger.debug(f"Received text message: {text_data[:100]}...")
-
-                json_message = json.loads(text_data)
-
-                # Extract text from JSON and send to LiveRequestQueue
-                if json_message.get("type") == "text":
-                    logger.debug(f"Sending text content: {json_message['text']}")
-                    content = types.Content(
-                        parts=[types.Part(text=json_message["text"])]
+                    audio_blob = types.Blob(
+                        mime_type="audio/pcm;rate=16000", data=audio_data
                     )
-                    live_request_queue.send_content(content)
+                    live_request_queue.send_realtime(audio_blob)
 
-                # Handle image data
-                elif json_message.get("type") == "image":
-                    logger.debug("Received image data")
+                # Handle text frames (JSON messages)
+                elif "text" in message:
+                    text_data = message["text"]
+                    logger.debug(f"Received text message: {text_data[:100]}...")
 
-                    # Decode base64 image data
-                    image_data = base64.b64decode(json_message["data"])
-                    mime_type = json_message.get("mimeType", "image/jpeg")
+                    json_message = json.loads(text_data)
 
-                    logger.debug(
-                        f"Sending image: {len(image_data)} bytes, " f"type: {mime_type}"
-                    )
+                    # Extract text from JSON and send to LiveRequestQueue
+                    if json_message.get("type") == "text":
+                        logger.debug(f"Sending text content: {json_message['text']}")
+                        content = types.Content(
+                            parts=[types.Part(text=json_message["text"])]
+                        )
+                        live_request_queue.send_content(content)
 
-                    # Send image as blob
-                    image_blob = types.Blob(mime_type=mime_type, data=image_data)
-                    live_request_queue.send_realtime(image_blob)
+                    # Handle image data
+                    elif json_message.get("type") == "image":
+                        logger.debug("Received image data")
+
+                        # Decode base64 image data
+                        image_data = base64.b64decode(json_message["data"])
+                        mime_type = json_message.get("mimeType", "image/jpeg")
+
+                        logger.debug(
+                            f"Sending image: {len(image_data)} bytes, " f"type: {mime_type}"
+                        )
+
+                        # Send image as blob
+                        image_blob = types.Blob(mime_type=mime_type, data=image_data)
+                        live_request_queue.send_realtime(image_blob)
+        except (WebSocketDisconnect, RuntimeError):
+            logger.debug("Client disconnected (upstream)")
 
     async def downstream_task() -> None:
         """Receives Events from run_live() and sends to WebSocket."""
@@ -220,16 +221,19 @@ async def websocket_endpoint(
         logger.debug(
             f"Starting run_live with user_id={user_id}, " f"session_id={session_id}"
         )
-        async for event in runner.run_live(
-            user_id=user_id,
-            session_id=session_id,
-            live_request_queue=live_request_queue,
-            run_config=run_config,
-        ):
-            event_json = event.model_dump_json(exclude_none=True, by_alias=True)
-            logger.debug(f"[SERVER] Event: {event_json}")
-            await websocket.send_text(event_json)
-        logger.debug("run_live() generator completed")
+        try:
+            async for event in runner.run_live(
+                user_id=user_id,
+                session_id=session_id,
+                live_request_queue=live_request_queue,
+                run_config=run_config,
+            ):
+                event_json = event.model_dump_json(exclude_none=True, by_alias=True)
+                logger.debug(f"[SERVER] Event: {event_json}")
+                await websocket.send_text(event_json)
+            logger.debug("run_live() generator completed")
+        except (WebSocketDisconnect, RuntimeError):
+            logger.debug("Client disconnected (downstream)")
 
     # Run both tasks concurrently
     # Exceptions from either task will propagate and cancel the other task
