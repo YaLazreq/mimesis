@@ -16,12 +16,13 @@ from google.adk.agents.run_config import RunConfig, StreamingMode
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
+from pydantic import BaseModel
 
 load_dotenv(".env")
 
 # Import agent after loading environment variables
 # pylint: disable=wrong-import-position
-from agents.google_search_agent import agent  # noqa: E402
+from agents.mimesis_senior_creative_director_agent import agent  # noqa: E402
 
 # Configure logging
 logging.basicConfig(
@@ -43,6 +44,139 @@ session_service = InMemorySessionService()
 
 # Define your runner
 runner = Runner(app_name=APP_NAME, agent=agent, session_service=session_service)
+
+# ========================================
+# Agent State Store — import singleton
+# ========================================
+from state.agent_state_store import state_store
+
+
+# ========================================
+# Pydantic models for state API
+# ========================================
+
+# Global dictionary to map a session to its active LiveRequestQueue
+active_queues: dict[str, LiveRequestQueue] = {}
+
+
+class SessionNotifyPayload(BaseModel):
+    session_id: str
+    message: str
+
+
+class StateUpdatePayload(BaseModel):
+    session_id: str
+    data: dict
+
+
+class LayoutUpdatePayload(BaseModel):
+    session_id: str
+    visible_components: list[str]
+
+
+# ========================================
+# State API Endpoints (called by MCP tools via HTTP)
+# ========================================
+
+
+@app.post("/api/state/update")
+async def receive_state_update(payload: StateUpdatePayload):
+    """Receive a partial state update from an MCP tool and broadcast it."""
+    updated = await state_store.update_state(payload.session_id, payload.data)
+    return {"status": "ok", "keys_updated": list(payload.data.keys())}
+
+
+@app.post("/api/state/layout")
+async def receive_layout_update(payload: LayoutUpdatePayload):
+    """Receive a UI layout change from the set_ui_layout MCP tool."""
+    updated = await state_store.set_visible_components(
+        payload.session_id, payload.visible_components
+    )
+    return {
+        "status": "ok",
+        "visible_components": updated.get("visible_components", []),
+    }
+
+@app.post("/api/state/layout/add")
+async def receive_layout_add(payload: LayoutUpdatePayload):
+    """Receive a UI layout addition from an MCP tool."""
+    updated = await state_store.add_visible_components(
+        payload.session_id, payload.visible_components
+    )
+    return {
+        "status": "ok",
+        "visible_components": updated.get("visible_components", []),
+    }
+
+
+@app.post("/api/session/notify")
+async def receive_session_notification(payload: SessionNotifyPayload):
+    """Endpoint to inject a system event notification into an active session's LiveRequestQueue."""
+    # Use resolve_session_id since MCP server might not have the correct WebSocket session ID
+    resolved_session_id = state_store.resolve_session_id(payload.session_id)
+    target_session_id = resolved_session_id or payload.session_id
+    
+    logger.info(f"📨 Notification for {target_session_id}: {payload.message}")
+    
+    live_queue = active_queues.get(target_session_id)
+    if not live_queue:
+        logger.warning(f"⚠️ Cannot notify session {target_session_id} - no active LiveRequestQueue found.")
+        return {"status": "ignored", "reason": "no active queue"}
+    
+    # Inject message directly into the queue so the ADK runner sends it to the Gemini Live agent
+    notification_content = types.Content(
+        parts=[types.Part(text=payload.message)],
+        role="user" 
+    )
+    live_queue.send_content(notification_content)
+    
+    return {"status": "ok", "delivered_to": target_session_id}
+
+
+@app.get("/api/state/{session_id}")
+async def get_state(session_id: str):
+    """Debug endpoint — inspect the current state for a session."""
+    return state_store.get_state(session_id)
+
+
+# ========================================
+# State WebSocket — pushes real-time updates to the frontend
+# ========================================
+
+
+@app.websocket("/ws/state/{session_id}")
+async def state_websocket(websocket: WebSocket, session_id: str) -> None:
+    """Dedicated WebSocket for pushing state updates to the frontend.
+
+    On connect: sends the full current state as a snapshot.
+    Then: streams every state_update and ui_layout event in real-time.
+    """
+    await websocket.accept()
+    logger.info(f"🟢 State WS connected: {session_id}")
+
+    # Send current state immediately on connect
+    current_state = state_store.get_state(session_id)
+    if current_state:
+        await websocket.send_json(
+            {
+                "type": "state_snapshot",
+                "state": current_state,
+            }
+        )
+
+    # Subscribe to future updates
+    queue = state_store.subscribe(session_id)
+
+    try:
+        while True:
+            event = await queue.get()
+            await websocket.send_json(event)
+    except WebSocketDisconnect:
+        logger.info(f"🔴 State WS disconnected: {session_id}")
+    except Exception as e:
+        logger.error(f"State WS error: {e}", exc_info=True)
+    finally:
+        state_store.unsubscribe(session_id, queue)
 
 
 # @app.websocket("/ws")
@@ -159,6 +293,9 @@ async def websocket_endpoint(
         )
 
     live_request_queue = LiveRequestQueue()
+    
+    # Register the queue globally so other endpoints (e.g. MCP Workers) can inject messages into this voice session
+    active_queues[session_id] = live_request_queue
 
     # ========================================
     # Phase 3: Active Session (concurrent bidirectional communication)

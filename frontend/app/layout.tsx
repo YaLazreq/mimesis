@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import { fonts } from "@/app/designSystem";
+import { MimesisThemeProvider } from "@/contexts/MimesisThemeContext";
+import { AgentStateProvider } from "@/contexts/AgentStateContext";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Mimesis",
-  description: "Mimesis application",
+  description: "Mimesis — AI-Powered Creative Production Studio",
 };
 
 export default function RootLayout({
@@ -15,7 +17,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${fonts.className} antialiased`}>
-        {children}
+        <AgentStateProvider>
+          <MimesisThemeProvider>
+            {children}
+          </MimesisThemeProvider>
+        </AgentStateProvider>
       </body>
     </html>
   );

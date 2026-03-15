@@ -7,6 +7,8 @@ dependencies = [
     "websockets",
     "google-adk",
     "python-dotenv",
+    "mcp",
+    "httpx",
 ]
 
 [tool.ruff]
