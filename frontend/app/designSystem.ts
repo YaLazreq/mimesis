@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Playfair_Display } from "next/font/google";
 
 /**
  * Design System — Font & Typography Configuration
@@ -41,11 +41,18 @@ export const fontMono = JetBrains_Mono({
     display: "swap",
 });
 
+export const fontPlayfair = Playfair_Display({
+    subsets: ["latin"],
+    variable: "--font-playfair",
+    display: "swap",
+    style: ["normal", "italic"]
+});
+
 // ─── Combined Font Helper ──────────────────────────────────────────────────
 
 export const fonts = {
     /** Space-separated CSS variable class names — apply to <body> */
-    className: [fontGoogleSans.variable, fontMono.variable].join(
+    className: [fontGoogleSans.variable, fontMono.variable, fontPlayfair.variable].join(
         " "
     ),
 
@@ -53,6 +60,7 @@ export const fonts = {
         googleSans: "--font-google-sans",
         inter: "--font-google-sans",
         mono: "--font-mono",
+        playfair: "--font-playfair",
     },
 } as const;
 
@@ -71,7 +79,7 @@ export const typography = {
 
     // Titres principaux (Hero)
     h1: {
-        fontFamily: "var(--font-google-sans)",
+        fontFamily: "var(--font-playfair)",
         fontSize: "40px",
         fontWeight: 500,
         color: "#ffffffff",

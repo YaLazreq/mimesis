@@ -9,7 +9,7 @@ export function useAgentStateWebSocket() {
     const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const intentionalCloseRef = useRef(false);
 
-    const _openWs = useCallback((sid: string) => {
+    const _openWs = (sid: string) => {
         if (wsRef.current) {
             intentionalCloseRef.current = true;
             wsRef.current.close();
@@ -63,7 +63,9 @@ export function useAgentStateWebSocket() {
             if (!intentionalCloseRef.current && ev.code !== 1000) {
                 console.log("[AgentState] 🔄 Will reconnect in 3s...");
                 reconnectTimeoutRef.current = setTimeout(() => {
-                    _openWs(sid);
+                    if (wsRef.current === null && !intentionalCloseRef.current) {
+                        _openWs(sid);
+                    }
                 }, 3000);
             }
         };
@@ -71,7 +73,7 @@ export function useAgentStateWebSocket() {
         ws.onerror = () => {
             console.warn("[AgentState] ⚠️  WS error (will reconnect on close)");
         };
-    }, []);
+    };
 
     const connectToSession = useCallback((sid: string) => {
         if (reconnectTimeoutRef.current) {

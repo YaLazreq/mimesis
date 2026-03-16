@@ -5,6 +5,8 @@ import json
 import warnings
 import asyncio
 
+from google.genai import errors as genai_errors
+
 from pathlib import Path
 
 from dotenv import load_dotenv
@@ -57,6 +59,10 @@ from state.agent_state_store import state_store
 
 # Global dictionary to map a session to its active LiveRequestQueue
 active_queues: dict[str, LiveRequestQueue] = {}
+
+# Track the active ADK voice session credentials
+# (the voice WebSocket session_id ≠ the frontend state session_id)
+active_adk_session: dict[str, str] = {}
 
 
 class SessionNotifyPayload(BaseModel):
@@ -133,10 +139,53 @@ async def receive_session_notification(payload: SessionNotifyPayload):
     return {"status": "ok", "delivered_to": target_session_id}
 
 
+class AdkStatePayload(BaseModel):
+    session_id: str
+    user_id: str = "user"
+    data: dict
+
+
+@app.post("/api/session/adk-state")
+async def receive_adk_state_update(payload: AdkStatePayload):
+    """Write data into the ADK session.state so the model can see it.
+
+    This is the bridge between background MCP workers and the model's context.
+    The model can access these values via {key} templating in its instructions.
+    """
+    # Use the tracked ADK voice session credentials (not the frontend state session)
+    adk_user_id = active_adk_session.get("user_id")
+    adk_session_id = active_adk_session.get("session_id")
+
+    if not adk_user_id or not adk_session_id:
+        logger.warning("⚠️ No active ADK session tracked — cannot write to session.state")
+        return {"status": "error", "reason": "no active ADK session"}
+
+    session = await session_service.get_session(
+        app_name=APP_NAME,
+        user_id=adk_user_id,
+        session_id=adk_session_id,
+    )
+
+    if not session:
+        logger.warning(f"⚠️ ADK session not found: user={adk_user_id}, session={adk_session_id}")
+        return {"status": "error", "reason": "session not found"}
+
+    # Write each key-value pair into session.state
+    for key, value in payload.data.items():
+        session.state[key] = value
+
+    logger.info(
+        f"🧠 ADK state updated for {adk_session_id}: {list(payload.data.keys())}"
+    )
+    return {"status": "ok", "keys_updated": list(payload.data.keys())}
+
+
 @app.get("/api/state/{session_id}")
 async def get_state(session_id: str):
     """Debug endpoint — inspect the current state for a session."""
-    return state_store.get_state(session_id)
+    resolved = state_store.resolve_session_id(session_id)
+    target = resolved or session_id
+    return state_store.get_state(target)
 
 
 # ========================================
@@ -297,6 +346,11 @@ async def websocket_endpoint(
     # Register the queue globally so other endpoints (e.g. MCP Workers) can inject messages into this voice session
     active_queues[session_id] = live_request_queue
 
+    # Track the ADK session credentials so /api/session/adk-state can find it
+    active_adk_session["user_id"] = user_id
+    active_adk_session["session_id"] = session_id
+    logger.info(f"🎯 Active ADK session: user_id={user_id}, session_id={session_id}")
+
     # ========================================
     # Phase 3: Active Session (concurrent bidirectional communication)
     # ========================================
@@ -353,24 +407,94 @@ async def websocket_endpoint(
             logger.debug("Client disconnected (upstream)")
 
     async def downstream_task() -> None:
-        """Receives Events from run_live() and sends to WebSocket."""
-        logger.debug("downstream_task started, calling runner.run_live()")
-        logger.debug(
-            f"Starting run_live with user_id={user_id}, " f"session_id={session_id}"
-        )
-        try:
-            async for event in runner.run_live(
-                user_id=user_id,
-                session_id=session_id,
-                live_request_queue=live_request_queue,
-                run_config=run_config,
-            ):
-                event_json = event.model_dump_json(exclude_none=True, by_alias=True)
-                logger.debug(f"[SERVER] Event: {event_json}")
-                await websocket.send_text(event_json)
-            logger.debug("run_live() generator completed")
-        except (WebSocketDisconnect, RuntimeError):
-            logger.debug("Client disconnected (downstream)")
+        """Receives Events from run_live() and sends to WebSocket.
+        
+        Includes retry logic for transient Gemini API errors (e.g. 1011
+        server-side cancellations).
+        """
+        max_retries = 3
+        retry_delay = 1.0  # seconds, doubles each retry
+
+        for attempt in range(1, max_retries + 1):
+            logger.debug(
+                f"downstream_task attempt {attempt}/{max_retries}, calling runner.run_live()"
+            )
+            logger.debug(
+                f"Starting run_live with user_id={user_id}, session_id={session_id}"
+            )
+            try:
+                async for event in runner.run_live(
+                    user_id=user_id,
+                    session_id=session_id,
+                    live_request_queue=live_request_queue,
+                    run_config=run_config,
+                ):
+                    event_json = event.model_dump_json(exclude_none=True, by_alias=True)
+                    
+                    # ── Structured Agent Execution Trace ──
+                    content = getattr(event, 'content', None)
+                    if content and hasattr(content, 'parts') and content.parts:
+                        for part in content.parts:
+                            if hasattr(part, 'function_call') and part.function_call:
+                                fc = part.function_call
+                                logger.info(f"🔧 TOOL CALL: {fc.name}({fc.args})")
+                            elif hasattr(part, 'function_response') and part.function_response:
+                                fr = part.function_response
+                                response_str = str(fr.response)[:200]
+                                logger.info(f"📦 TOOL RESPONSE [{fr.name}]: {response_str}")
+                            elif hasattr(part, 'text') and part.text:
+                                text_preview = part.text[:150]
+                                role = getattr(content, 'role', None) or 'model'
+                                logger.info(f"💬 [{role.upper()}]: {text_preview}")
+                            elif hasattr(part, 'inline_data') and part.inline_data:
+                                mime = part.inline_data.mime_type if part.inline_data else 'unknown'
+                                logger.debug(f"🔊 AUDIO [{mime}]: chunk received")
+                    
+                    await websocket.send_text(event_json)
+                logger.debug("run_live() generator completed")
+                return  # Clean exit — no need to retry
+
+            except (WebSocketDisconnect, RuntimeError):
+                logger.debug("Client disconnected (downstream)")
+                return  # Client gone — no point retrying
+
+            except genai_errors.APIError as e:
+                status_code = getattr(e, 'status_code', None) or getattr(e, 'code', None)
+                is_transient = status_code in (1011, 500, 503)
+
+                if is_transient and attempt < max_retries:
+                    wait = retry_delay * (2 ** (attempt - 1))
+                    logger.warning(
+                        f"⚡ Transient Gemini API error (code={status_code}), "
+                        f"retrying in {wait:.1f}s (attempt {attempt}/{max_retries}): {e}"
+                    )
+                    # Notify the frontend that we're reconnecting
+                    try:
+                        await websocket.send_json({
+                            "type": "connection_status",
+                            "status": "reconnecting",
+                            "attempt": attempt,
+                            "max_retries": max_retries,
+                        })
+                    except Exception:
+                        pass  # Frontend may already be disconnected
+                    await asyncio.sleep(wait)
+                    continue  # Retry
+                else:
+                    logger.error(
+                        f"❌ Gemini API error (code={status_code}), "
+                        f"{'non-transient' if not is_transient else 'max retries exceeded'}: {e}",
+                        exc_info=True,
+                    )
+                    try:
+                        await websocket.send_json({
+                            "type": "connection_status",
+                            "status": "error",
+                            "message": f"Gemini API error: {status_code}",
+                        })
+                    except Exception:
+                        pass
+                    return
 
     # Run both tasks concurrently
     # Exceptions from either task will propagate and cancel the other task
@@ -390,3 +514,9 @@ async def websocket_endpoint(
         # Always close the queue, even if exceptions occurred
         logger.debug("Closing live_request_queue")
         live_request_queue.close()
+
+        # Clean up global references to prevent stale entries
+        active_queues.pop(session_id, None)
+        if active_adk_session.get("session_id") == session_id:
+            active_adk_session.clear()
+        logger.debug(f"Session {session_id} cleaned up")

@@ -6,13 +6,41 @@ logger = logging.getLogger("mimesis.tools")
 
 STATE_API_URL = os.getenv("STATE_API_URL", "http://localhost:8000")
 
-async def _push_state_update(session_id: str, data: dict) -> bool:
-    """POST a partial state update to the FastAPI server's state endpoint.
 
-    Returns True on success, False on failure (non-blocking).
-    The backend state store will resolve the session_id to the active
-    frontend session if the provided one is empty or unknown.
+# ========================================
+# Unified state push — always call this one
+# ========================================
+
+async def _push_state(session_id: str, data: dict) -> bool:
+    """Push data to BOTH the custom AgentState (frontend/DB) and the ADK session.state (model context).
+
+    This is the single entry point for all state updates from workers.
+    It guarantees both stores stay in sync.
+
+    - AgentState: powers the frontend via WebSocket, will be persisted to DB later.
+    - ADK state: visible to the Gemini model via {key} templating and tool context.
     """
+    agent_ok = await _push_agent_state(session_id, data)
+    adk_ok = await _push_adk_state(session_id, data)
+
+    if agent_ok and adk_ok:
+        logger.info(f"✅ State synced (agent + ADK): {list(data.keys())}")
+    elif agent_ok:
+        logger.warning(f"⚠️ State partial — agent OK, ADK failed: {list(data.keys())}")
+    elif adk_ok:
+        logger.warning(f"⚠️ State partial — ADK OK, agent failed: {list(data.keys())}")
+    else:
+        logger.error(f"❌ State sync failed entirely: {list(data.keys())}")
+
+    return agent_ok and adk_ok
+
+
+# ========================================
+# Internal helpers — not called directly by workers
+# ========================================
+
+async def _push_agent_state(session_id: str, data: dict) -> bool:
+    """POST a partial state update to the custom AgentState store (frontend/DB)."""
     url = f"{STATE_API_URL}/api/state/update"
     payload = {"session_id": session_id, "data": data}
 
@@ -20,19 +48,33 @@ async def _push_state_update(session_id: str, data: dict) -> bool:
         async with httpx.AsyncClient() as client:
             resp = await client.post(url, json=payload, timeout=5.0)
             resp.raise_for_status()
-            logger.info(f"✅ State pushed: {list(data.keys())} → {resp.status_code}")
             return True
     except Exception as e:
-        logger.warning(f"❌ Failed to push state update: {e}")
+        logger.warning(f"❌ Failed to push agent state: {e}")
         return False
 
 
-async def _push_ui_layout(session_id: str, components: list[str]) -> bool:
-    """POST a UI layout change to the FastAPI server.
+async def _push_adk_state(session_id: str, data: dict) -> bool:
+    """POST data into the ADK session.state (model context)."""
+    url = f"{STATE_API_URL}/api/session/adk-state"
+    payload = {"session_id": session_id, "data": data}
 
-    The backend state store will resolve the session_id to the active
-    frontend session if the provided one is empty or unknown.
-    """
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.post(url, json=payload, timeout=5.0)
+            resp.raise_for_status()
+            return True
+    except Exception as e:
+        logger.warning(f"❌ Failed to push ADK state: {e}")
+        return False
+
+
+# ========================================
+# UI layout helpers
+# ========================================
+
+async def _push_ui_layout(session_id: str, components: list[str]) -> bool:
+    """POST a UI layout change (replace) to the FastAPI server."""
     url = f"{STATE_API_URL}/api/state/layout"
     payload = {"session_id": session_id, "visible_components": components}
 
@@ -45,6 +87,7 @@ async def _push_ui_layout(session_id: str, components: list[str]) -> bool:
     except Exception as e:
         logger.warning(f"❌ Failed to push layout update: {e}")
         return False
+
 
 async def _push_ui_layout_add(session_id: str, components: list[str]) -> bool:
     """POST a UI layout append to the FastAPI server."""
@@ -62,8 +105,12 @@ async def _push_ui_layout_add(session_id: str, components: list[str]) -> bool:
         return False
 
 
+# ========================================
+# Notification helper
+# ========================================
+
 async def _push_session_notify(session_id: str, message: str) -> bool:
-    """POST a notification payload to the FastAPI server to inject a message to the agent."""
+    """POST a notification to inject a message into the agent's LiveRequestQueue."""
     url = f"{STATE_API_URL}/api/session/notify"
     payload = {"session_id": session_id, "message": message}
 
@@ -76,3 +123,22 @@ async def _push_session_notify(session_id: str, message: str) -> bool:
     except Exception as e:
         logger.warning(f"❌ Failed to push notification: {e}")
         return False
+
+
+# ========================================
+# State read helper
+# ========================================
+
+async def _fetch_state(session_id: str) -> dict:
+    """GET the full current state for a session from the AgentStateStore."""
+    url = f"{STATE_API_URL}/api/state/{session_id}"
+
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(url, timeout=5.0)
+            resp.raise_for_status()
+            return resp.json()
+    except Exception as e:
+        logger.warning(f"❌ Failed to fetch state: {e}")
+        return {}
+

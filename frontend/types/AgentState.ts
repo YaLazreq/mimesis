@@ -1,12 +1,4 @@
-export interface BrandCreativeAngle {
-    poetry?: string;
-    painting?: string;
-    music?: string;
-    metaphor?: string;
-    cinema?: string;
-}
-
-export interface BrandNewsItem {
+export interface TitleSummaryItem {
     title: string;
     summary: string;
 }
@@ -23,13 +15,13 @@ export interface AgentState {
     style_keywords?: string[];
     logo_description?: string;
     brand_slogan?: string;
-    brand_symbols?: string[];
-    brand_mission?: string;
+    brand_symbols?: TitleSummaryItem[];
+    brand_mission?: string[];
     brand_common_enemy?: string[];
-    brand_strategy?: string;
-    brand_last_news?: BrandNewsItem[];
+    brand_strategy?: TitleSummaryItem[];
+    brand_last_news?: TitleSummaryItem[];
     brand_viral_campaign?: string[];
-    brand_creative_angle?: BrandCreativeAngle;
+    brand_creative_angle?: TitleSummaryItem[];
     /** Which UI components the agent wants to display */
     visible_components?: string[];
 }
