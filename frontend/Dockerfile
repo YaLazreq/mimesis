@@ -8,8 +8,13 @@ RUN npm ci
 
 COPY . .
 
-# Next.js reads .env.production automatically during build
-# which contains the Cloud Run backend URLs
+# Allow docker-compose to override backend URLs at build time
+# (defaults to Cloud Run URLs from .env.production if not provided)
+ARG NEXT_PUBLIC_BACKEND_URL
+ARG NEXT_PUBLIC_WS_URL
+ENV NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
+ENV NEXT_PUBLIC_WS_URL=${NEXT_PUBLIC_WS_URL}
+
 RUN npm run build
 
 # ── Stage 2: Runtime (minimal) ───────────────────────────────────────────────

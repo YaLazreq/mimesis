@@ -1,132 +1,261 @@
-# Mimesis
+# 🎭 Mimesis
 
-Mimesis est une plateforme d'agence créative propulsée par l'Intelligence Artificielle. Elle incarne un "Senior Creative Director" virtuel capable d'accompagner les marques depuis l'idéation jusqu'à la génération d'une publicité vidéo complète (6 scènes) en s'appuyant sur un système multi-agents et les modèles avancés de Google Cloud Vertex AI.
+**Mimesis** is an AI-native **Creative Director** platform. It automates the entire advertising production workflow—from brand ideation and narrative sequencing to the generation of a video commercial.
 
-## Liens de Déploiement
+Built on an **Event-Driven architecture**, Mimesis leverages the full power of **Google Cloud Vertex AI** to provide a seamless, voice-interactive creative experience.
 
-- **Frontend** : [https://mimesis-frontend-980118844637.us-central1.run.app](https://mimesis-frontend-980118844637.us-central1.run.app)
-- **Backend** : [https://mimesis-backend-980118844637.us-central1.run.app](https://mimesis-backend-980118844637.us-central1.run.app)
+[![Mimesis Presentation](https://img.shields.io/badge/Video-Demo-blue?style=for-the-badge&logo=vimeo)](https://vimeo.com/1174138197)
+
+![Mimesis](docs/images/cover.png)
+
 
 ---
 
-## 🚀 Comment lancer le projet
+## 🔗 Live Demo
 
-Le projet est divisé en deux parties principales : un **Frontend** (Next.js) et un **Backend** (FastAPI / Google ADK).
+> ⚠️ IMPORTANT:
+> This application runs on Cloud Run. Due to "cold starts," the backend may sometimes take longer to respond, resulting in a backend error.
+> Therefore, you must close the page and reopen it. This will create a new session, allowing you to resume.
 
-### Lancer le Backend
-Un `Makefile` est disponible à la racine du projet pour vous faciliter la tâche.
-1. Assurez-vous d'avoir configuré votre fichier `backend/.env` avec vos identifiants Google Cloud.
-2. À la racine du projet, lancez :
+| Service | URL |
+| :--- | :--- |
+| **Frontend** | [Test Live Demo](https://mimesis-frontend-980118844637.us-central1.run.app) |
+| **Backend** | [API Gateway](https://mimesis-backend-980118844637.us-central1.run.app) |
+
+---
+
+## ✨ Key Features
+
+* **Real-time Voice Collaboration**: Converse directly with Mimesis via **Gemini Live (ADK)**.
+* **Automated Brand DNA Research**: Give a brand name and Mimesis autonomously researches its visual identity, strategy, latest news, viral campaigns, cultural symbols, and philosophy, all in parallel via background workers.
+* **Visual Product Analysis**: Upload a product image and **Gemini Vision** extracts its visual mood, dominant colors, and creative directions, linking them back to the brand DNA.
+* **Interactive Creative Briefing**: Build the ad brief through a fast, conversational Q&A (objective, audience persona, emotion, format), not forms. The UI updates progressively as data is collected.
+* **Scenario Co-Creation**: Pitch your own story ideas before generation. Mimesis weaves user input with brand intelligence to build a **6-act Master Sequence** (Hook → Resolution).
+* **Cinematic UI Control**: The agent controls the interface in real-time, focusing, isolating, and animating data panels on screen like a creative war room.
+* **Iterative Art Direction**: An anchor image sets the visual DNA, then **Imagen 3** generates start/end Keyframes for each scene. Review, give feedback, regenerate individual scenes, all by voice.
+* **Video Production Pipeline**: **Veo 3.1** generates cinematic clips using keyframe interpolation and video extension. **FFmpeg** stitches them into a final x-second commercial.
+
+---
+
+## 🛠 Tech Stack & AI Models
+
+| Model / Tech | Role |
+| :--- | :--- |
+| **Gemini Live (ADK)** | Bidirectional voice/audio streaming & agent interaction. |
+| **Gemini 2.5 Flash/Pro** | Structural analysis, sequencing, thinking process and worker orchestration. |
+| **Imagen 3** | High-fidelity Keyframe generation (Art Direction). |
+| **Veo 3.1** | Cinematic video clip generation. |
+| **Vertex AI** | Unified API gateway for all generative AI models. |
+| **Cloud Run** | Serverless container hosting for backend & frontend. |
+| **Cloud Storage (GCS)** | Asset storage for images, video clips, and final renders. |
+| **FastAPI** | High-performance backend & WebSocket management. |
+| **Next.js x GSAP** | Modern, responsive frontend with cinematic animations. |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- **Docker** & **Docker Compose** (recommended)
+- A Google Cloud Project with Vertex AI & Google Cloud Storage APIs enabled.
+- `gcloud` CLI authenticated (`gcloud auth application-default login`).
+
+### Option 1: Docker (Recommended) — One Command
+
+1. Configure your credentials in `backend/.env` (see the [`.env` Template](#-env-template-1) below).
+2. From the project root:
+   ```bash
+   make docker-up
+   ```
+   This builds and launches both **backend** (`:8000`) and **frontend** (`:3000`) in containers.
+
+| Command | Action |
+| :--- | :--- |
+| `make docker-up` | 🚀 Build & launch everything |
+| `make docker-down` | 🛑 Stop all containers |
+| `make docker-build` | 🔨 Build without launching |
+
+### Option 2: Manual Setup
+
+<details>
+<summary>Click to expand manual instructions</summary>
+
+#### Prerequisites
+- Python 3.10+
+- Node.js 18+
+
+#### Backend
+1. Configure `backend/.env`.
+2. From the project root:
    ```bash
    make run-backend
    ```
-   *Cela démarrera le serveur Uvicorn sur `http://0.0.0.0:8000`.*
-
-3. Pour surveiller les logs des différents agents et processus en arrière-plan (très utile pour débugger les workers) :
+   *The server will run at `http://localhost:8000`.*
+3. To monitor background workers:
    ```bash
    make logs-backend
    ```
 
-### Lancer le Frontend
-1. Naviguez dans le dossier frontend :
+#### Frontend
+1. Navigate to the frontend directory:
    ```bash
    cd frontend
    ```
-2. Installez les dépendances :
+2. Install dependencies and start the dev server:
    ```bash
    npm install
-   ```
-3. Démarrez le serveur de développement :
-   ```bash
    npm run dev
    ```
-   *L'application sera accessible sur `http://localhost:3000`.*
+   *Access the UI at `http://localhost:3000`.*
+
+</details>
 
 ---
 
-## 🧪 Comment tester
+## 🧪 How to Test
 
-Le projet suit un pipeline créatif en 4 étapes clés. Pour tester l'intégralité du flux, voici la démarche :
+Once the application is running, here is the full testing flow:
 
-1. **Step 1 - Identité de marque et Upload d'image** :
-   - Connectez-vous sur l'interface et activez l'agent vocal (Gemini Live). 
-   - **Action** : Uploadez une image de votre produit. 
-   - L'agent visuel en arrière-plan analysera l'image pour comprendre votre produit et ses couleurs dominantes. Parlez ensuite avec l'agent vocal de vos valeurs, votre mission et de "l'ennemi commun" de votre marque.
+### Step 1 — Brand Research & Exploration
 
-2. **Step 2 - Le Séquencier (Génération narratrice)** :
-   - Une fois l'identité établie, l'agent génèrera une séquence maître (*Master Sequence*) constituée de 6 actes émotionnels (Hook, Context, Product Entry, Transformation, Climax, Resolution).
-   - **Action** : Observez la séquence apparaître sur l'UI. Vous pouvez demander à l'agent (à la voix) de modifier certains détails (par ex: "Je préfère que la scène 3 se passe en ville"). La séquence s'adaptera en temps réel.
+![Brand Research](docs/images/step1.png)
 
-3. **Step 3 - Enrichissement et Keyframes (Direction Artistique)** :
-   - L'agent va déclencher la création des visuels *Keyframes* (Imagen 3).
-   - **Action** : Vous verrez popper deux images de référence (start/end) pour chaque scène, confirmant la direction esthétique tout en gardant l'image du produit comme référence visuelle (ancrage).
+1. **Start a session**: Open the app and activate the voice agent. Mimesis will greet you and ask which brand you're working on.
+2. **Give any brand name**: You can use any brand with an internet presence — *"Chanel"*, *"Netflix"*, *"Coca‑Cola"*, *"Nike"*, *"Apple"*…
+3. **Watch the research unfold**: Mimesis dispatches background workers that autonomously research the brand's visual identity, strategy, latest news, viral campaigns, cultural symbols, and philosophy. Results appear on the UI as they arrive.
 
-4. **Step 4 - Génération Média (Veo)** :
-   - Le système lance la génération vidéo finale.
-   - **Action** : Patientez pendant que les clips vidéos sont générés et assemblés. Une fois terminé, la publicité complète s'affichera à l'écran.
+Once all the research is displayed, you can interact freely:
+- **Ask for details** on any section — *"Tell me more about their strategy."*
+- **Focus on a section** — *"Show me just the news."* The UI will cinematically isolate that panel.
+- **Ask Mimesis to connect the dots** — *"What link can you make between the keywords and Chanel's strategy?"*
 
----
+### Step 2 — Creative Briefing
 
-## ⚙️ Comment ça fonctionne (Toute l'histoire des Workers)
+![Focus Animation](docs/images/step2.png)
 
-Mimesis repose sur une architecture "Event-Driven" robuste. Pendant que l'agent vocal (ADK) converse avec vous, il délègue les tâches lourdes à des *Workers* (travailleurs asynchrones) via un serveur MCP (Model Context Protocol).
+When you have a clear understanding of the brand, say: *"Let's move to the next step."*
 
-Voici l'enchaînement exact des opérations :
+Mimesis then takes the lead and conducts a rapid creative interview through **3–4 questions**:
+- **Vision & Product**: What's the objective? What product are we showcasing?
+- **Audience & Emotion**: Who is the target? What emotion should the ad evoke?
+- **Format & Constraints**: Duration, platforms, music direction, client mandatories?
 
-1. **Worker 6 (Image Analysis)** : 
-   - *Déclencheur* : Upload d'une image par l'utilisateur.
-   - *Rôle* : Utilise Gemini Vision pour disséquer l'image, extraire les codes couleurs HEX, l'ambiance visuelle, et la stocker sur Cloud Storage. Il met à jour l'état de l'application sans interrompre la conversation vocale.
+> 💡 **Tip**: At any point you can **upload a product image** by dragging it onto the screen. Mimesis will analyze its visual mood, colors, and creative potential — and link it back to the brand DNA.
 
-2. **Worker 7 (Sequence Generator)** : 
-   - *Déclencheur* : Validation du brief par l'agent.
-   - *Rôle* : Combine l'identité de marque (Brand Intelligence) et le brief pour générer une séquence en 6 scènes via Gemini 2.5 Flash. Il respecte une courbe émotionnelle stricte et envoie le résultat au Frontend via WebSocket.
+You can track everything Mimesis has collected in the **Memory component** (bottom-left of the UI).
 
-3. **Step 3 Workers (Director & Scene Worker)** : 
-   - *Rôle* : Le `director.py` traduit la séquence maître en prompts ultra-détaillés esthétiquement. Ensuite, le `scene_worker.py` prend le relais en appelant Imagen 3 pour générer les Keyframes. Il utilise l'image du produit initial comme "Anchor" pour garantir la consistance du produit d'une scène à l'autre.
+### Step 3 — Scenario & Sequence
 
-4. **Worker 8 (Video Generator Pipeline)** : 
-   - C'est le chef d'orchestre final, composé de 3 sous-étapes :
-     1. **Prompt Génération** : Gemini traduit les scripts des scènes en requêtes spécifiques pour Veo.
-     2. **Veo 3.1** : Génère les clips. Il utilise intelligemment soit l'interpolation de Keyframes (pour les scènes principales), soit l'extension de vidéo (pour les *insert shots*) en contournant les contraintes de Veo (qui interdit d'avoir une image de référence textuelle combinée avec une image de départ).
-     3. **FFmpeg Stitching** : Assemble tous les `.mp4` générés par Veo en un seul fichier publicitaire de 30 secondes, lissé et prêt à être diffusé.
+![Creative Briefing](docs/images/step3.png)
 
----
+Once the brief is complete, Mimesis asks if you have any **scenario ideas** — a situation, a character, a visual concept. Share your vision or let Mimesis generate from scratch.
 
-## 🧠 APIs Vertex et Modèles Utilisés
+Mimesis then builds a **Master Sequence**: a 6-act emotional arc (Hook → Context → Product Entry → Transformation → Climax → Resolution). The timeline appears on screen. You can:
+- **Approve** the sequence as-is.
+- **Request changes by voice** — *"Make the hook more aggressive"*, *"Swap scenes 3 and 4."* The sequence regenerates automatically.
 
-Pour fonctionner, le projet fait appel aux fleurons de l'IA Google Cloud :
+### Step 4 — Art Direction (Keyframes)
 
-- **Gemini Live (Voice API / ADK)** : Gère le streaming bidirectionnel audio/texte entre l'utilisateur et l'agent, garantissant une communication fluide et réactive en temps réel, avec des modalités vocales natives.
-- **Gemini 2.5 Flash / Pro (`gemini-2.5-flash`)** : Le modèle central utilisé par les Workers pour l'analyse structurelle (Génération de séquences, Analyse visuelle d'images produit, orchestration de prompts complexes).
-- **Imagen 3 (`gemini-2.5-flash-image`)** : Appelé dans le Step 3 métier pour générer les visuels (Keyframes) nécessaires à la pré-visualisation des scènes.
-- **Veo 3.1 (`veo-3.1-generate-preview`)** : Le puissant modèle vidéo. Utilisé au Step 4 pour la génération de vidéos hyper-réalistes temporelles via `generate_videos()`.
+![Master Sequence](docs/images/step4.png)
 
-### Endpoints (Points API) et Mécanique de fond à connaître
-L'architecture Backend expose plusieurs "points off" essentiels qui relient l'IA au Frontend et à la base de données :
+Once the sequence is locked, Mimesis launches the **Production Workshop**:
+1. An **Anchor Image** is generated to define the visual DNA (lighting, palette, mood). Review and approve it.
+2. **Keyframes** (start/end reference images) are generated for all 6 scenes using **Imagen 3**. Browse them scene by scene, give feedback, and regenerate individual scenes by voice.
+3. When all scenes are approved, the visual storyboard is finalized.
 
-- **WebSocket streaming (`/ws/{user_id}/{session_id}`)** : Le canal de communication direct pour la voix et les événements live.
-- **WebSocket State (`/ws/state/{session_id}`)** : Canal dédié pour pousser instantanément les changements d'interface graphique (Layout) et d'état au frontend, sans requête HTTP manuelle du client.
-- **`POST /api/state/update`** & **`POST /api/state/layout`** : Endpoints internes utilisés par les outils (Tools) de l'agent pour modifier ce que l'utilisateur voit (ex: faire apparaître le séquenceur).
-- **`POST /api/session/notify`** : Très important. Permet aux Workers asynchrones d'injecter une notification système directement dans "le cerveau" de Gemini Live (ex: "[WORKER NOTIFICATION] La vidéo est prête, annonce-le à l'utilisateur !").
-- **`POST /api/session/upload-image`** : Le point d'entrée pour les images dropées sur le Frontend, qui lance le processus sur GCS.
-- **`GET /api/gcs-proxy`** : Un proxy indispensable pour envoyer les images sécurisées de Google Cloud Storage vers le Frontend sans avoir à ouvrir le bucket publiquement.
+### Step 5 — Final Video Generation
+
+Ask Mimesis to generate the final commercial. **Veo 3.1** produces cinematic clips for each scene, and **FFmpeg** stitches them into a single video. When complete, the final ad appears on screen — ready for review.
+
+![Art Direction & Keyframes](docs/images/step5.png)
+![Final Video](docs/images/step6.png)
 
 ---
 
-## 💾 Données stockées (State & Repo Data)
+## ⚙️ Architecture: The Worker System
 
-Le projet gère les données sur deux plans distincts :
+Mimesis uses an asynchronous, event-driven worker system via **MCP (Model Context Protocol)** to handle heavy AI tasks without blocking the voice conversation:
 
-1. **State Store (Mémoire applicative / Base de données)**
-   Tout l'état courant d'une "Session" est stocké en mémoire de l'application (et prêt à basculer sur Cloud SQL ou Firestore). On y trouve :
-   - Les informations de la marque : `brand_name`, `brand_slogan`, `brand_mission`, `brand_common_enemy`.
-   - La direction artistique : `creative_angles`, `brand_symbols`, `style_keywords`.
-   - Le brief : `ad_objective`, `audience_persona`, `ad_tone`.
-   - L'état de l'UI : Quels composants sont actuellement `visible_components`.
+**Workers 1–5 (Brand Research Sprint):**
+Triggered as soon as a brand name is given. Five workers run **in parallel** via Gemini 2.5 Flash, each researching a different facet of the brand:
+| Worker | Role |
+| :--- | :--- |
+| **Identity** | Extracts brand name, slogan, mission statement, and common enemy. |
+| **Visual Identity** | Analyzes primary/secondary colors, typography, style keywords. |
+| **News** | Fetches the latest headlines, press releases, and market moves. |
+| **Culture & Campaigns** | Identifies the most iconic viral campaigns and brand symbols. |
+| **Philosophy & Strategy** | Uncovers the brand's strategic direction, creative angles, and cultural references (art, cinema, music). |
 
-2. **Google Cloud Storage (Fichiers Binaires)**
-   Tous les médias lourds sont envoyés vers un bucket GCS spécifique, organisé par session : `gs://[BUCKET_NAME]/[PREFIX]/[SESSION_ID]/`. On y retrouve :
-   - Les uploads utilisateurs (ex: la fameuse `"anchor_image_uri"`).
-   - Toutes les _Keyframes_ générées au format PNG (`scene_1_keyframe_start.png`).
-   - Tous les extraits vidéos bruts issus de Veo (`clip_01_main_scene.mp4`).
-   - Le rendu de la vidéo finale (`final_commercial.mp4`).
+Results are pushed to the UI progressively via WebSocket as each worker completes.
+
+**Worker 6 (Vision):**
+Dissects uploaded images to extract HEX color codes, visual mood, and stores the result on Cloud Storage. It updates the application state without interrupting the voice conversation, setting the brand's visual "Anchor."
+
+**Worker 7 (Narrative):**
+Combines Brand Intelligence and the creative brief to generate a 6-scene sequence via **Gemini 2.5 Flash**. It follows a strict emotional curve and sends the result to the Frontend via WebSocket in real time.
+
+**Scene Workers (Director & Scene Worker):**
+The `director.py` translates the master sequence into ultra-detailed aesthetic prompts. Then, the `scene_worker.py` calls **Imagen 3** to generate the Keyframes, using the initial product image as an "Anchor" to ensure product consistency from scene to scene.
+
+**Worker 8 (Video Pipeline):**
+The final conductor, composed of 3 sub-steps:
+* **Prompt Generation**: Gemini translates the scene scripts into specific requests for Veo.
+* **Veo 3.1**: Generates the clips. It intelligently uses either Keyframe interpolation (for main scenes) or video extension (for *insert shots*), working around Veo's constraints (which prohibit combining a textual reference image with a start image).
+* **FFmpeg Stitching**: Assembles all the `.mp4` files into a single x-second commercial, smoothed and ready for broadcast.
+
+---
+
+## 💾 Data Management
+
+The project manages data on two distinct levels:
+
+1. **State Store (Application Memory)**
+   Manages all session-specific data in application memory (scalable to Cloud SQL or Firestore). It includes:
+   - Brand information: `brand_name`, `brand_slogan`, `brand_mission`, `brand_common_enemy`.
+   - Art direction: `creative_angles`, `brand_symbols`, `style_keywords`.
+   - The brief: `ad_objective`, `audience_persona`, `ad_tone`.
+   - UI state: Currently `visible_components`.
+
+2. **Google Cloud Storage (GCS)**
+   All binary assets are stored in a dedicated GCS bucket, organized by Session ID: `gs://[BUCKET_NAME]/[PREFIX]/[SESSION_ID]/`. It contains:
+   - User uploads (e.g., the `"anchor_image_uri"`).
+   - All generated Keyframes in PNG format (`scene_1_keyframe_start.png`).
+   - All raw video clips from Veo (`clip_01_main_scene.mp4`).
+   - The final video render (`final_commercial.mp4`).
+
+---
+
+## 📡 Essential Endpoints
+
+| Endpoint | Description |
+| :--- | :--- |
+| **`ws://.../ws/{user_id}`** | Main voice/event stream (Gemini Live). |
+| **`ws://.../ws/state/{session_id}`** | Real-time UI layout updates pushed to the frontend. |
+| **`POST /api/session/notify`** | Allows workers to inject system notifications into Gemini Live's context (e.g., "The video is ready!"). |
+| **`POST /api/state/update`** & **`POST /api/state/layout`** | Internal endpoints used by the agent's Tools to modify what the user sees. |
+| **`POST /api/session/upload-image`** | Entry point for images dropped onto the Frontend, which kicks off the GCS process. |
+| **`GET /api/gcs-proxy`** | Secure proxy for serving GCS assets to the frontend without making the bucket public. |
+
+---
+
+## 🔑 `.env` Template
+
+Save this as `.env` inside your **`backend/`** folder.
+
+```env
+# Google Cloud Configuration
+GOOGLE_CLOUD_PROJECT="your-project-id"
+GOOGLE_CLOUD_LOCATION="us-central1"
+
+# Vertex AI Model IDs
+GEMINI_MODEL_ID="gemini-2.5-flash"
+IMAGEN_MODEL_ID="gemini-2.5-flash-image"
+VEO_MODEL_ID="veo-3.1-generate-preview"
+
+# Storage
+GCS_BUCKET_NAME="your-mimesis-assets-bucket"
+
+# App Settings
+DEBUG=True
+ALLOWED_ORIGINS="http://localhost:3000"
+```

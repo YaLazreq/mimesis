@@ -598,3 +598,4 @@
 2026-03-18 17:36:50,005 — INFO — ✅ State synced (agent + ADK): ['is_generating_video', 'video_generation_progress', 'final_video_uri', 'clip_uris', 'current_phase']
 2026-03-18 17:36:50,005 — INFO — ✅ Worker 8 completed. 7/10 clips generated.
 2026-03-18 17:36:50,018 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-20 04:16:39,047 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...

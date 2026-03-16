@@ -7,6 +7,9 @@ services:
     environment:
       - STATE_API_URL=http://localhost:8080
       - ALLOWED_ORIGINS=http://localhost:3000
+    volumes:
+      # Mount Google Cloud credentials from the host machine
+      - ${HOME}/.config/gcloud:/root/.config/gcloud:ro
 
   frontend:
     build:
