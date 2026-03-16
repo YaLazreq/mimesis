@@ -299,6 +299,57 @@ async def upload_image(
     }
 
 
+# ========================================
+# GCS Image Proxy — serves private GCS images to the frontend
+# ========================================
+
+from fastapi.responses import Response
+
+@app.get("/api/gcs-proxy")
+async def gcs_proxy(uri: str):
+    """Stream a GCS object to the frontend.
+
+    The bucket has uniform bucket-level access, so public URLs don't work.
+    This endpoint uses the backend's service account to download and proxy the image.
+
+    Usage: GET /api/gcs-proxy?uri=gs://bucket/path/to/image.png
+    """
+    if not uri.startswith("gs://"):
+        return Response(content="Invalid GCS URI", status_code=400)
+
+    try:
+        from mcp_server.helpers.gcs_helpers import _get_client
+        parts = uri[5:].split("/", 1)
+        bucket_name = parts[0]
+        blob_path = parts[1]
+
+        client = _get_client()
+        bucket = client.bucket(bucket_name)
+        blob = bucket.blob(blob_path)
+
+        image_bytes = blob.download_as_bytes()
+        content_type = blob.content_type or "image/png"
+
+        return Response(
+            content=image_bytes,
+            media_type=content_type,
+            headers={
+                "Cache-Control": "public, max-age=3600",
+                "Access-Control-Allow-Origin": "*",
+            },
+        )
+    except Exception as e:
+        logger.error(f"❌ GCS proxy error for {uri}: {e}")
+        return Response(content=f"Error: {e}", status_code=404)
+
+
+@app.get("/api/state/_active_id")
+async def get_active_session_id():
+    """Return the real active session ID — used by MCP tools to resolve placeholder IDs."""
+    active_id = state_store.active_session_id
+    return {"session_id": active_id or ""}
+
+
 @app.get("/api/state/_active")
 async def get_active_state():
     """Return state for the currently active session — no session_id needed.
@@ -439,6 +490,9 @@ async def websocket_endpoint(
             input_audio_transcription=types.AudioTranscriptionConfig(),
             output_audio_transcription=types.AudioTranscriptionConfig(),
             session_resumption=types.SessionResumptionConfig(),
+            speech_config=types.SpeechConfig(
+                language_code="fr-FR",
+            ),
             proactivity=(
                 types.ProactivityConfig(proactive_audio=True) if proactivity else None
             ),
@@ -620,7 +674,7 @@ async def websocket_endpoint(
 
             except genai_errors.APIError as e:
                 status_code = getattr(e, 'status_code', None) or getattr(e, 'code', None)
-                is_transient = status_code in (1011, 500, 503)
+                is_transient = status_code in (1000, 1011, 500, 503)
 
                 if is_transient and attempt < max_retries:
                     wait = retry_delay * (2 ** (attempt - 1))

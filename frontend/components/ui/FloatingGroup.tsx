@@ -13,9 +13,13 @@ interface FloatingGroupProps {
     cy: number;
     // Radius config for how far children orbit
     radius?: number;
+    // Step indicator (1 = brand research, 2 = discovery brief)
+    step?: number;
+    // If true, items are hidden in orbit mode (only title shows). Items appear only when focused.
+    collapseInOrbit?: boolean;
 }
 
-export default function FloatingGroup({ id, title, items, cx, cy, radius = 200 }: FloatingGroupProps) {
+export default function FloatingGroup({ id, title, items, cx, cy, radius = 200, step, collapseInOrbit }: FloatingGroupProps) {
     const groupRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
     const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
@@ -49,7 +53,15 @@ export default function FloatingGroup({ id, title, items, cx, cy, radius = 200 }
             ref={groupRef}
             id={id}
             data-group-id={id}
-            className="floating-group absolute"
+            data-step={step}
+            data-collapse-orbit={collapseInOrbit || undefined}
+            className="floating-group absolute cursor-pointer"
+            onClick={(e) => {
+                e.stopPropagation();
+                window.dispatchEvent(
+                    new CustomEvent('mimesis-focus', { detail: { elementId: null, groupId: id } })
+                );
+            }}
             style={{
                 left: `${cx}%`,
                 top: `${cy}%`,
@@ -107,7 +119,7 @@ export default function FloatingGroup({ id, title, items, cx, cy, radius = 200 }
                 </h3>
             </div>
 
-            <div className="group-items absolute inset-0 transition-opacity duration-500">
+            <div className="group-items absolute inset-0 transition-opacity duration-500" style={collapseInOrbit ? { opacity: 0 } : undefined}>
                 {items.map((item, i) => {
                     const angle = i * ((Math.PI * 2) / items.length);
                     const xPos = Math.cos(angle) * radius;

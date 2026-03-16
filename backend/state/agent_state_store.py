@@ -3,12 +3,14 @@
 Stores brand data **per session** and notifies WebSocket subscribers in
 real-time when a tool pushes an update.
 
-The store manages two kinds of state:
+The store manages three kinds of state:
     1. **Data state**: brand_name, brand_slogan, brand_last_news, etc.
     2. **UI state**: visible_components — an array of component IDs that the
        agent wants the frontend to render.
+    3. **Phase state**: current_phase — which step the session is in
+       ("brand_research", "brief", "sequence", "validated")
 
-Valid component IDs (1:1 mapping with data fields):
+Step 1 component IDs (brand research):
     - "brand_name"            (brand name display)
     - "brand_slogan"          (tagline / catchphrase)
     - "brand_symbols"         ([{title, summary}] — visual symbols with explanations)
@@ -21,7 +23,17 @@ Valid component IDs (1:1 mapping with data fields):
     - "primary_color"         (animated background)
     - "secondary_color"       (secondary color)
     - "style_keywords"        (key stylistic words)
-    - "all"                   (show everything — shortcut)
+
+Step 2 component IDs (discovery brief):
+    - "ad_objective"          (objective + summary card)
+    - "ad_audience"           (audience details + persona card)
+    - "ad_product"            (product focus card)
+    - "ad_emotion"            (emotion & tone card)
+    - "ad_format"             (format & constraints card)
+    - "master_sequence"       (6-scene timeline)
+
+Shortcuts:
+    - "all"                   (show everything)
 """
 
 import asyncio
@@ -35,6 +47,7 @@ logger = logging.getLogger("mimesis.state")
 
 ALL_COMPONENT_IDS = frozenset(
     {
+        # Step 1 — Brand Research
         "brand_name",
         "brand_slogan",
         "brand_symbols",
@@ -48,6 +61,13 @@ ALL_COMPONENT_IDS = frozenset(
         "secondary_color",
         "style_keywords",
         "uploaded_images",
+        # Step 2 — Discovery Brief
+        "ad_objective",
+        "ad_audience",
+        "ad_product",
+        "ad_emotion",
+        "ad_format",
+        "master_sequence",
     }
 )
 

@@ -91,32 +91,30 @@ export default function AudioPermissionGate({ onGranted }: AudioPermissionGatePr
         </h1>
 
         <p className="text-white/50 text-sm leading-relaxed">
-          Mimesis a besoin d&apos;accéder à votre microphone et vos haut-parleurs pour une expérience vocale interactive.
-        </p>
+          Mimesis needs access to your microphone and speakers for an interactive voice experience.        </p>
 
         {/* Permission state indicator */}
         {permState === 'denied' && (
           <div className="flex items-center gap-2 text-amber-400 text-xs bg-amber-400/10 border border-amber-400/20 rounded-lg px-3 py-2">
             <AlertCircle size={14} />
-            <span>Le micro est actuellement bloqué par le navigateur. Cliquez sur 🔒 dans la barre d&apos;adresse pour l&apos;autoriser.</span>
+            <span>The microphone is currently blocked by the browser. Click on 🔒 in the address bar to allow it.</span>
           </div>
         )}
 
         {/* Permission icons */}
         <div className="flex items-center gap-6">
           <div className="flex flex-col items-center gap-2">
-            <div className={`w-14 h-14 rounded-full border flex items-center justify-center ${
-              permState === 'granted' ? 'border-green-400/30 bg-green-400/10' : 'border-white/10 bg-white/5'
-            }`}>
+            <div className={`w-14 h-14 rounded-full border flex items-center justify-center ${permState === 'granted' ? 'border-green-400/30 bg-green-400/10' : 'border-white/10 bg-white/5'
+              }`}>
               <Mic size={24} className={permState === 'granted' ? 'text-green-400' : 'text-white/70'} />
             </div>
-            <span className="text-white/40 text-[11px] uppercase tracking-wider">Micro</span>
+            <span className="text-white/40 text-[11px] uppercase tracking-wider">Mic</span>
           </div>
           <div className="flex flex-col items-center gap-2">
             <div className="w-14 h-14 rounded-full border border-white/10 bg-white/5 flex items-center justify-center">
               <Volume2 size={24} className="text-white/70" />
             </div>
-            <span className="text-white/40 text-[11px] uppercase tracking-wider">Son</span>
+            <span className="text-white/40 text-[11px] uppercase tracking-wider">Soun</span>
           </div>
         </div>
 
@@ -130,7 +128,7 @@ export default function AudioPermissionGate({ onGranted }: AudioPermissionGatePr
                      shadow-[0_0_30px_rgba(255,255,255,0.15)]"
           style={{ fontFamily: 'var(--font-google-sans)' }}
         >
-          {status === 'requesting' ? 'Activation...' : 'Activer Micro & Son'}
+          {status === 'requesting' ? 'Activating...' : 'Activate Micro & Sound'}
         </button>
 
         {/* Error state — shows actual error */}
@@ -146,7 +144,7 @@ export default function AudioPermissionGate({ onGranted }: AudioPermissionGatePr
               onClick={handleSkip}
               className="flex items-center gap-1.5 text-white/30 hover:text-white/60 text-xs transition-colors cursor-pointer mt-2"
             >
-              <span>Continuer sans micro</span>
+              <span>Continue without mic</span>
               <ArrowRight size={12} />
             </button>
           </div>

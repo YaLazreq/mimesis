@@ -7,6 +7,32 @@ logger = logging.getLogger("mimesis.tools")
 STATE_API_URL = os.getenv("STATE_API_URL", f"http://localhost:{os.getenv('PORT', '8000')}")
 
 
+async def _resolve_session_id(session_id: str) -> str:
+    """Resolve a possibly-fake session_id to the real active session ID.
+
+    The Gemini model often passes a placeholder like 'session_id' instead
+    of the actual session ID. This helper calls the state API to get the
+    real active session ID.
+
+    Returns:
+        The resolved (real) session ID.
+    """
+    url = f"{STATE_API_URL}/api/state/_active_id"
+    try:
+        async with httpx.AsyncClient() as client:
+            resp = await client.get(url, timeout=3.0)
+            resp.raise_for_status()
+            data = resp.json()
+            real_id = data.get("session_id", "")
+            if real_id:
+                if real_id != session_id:
+                    logger.info(f"🔄 Session ID resolved: '{session_id}' → '{real_id}'")
+                return real_id
+    except Exception:
+        pass  # Fallback to whatever was passed
+
+    return session_id
+
 # ========================================
 # Unified state push — always call this one
 # ========================================
@@ -20,6 +46,9 @@ async def _push_state(session_id: str, data: dict) -> bool:
     - AgentState: powers the frontend via WebSocket, will be persisted to DB later.
     - ADK state: visible to the Gemini model via {key} templating and tool context.
     """
+    # Always resolve to the real session ID first
+    session_id = await _resolve_session_id(session_id)
+
     agent_ok = await _push_agent_state(session_id, data)
     adk_ok = await _push_adk_state(session_id, data)
 
@@ -75,6 +104,7 @@ async def _push_adk_state(session_id: str, data: dict) -> bool:
 
 async def _push_ui_layout(session_id: str, components: list[str]) -> bool:
     """POST a UI layout change (replace) to the FastAPI server."""
+    session_id = await _resolve_session_id(session_id)
     url = f"{STATE_API_URL}/api/state/layout"
     payload = {"session_id": session_id, "visible_components": components}
 
@@ -91,6 +121,7 @@ async def _push_ui_layout(session_id: str, components: list[str]) -> bool:
 
 async def _push_ui_layout_add(session_id: str, components: list[str]) -> bool:
     """POST a UI layout append to the FastAPI server."""
+    session_id = await _resolve_session_id(session_id)
     url = f"{STATE_API_URL}/api/state/layout/add"
     payload = {"session_id": session_id, "visible_components": components}
 
@@ -111,6 +142,7 @@ async def _push_ui_layout_add(session_id: str, components: list[str]) -> bool:
 
 async def _push_session_notify(session_id: str, message: str) -> bool:
     """POST a notification to inject a message into the agent's LiveRequestQueue."""
+    session_id = await _resolve_session_id(session_id)
     url = f"{STATE_API_URL}/api/session/notify"
     payload = {"session_id": session_id, "message": message}
 
@@ -136,6 +168,9 @@ async def _fetch_state(session_id: str) -> dict:
     direct lookup returns nothing — this handles the common case where the
     model doesn't know (or passes an empty) session_id to MCP tools.
     """
+    # Resolve first
+    session_id = await _resolve_session_id(session_id)
+
     # Strategy 1: direct lookup (if we actually have a session_id)
     if session_id:
         url = f"{STATE_API_URL}/api/state/{session_id}"

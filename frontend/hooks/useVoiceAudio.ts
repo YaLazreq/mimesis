@@ -152,7 +152,13 @@ export function useVoiceAudio({ onStatusChange }: UseVoiceAudioProps = {}) {
 
         const setupAudio = async () => {
             try {
-                localStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                localStream = await navigator.mediaDevices.getUserMedia({
+                    audio: {
+                        echoCancellation: true,
+                        noiseSuppression: true,
+                        autoGainControl: true,
+                    }
+                });
                 if (!isMounted) {
                     localStream.getTracks().forEach(t => t.stop());
                     return;

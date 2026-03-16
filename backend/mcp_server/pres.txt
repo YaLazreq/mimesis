@@ -1,0 +1,126 @@
+Mimesis, The AI Creative Director for High-End Commercial Production
+μίμησις (mímēsis), imitation, representation. In Plato and Aristotle, the idea that poetry, painting, and theater imitate human actions, character, and reality.
+
+💡 Inspiration
+I've worked in production studios where creating a commercial meant weeks of pre-production before a single frame was captured. Briefs, discovery sessions, treatments, storyboards, casting, each step exists for a reason. That process isn't overhead. It's where the meaning is built.
+
+When I started experimenting with AI video generation, the results looked technically impressive. But something felt wrong. The output was clean, but it meant nothing. It had no why.
+
+And I realized: the problem wasn't the model. It was that I'd skipped every step that gives a commercial its soul.
+
+We've all experienced this, being stuck on a project, walking away frustrated, and finding the answer two hours later in the shower. That's not magic. That's your brain doing asynchronous work, absorbing, connecting, making sense of everything you've fed it. The pre-production process in advertising works exactly the same way. It forces reflection. It creates meaning. It ensures that when you press record, you know exactly what you're trying to say and who you're saying it to.
+
+So I didn't want to shortcut that process. I wanted to make it more creative, with faster feedback loops, so you spend less time in the abstract and more time reacting to something real.
+
+🎬 What Mimesis Does
+Mimesis is the collaborator you brief on the spot. Give her the brand name, she dispatches her research team immediately, no URL needed. While you talk, she's already pulling the identity, the mission, the common enemy, the last viral campaign, the creative angle. And when the data lands, she reacts: "Their latest campaigns are pushing Gen Z. There's a tension there. That's our angle."
+
+She assists the room. Ask her to focus on the strategy, the interface shifts. Drop a product image, she reads it, connects it to the brand DNA, and pitches a direction. And she'll stop you mid-session: "Their core message is about freedom, showing the product this way might contradict that."
+
+Then she builds. Scene by scene, she generates visual options, camera angles, lighting, costumes, environments, and locks in keyframes for each one. Start frame. End frame. The product, consistent throughout. When the sequence is locked, she hands it to Veo, and the scenes assemble into a final 30-second commercial.
+
+The interface is built like a constellation, the brand's mission, its enemy, its strategy, its campaign history, all visible at a glance. A living brief that thinks with you.
+
+📄 Why Documents at Every Step
+In a real agency workflow, the Treatment is what you walk into the client meeting with. Before a single frame is shot, before a single euro is spent. It's how you communicate the vision. It's how you build trust.
+
+Every step in Mimesis produces a shareable document, not because it's a nice feature, but because that's how the industry works. A PDF you can send. A production sheet you can open in a meeting. A video you can pitch with. These aren't outputs, they're the conversation continuing outside the room.
+
+And in an industry where AI still makes people nervous, being able to say: "Here is the document we built together, and here is why every creative choice connects back to your brand strategy", that changes the dynamic. The team stays intact. The process stays human. Mimesis just makes sure nothing gets lost between the idea and the final commercial message.
+
+🏗️ Architecture
+Mimesis is built around three interconnected layers.
+
+1. Global System Architecture
+The user interacts through a Next.js frontend connected to a FastAPI + Uvicorn backend deployed on Cloud Run. The Gemini Live API handles the real-time bidirectional voice session. In parallel, background workers fire independently, each executing a Google Search query, processing the result, and streaming it directly into the UI via WebSocket as it arrives. Final assets (Treatment PDF, Production Sheet, video) are delivered via Google Cloud Storage and Google Drive.
+
+Global System Architecture
+
+2. Agent Communication, Webhooks & State Store
+Each background worker is a discrete unit. When a worker completes its search, it writes its result to a persistent state store and emits a notification to the Live Agent via webhook. The agent reads the authoritative data from the store, never from the notification preview, and reacts creatively, triggering a UI update via function call. This ensures the voice session and the data pipeline never block each other.
+
+Agent Communication
+
+3. MCP Server, Detailed Architecture
+The MCP server exposes the tools the agent uses to control the UI, query brand memory, and manage the upload zone. Each tool call from the agent translates into a targeted UI event, a panel moves, a section lights up, an image zone appears. The MCP layer is what makes the interface a direct extension of the agent's reasoning.
+
+MCP Server Architecture
+
+⚙️ How I Built It
+The core principle behind Mimesis is simple: every agent output is a UI event. The interface has no static state. When Mimesis speaks, the screen reacts.
+
+Building that required assembling several layers that don't naturally want to coexist.
+
+Layer	Technology
+Voice Agent	Gemini Live API (bidirectional audio streaming) Vertex AI
+Brand Intelligence	Gemini + Google Search (parallel async workers)
+Image Generation	Vertex AI Imagen
+Video Generation	Veo
+Backend / Orchestration	FastAPI + Uvicorn + WebSockets + Cloud Run
+Storage & Delivery	Google Cloud Storage + Google Drive
+Frontend	Next.js + GSAP
+The voice session runs on the Gemini Live API (via Vertex AI), fully bidirectional, interruptible, real-time. While Mimesis speaks, background workers fire in parallel: each one searches, processes, and streams its result directly into the UI as it arrives. No waiting. No batch loading.
+
+The interface itself is built as a zero-gravity system, each panel is an independent node, animated, repositionable. When Mimesis calls a function, a panel moves. When a worker finishes, a section lights up. The screen is always a reflection of where the conversation is.
+
+This architecture took dozens of hours to get right, because nothing is designed to work this way out of the box. Making it all coexist required a deep understanding of network communication: how data transits, how to log every event, how to observe in real time what is happening across voice, workers, and UI simultaneously.
+
+The move from localhost to cloud alone was painful. Every layer had to be rethought.
+
+But the hardest constraint wasn't technical, it was human. Mimesis is used during a creative session, which means the user is in a state of flow. Friction is the forbidden word. One dropped connection, one stuttering response, one misaligned event, and the session breaks. It's the same feeling as losing your internet connection in the middle of something important. You don't recover from it.
+
+🧱 Challenges
+Aligning voice, model execution, worker responses, and UI events, all within seconds, consistently, without a single break, that's the invisible work behind Mimesis.
+
+Adapting the Gemini bidi repo to Next.js The bidirectional streaming reference wasn't built for a production Next.js architecture. Integrating low-latency audio with SSR, routing, and React state meant rebuilding the WebSocket layer from scratch, not wrapping it, rebuilding it.
+
+UI / Agent synchronization The zero-gravity interface must react the instant Mimesis speaks. Timing mismatches between audio playback, worker responses, and UI animations created bugs that were invisible on the surface and multi-layered underneath. Every fix required understanding three systems at once.
+
+Prompt engineering across four model types The Live API, Gemini Flash, Imagen, and Veo each have a completely different creative contract. Getting them to behave consistently, and maintain creative coherence across a full workflow, required treating each model as a separate discipline, not a variation of the same tool.
+
+The invisible constraint Halfway through, I realized the hardest requirement wasn't in any spec. Creative sessions have no tolerance for interruption, a dropped response, a stuttering animation, a half-second of silence at the wrong moment. I only understood the full weight of that once I started testing it live. Everything had to be rethought through that lens.
+
+🛡️ System Design
+Mimesis isn't a demo that works once. The system is designed to handle failure without breaking the creative session.
+
+The streaming session follows a 4-phase lifecycle: connection, initialization, concurrent bidirectional streaming, and guaranteed cleanup. If the Gemini Live API drops mid-session (error 1011, 500, or 503), the backend retries with exponential backoff up to three times, notifying the frontend at each attempt so the UI can show a reconnecting state instead of a blank screen.
+
+Workers are fully isolated. Each runs in its own asyncio.Task, wraps its logic in try/except, and always signals completion to downstream workers, even on failure, so the pipeline never deadlocks. If the Culture worker crashes, the system still sends a notification: "Culture had issues, but the rest of the dashboard is populated. Deliver your pitch with what we have." The session continues.
+
+JSON parsing from LLM outputs uses a 4-level fallback chain: strict parse, regex extraction, trailing comma repair, control character cleanup. Gemini frequently returns malformed JSON, especially with nested quotes in campaign titles or news summaries. This handles it silently.
+
+Session routing uses 4 fallback strategies to resolve IDs: direct lookup, state store resolution, active ADK session tracking, and single-queue fallback. This was necessary because MCP tools run as subprocesses and don't share the same session context as the voice WebSocket. Without this, every tool call would fail on a fresh session.
+
+Every state update is dual-written: once to the frontend store (real-time UI via WebSocket) and once to the ADK session.state (model context), with partial-success handling if either write fails. This guarantees the model and the interface always see the same data.
+
+🔒 Robustness & Grounding
+Mimesis never invents brand data.
+
+Every factual claim, colors, missions, campaigns, news, strategy, symbols, is grounded through Google Search. Each of the six background workers calls Gemini 2.5 Flash with google_search enabled, meaning results come from live web data, not from parametric model memory. Temperature is set low (0.2) for factual workers and slightly higher (0.5) for creative interpretation.
+
+The voice agent itself is explicitly instructed not to perform searches. Its role is strictly creative interpretation: it receives structured, verified JSON from the workers and reacts to specific data points, a HEX code, a campaign title, a strategic pivot. When the data says primary_color is "#C70039", the agent reacts to that specific red. It doesn't guess "I think their color might be red."
+
+When users ask about something mid-session, the agent calls get_brand_memory, which reads from the grounded state store, never from its own recall. If the data isn't available yet, the agent says "My team is still working on that." It doesn't fabricate an answer.
+
+Product images are grounded twice: the raw image is sent to the Live model via realtime input so it can see and react visually, while a separate Gemini Vision worker extracts structured analysis with real color codes, mood descriptions, and brand alignment scores. Both channels converge, but neither invents data the other didn't provide.
+
+Anti-repetition rules in the system prompt prevent the agent from re-explaining topics it has already covered. In long voice sessions, this is a common failure mode: the model loops back to the same talking points. The instruction explicitly states: "NEVER explain the same topic twice. Before speaking, verify: did I already talk about this? If yes, skip it."
+
+📚 What I Learned
+That the hardest part of building an AI product isn't the AI. It's the architecture around it, the plumbing that makes it feel effortless.
+
+I learned that voice changes everything. Speaking an idea generates ten times more nuance than typing it. Building around that forces every other decision.
+
+And I learned that creative tools have a different success metric. Not "does it work", but "does it keep you in the zone."
+
+That's a much harder bar to clear, but it captivated me.
+
+🔮 What's Next
+Camera awareness, point your phone at a product or moodboard and Mimesis reacts in real time. She could even read facial expressions: "I see you're skeptical, let me try a different direction."
+Audience persona targeting, drop a LinkedIn profile URL of the person you're targeting, and Mimesis personalizes the commercial for that exact profile (you could become the main character of your own ad)
+Export pipeline, DaVinci Resolve, Premiere Pro, CapCut
+Thank you for reading my work!
+
+Built for the Gemini Live Agent Challenge, Creative Storyteller category. Deployed on Google Cloud Run. Demonstrated with Google Pixel as the client brand.
+
+Lazreq

@@ -1,1852 +1,600 @@
-2026-03-16 10:51:09,795 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 10:51:20,806 — INFO — 🚀 Launching sprint for Coca-Cola (session default)
-2026-03-16 10:51:20,808 — INFO — Worker 1 (Identity) started for Coca-Cola
-2026-03-16 10:51:20,812 — INFO — Worker 5 (Visual Identity) started for Coca-Cola
-2026-03-16 10:51:20,813 — INFO — Worker 2 (Philosophy) started for Coca-Cola
-2026-03-16 10:51:20,814 — INFO — Worker 3 (News) started for Coca-Cola
-2026-03-16 10:51:20,815 — INFO — Worker 4 (Culture) started for Coca-Cola
-2026-03-16 10:51:28,225 — INFO — Worker 1 raw output: ```json
+2026-03-18 15:04:58,327 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
+2026-03-18 15:05:08,863 — INFO — 🚀 Launching sprint for Google Pixel (session session_id)
+2026-03-18 15:05:08,864 — INFO — Worker 1 (Identity) started for Google Pixel
+2026-03-18 15:05:08,866 — INFO — Worker 5 (Visual Identity) started for Google Pixel
+2026-03-18 15:05:08,866 — INFO — Worker 2 (Philosophy) started for Google Pixel
+2026-03-18 15:05:08,866 — INFO — Worker 3 (News) started for Google Pixel
+2026-03-18 15:05:08,867 — INFO — Worker 4 (Culture) started for Google Pixel
+2026-03-18 15:05:09,276 — INFO — 🖼️  UI Layout change requested: ['brand_name', 'brand_slogan', 'brand_mission', 'brand_strategy', 'brand_last_news', 'brand_viral_campaign']
+2026-03-18 15:05:09,286 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_3iqdy9'
+2026-03-18 15:05:09,293 — INFO — ✅ Layout pushed: ['brand_name', 'brand_slogan', 'brand_mission', 'brand_strategy', 'brand_last_news', 'brand_viral_campaign'] → 200
+2026-03-18 17:17:24,154 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
+2026-03-18 17:17:34,429 — INFO — 🚀 Launching sprint for Nintendo (session session_id)
+2026-03-18 17:17:34,433 — INFO — Worker 1 (Identity) started for Nintendo
+2026-03-18 17:17:34,435 — INFO — Worker 5 (Visual Identity) started for Nintendo
+2026-03-18 17:17:34,436 — INFO — Worker 2 (Philosophy) started for Nintendo
+2026-03-18 17:17:34,436 — INFO — Worker 3 (News) started for Nintendo
+2026-03-18 17:17:34,437 — INFO — Worker 4 (Culture) started for Nintendo
+2026-03-18 17:17:41,599 — INFO — Worker 1 raw output: ```json
 {
-    "brand_name": "Coca-Cola",
-    "primary_color": ["#F40009", "#FFFFFF", "#000000"]
+  "brand_name": "Nintendo",
+  "primary_color": ["#ED1C24", "#FFFFFF", "#000000", "#A4A1A1"]
 }
 ```
-2026-03-16 10:51:28,245 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 10:51:28,253 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 10:51:28,262 — INFO — ✅ Notification pushed for session default
-2026-03-16 10:51:28,953 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 10:51:31,207 — INFO — Worker 3 raw output: ```json
+2026-03-18 17:17:41,608 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:41,622 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
+2026-03-18 17:17:41,630 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:41,639 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
+2026-03-18 17:17:43,649 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:43,657 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:17:44,723 — INFO — Worker 2 raw output: ```json
 {
-    "brand_last_news": [
-        {
-            "title": "Coca-Cola Stock Upgraded",
-            "summary": "Several Wall Street analysts, including Morgan Stanley and Jefferies, have upgraded Coca-Cola's stock (KO) due to the company's expansion into the protein shake market with its Fairlife brand. This move into healthier beverages is seen as a significant growth driver."
-        },
-        {
-            "title": "CCEP Leadership Team Changes",
-            "summary": "Coca-Cola Europacific Partners (CCEP) announced executive leadership team appointments effective May 1, 2026, to strengthen leadership, accelerate growth, and enhance commercial capabilities through technology and data."
-        },
-        {
-            "title": "Coca-Cola Reports Q4 2025 Results",
-            "summary": "The Coca-Cola Company reported its Fourth Quarter and Full Year 2025 results on February 10, 2026."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Share A Coke Campaign",
-        "Always Coca-Cola Campaign",
-        "Hilltop: Buy World a Coke"
-    ]
-}
-```
-2026-03-16 10:51:32,724 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 10:51:32,731 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 10:51:32,732 — INFO — Worker 3 (News) completed ✅
-2026-03-16 10:51:34,168 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "Real Magic",
-    "brand_mission": [
-        "Refresh the world, mind, body, spirit.",
-        "Inspire moments of optimism, happiness.",
-        "Create value, make a positive difference.",
-        "Unite and uplift people every day."
-    ],
-    "brand_common_enemy": [
-        "Unquenched thirst",
-        "Moments of sadness",
-        "Human disconnection",
-        "Environmental waste"
-    ],
-    "style_keywords": [
-        "Optimistic",
-        "Joyful",
-        "Timeless",
-        "Refreshing",
-        "United",
-        "Magical"
-    ]
-}
-```
-2026-03-16 10:51:34,225 — INFO — Worker 5 raw output: ```json
-{
-    "secondary_color": [
-        "#000000",
-        "#6AC9CE",
-        "#FF560E",
-        "#6ACE7F",
-        "#F79900",
-        "#D7B85B",
-        "#E5813E",
-        "#B59E74"
-    ],
-    "font_family": [
-        "Spencerian Script",
-        "Helvetica Neue",
-        "Gotham",
-        "TCCC Unity Headline",
-        "TCCC Unity Text"
-    ],
-    "logo_description": "The Coca-Cola logo is an iconic script logotype, based on the Spencerian script, typically presented in white against a red background. It is often accompanied by a white 'Dynamic Ribbon Device' or wave, symbolizing fluidity and motion."
-}
-```
-2026-03-16 10:51:35,681 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 10:51:35,688 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 10:51:35,688 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 10:51:35,740 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 10:51:35,748 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 10:51:35,755 — INFO — ✅ Notification pushed for session default
-2026-03-16 10:51:36,129 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 10:51:43,062 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "Emotional Connection, Storytelling",
-      "summary": "Coca-Cola connects with consumers on an emotional level, selling happiness, joy, and positive experiences rather than just a beverage. This is achieved through storytelling and campaigns that evoke feelings of togetherness and celebration."
-    },
-    {
-      "title": "Global Reach, Local Relevance",
-      "summary": "The brand maintains a globally consistent identity while adapting its marketing and product offerings to resonate with local cultures, traditions, and preferences. This 'think global, act local' approach ensures authenticity and relevance across diverse markets."
-    },
-    {
-      "title": "Total Beverage Portfolio",
-      "summary": "Coca-Cola has expanded its product line beyond its flagship cola to become a 'total beverage company,' offering a wide range of drinks, including low-sugar options, to cater to evolving consumer tastes and health preferences."
-    },
-    {
-      "title": "Consistent Iconic Identity",
-      "summary": "The brand consistently leverages its timeless visual elements, such as its distinctive logo and color scheme, while embracing innovative marketing and digital engagement to stay fresh and relevant across generations."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "Spencerian Script Logo",
-      "summary": "The unique, flowing script logo, designed by Frank M. Robinson, has remained remarkably consistent since 1886, embodying elegance and a handcrafted feel that is instantly recognizable worldwide."
-    },
-    {
-      "title": "Coca-Cola Red Color",
-      "summary": "This vibrant red color is a core part of the brand's identity, symbolizing energy, warmth, excitement, and passion, and is deeply ingrained in global consumer recognition."
-    },
-    {
-      "title": "Contour Bottle Shape",
-      "summary": "The distinctive, curvaceous glass bottle, patented in 1915, is a globally recognized design icon that represents the product's refreshing quality and heritage."
-    },
-    {
-      "title": "Dynamic Ribbon Device",
-      "summary": "A flowing white wave, introduced in 1969, symbolizes the refreshing flow of the beverage and adds a sense of fluidity and motion to the brand's visual identity."
-    },
-    {
-      "title": "Polar Bears (Holiday Icon)",
-      "summary": "These beloved characters have been a recurring feature in Coca-Cola's holiday advertising since 1993, evoking warmth, togetherness, and the festive spirit, particularly during winter seasons."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Fizz, Joy, Shared Moments",
-      "summary": "Poetry can explore the ephemeral effervescence of the drink as a metaphor for fleeting moments of joy and connection. It can delve into the sensory experience – the crisp sound of opening, the sweet taste, the refreshing fizz – linking it to universal human desires for happiness, celebration, and shared experiences, transcending cultural barriers through simple, evocative language."
-    },
-    {
-      "title": "Painting: Red, Script, Global Canvas",
-      "summary": "Painting can capture the bold, iconic 'Coca-Cola Red' and the elegant Spencerian script against diverse global backdrops, from bustling cityscapes to serene landscapes. It can depict scenes of people from different cultures sharing a Coke, emphasizing unity, or abstractly represent the dynamic ribbon device as a flow of refreshment connecting humanity."
-    },
-    {
-      "title": "Music: Harmonies of Happiness",
-      "summary": "Music can embody the uplifting, universally appealing jingles and anthems associated with Coca-Cola, such as 'I'd Like to Buy the World a Coke.' It can feature diverse instruments and vocal styles, blending local sounds with a global melody to create a sense of belonging, celebration, and shared human experience, echoing the brand's message of togetherness and optimism."
-    },
-    {
-      "title": "Metaphor: Bottled Refreshment, Shared Spirit",
-      "summary": "Coca-Cola serves as a metaphor for a 'pause that refreshes' in life's busy moments, a simple pleasure that signifies connection and breaking down barriers. It represents the 'taste of feeling' – not just a drink, but an experience, a memory, or a symbol of optimism that can be shared, fostering a sense of global community and simple, accessible happiness."
-    },
-    {
-      "title": "Cinema: Everyday Life, Global Story",
-      "summary": "Cinema can portray Coca-Cola as an omnipresent element in everyday life, subtly appearing in diverse cultural settings, from intimate family gatherings to grand global events. Films can use the product as a prop to signify a moment of relief, friendship, or celebration, weaving it into narratives that highlight universal themes of human connection, journey, and the pursuit of happiness."
-    }
-  ]
-}
-```
-2026-03-16 10:51:44,598 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 10:51:44,605 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 10:51:44,625 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 10:51:44,634 — INFO — ✅ Notification pushed for session default
-2026-03-16 10:51:44,634 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 10:51:44,997 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 10:52:02,828 — INFO — 🖼️  UI Layout change requested: ['brand_viral_campaign']
-2026-03-16 10:52:02,835 — INFO — ✅ Layout pushed: ['brand_viral_campaign'] → 200
-2026-03-16 10:52:03,307 — INFO — 🧠 Memory lookup requested: topic='campaigns' (session default)
-2026-03-16 10:52:17,370 — INFO — 🖼️  UI Layout change requested: ['style_keywords']
-2026-03-16 10:52:17,376 — INFO — ✅ Layout pushed: ['style_keywords'] → 200
-2026-03-16 10:52:17,828 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 10:52:34,436 — INFO — 🧠 Memory lookup requested: topic='strategy' (session default)
-2026-03-16 10:52:46,065 — INFO — 🖼️  UI Layout change requested: ['brand_strategy']
-2026-03-16 10:52:46,086 — INFO — ✅ Layout pushed: ['brand_strategy'] → 200
-2026-03-16 10:53:18,183 — INFO — 🧠 Memory lookup requested: topic='enemy' (session default)
-2026-03-16 10:53:21,916 — INFO — 🖼️  UI Layout change requested: ['brand_common_enemy']
-2026-03-16 10:53:21,924 — INFO — ✅ Layout pushed: ['brand_common_enemy'] → 200
-2026-03-16 10:53:30,005 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 10:53:30,012 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 10:55:16,213 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 10:55:30,396 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 10:55:44,245 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:01:12,825 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:01:24,571 — INFO — 🚀 Launching sprint for Coca-Cola (session default)
-2026-03-16 11:01:24,572 — INFO — Worker 1 (Identity) started for Coca-Cola
-2026-03-16 11:01:24,575 — INFO — Worker 5 (Visual Identity) started for Coca-Cola
-2026-03-16 11:01:24,575 — INFO — Worker 2 (Philosophy) started for Coca-Cola
-2026-03-16 11:01:24,576 — INFO — Worker 3 (News) started for Coca-Cola
-2026-03-16 11:01:24,576 — INFO — Worker 4 (Culture) started for Coca-Cola
-2026-03-16 11:01:34,053 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Coca-Cola",
-    "primary_color": ["#F40009", "#FFFFFF", "#000000"]
-}
-```
-2026-03-16 11:01:34,068 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:01:34,075 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:01:34,081 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:01:34,416 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "Open Happiness",
-    "brand_mission": [
-        "Refresh the world, mind, body, spirit.",
-        "Inspire optimism, happiness, positive moments.",
-        "Create value, make a real difference.",
-        "Craft beloved drinks, refresh body, spirit."
-    ],
-    "brand_common_enemy": [
-        "Lack of refreshment",
-        "Moments of sadness",
-        "Thirst, dullness",
-        "Lack of connection"
-    ],
-    "style_keywords": [
-        "Optimistic",
-        "Joyful",
-        "Refreshing",
-        "Classic",
-        "Connecting",
-        "Authentic"
-    ]
-}
-```
-2026-03-16 11:01:34,450 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:01:35,944 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:01:35,953 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:01:35,953 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:01:36,527 — INFO — Worker 3 raw output: ```json
-{
-  "brand_last_news": [
-    {
-      "title": "Stock Upgrades, Protein Shakes",
-      "summary": "Several Wall Street analysts, including Morgan Stanley and Jefferies, have upgraded Coca-Cola's stock (KO) as the company expands into the protein shake market with its Fairlife line, catering to consumers adopting healthier diets."
-    },
-    {
-      "title": "Share a Coke Refreshed",
-      "summary": "Coca-Cola has relaunched its iconic 'Share a Coke' campaign, focusing on Gen Z with new digital experiences, shareability, and customization through QR codes, a digital hub, and a 'Memory Maker' experience."
-    },
-    {
-      "title": "Enjoy Moment Global Campaign",
-      "summary": "Coca-Cola's latest global campaign, 'Enjoy the moment with a Coca-Cola,' encourages Gen Z to disconnect from digital distractions and embrace real-life connections and experiences with an ice-cold Coke."
-    }
-  ],
-  "brand_viral_campaign": [
-    "Share a Coke",
-    "Buy the World a Coke",
-    "Always Coca-Cola"
-  ]
-}
-```
-2026-03-16 11:01:37,798 — INFO — Worker 5 raw output: ```json
-{
-    "secondary_color": [
-        "#FF560E",
-        "#E5813E",
-        "#F79900",
-        "#D7B85B",
-        "#B59E74",
-        "#6ACE7F",
-        "#6AC9CE"
-    ],
-    "font_family": [
-        "Spencerian Script",
-        "Coca-Cola Script",
-        "Helvetica Neue",
-        "TCCC Unity Headline",
-        "TCCC Unity Text"
-    ],
-    "logo_description": "The Coca-Cola logo features the brand name \"Coca-Cola\" written in a distinctive, flowing Spencerian script, predominantly in red against a white background. It often includes a white wave or 'Dynamic Ribbon device' flowing beneath the script, symbolizing movement and refreshment."
-}
-```
-2026-03-16 11:01:38,064 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:01:38,072 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:01:38,072 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:01:39,314 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:01:39,320 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:01:39,327 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:01:39,720 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:01:40,390 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "Global Brand, Local Touch",
-      "summary": "Coca-Cola maintains a globally consistent brand identity while strategically adapting its marketing and messaging to resonate with local cultures, traditions, and preferences, ensuring relevance across diverse markets. [5, 8, 11, 16]"
-    },
-    {
-      "title": "Emotional Connection & Joy",
-      "summary": "The brand's core mission is to refresh the world in mind, body, and spirit, consistently promoting values of happiness, optimism, and togetherness through its advertising campaigns and initiatives, fostering deep emotional connections with consumers. [3, 9, 16]"
-    },
-    {
-      "title": "Timeless Identity, Consistent Refreshment",
-      "summary": "Coca-Cola has successfully preserved a timeless brand identity over decades through consistent visual elements and core messaging, evolving without losing its essence and continuously offering refreshment as its fundamental product promise. [3, 4, 16]"
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "Red and White Palette",
-      "summary": "The iconic red and white color scheme is instantly recognizable worldwide, symbolizing energy, warmth, excitement, and forming a core part of the brand's visual identity since 1969. [4, 9, 16, 20]"
-    },
-    {
-      "title": "Spencerian Script Logo",
-      "summary": "The distinctive, flowing Spencerian script logo, designed by Frank M. Robinson, has remained remarkably consistent for over 130 years, radiating elegance and a handcrafted feel that is a core element of Coca-Cola's identity. [4, 16, 20]"
-    },
-    {
-      "title": "Contour Glass Bottle",
-      "summary": "The unique contour glass bottle is a design classic, so recognizable that it can be identified by touch alone, serving as a hallmark of the brand's creativity and a globally recognized symbol. [4, 6, 10, 14, 16, 17]"
-    },
-    {
-      "title": "Coca-Cola Santa Claus",
-      "summary": "The modern image of Santa Claus, a jolly, red-suited figure, was significantly popularized by Coca-Cola's advertising campaigns starting in the 1930s, deeply ingraining the brand into American holiday rituals. [6, 16, 17, 19, 20, 24]"
-    },
-    {
-      "title": "Coca-Cola Polar Bears",
-      "summary": "The friendly polar bears have been a frequent and beloved feature in Coca-Cola's advertising campaigns since 1993, becoming an iconic representation of the brand, particularly during winter and holiday seasons. [6, 21, 25]"
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Universal Harmony",
-      "summary": "Coca-Cola's advertising often transcends mere product promotion, using lyrical and metaphorical language to evoke feelings of unity, peace, and shared human experience, exemplified by the iconic 'I'd Like to Buy the World a Coke' campaign. [21, 32]"
-    },
-    {
-      "title": "Painting: Pop Art Iconography",
-      "summary": "The brand's visual identity, particularly the contour bottle, has been immortalized in fine art, most notably by Andy Warhol's Pop Art paintings, and continues to be integrated into contemporary art campaigns that celebrate creativity and inspiration. [27, 29, 31]"
-    },
-    {
-      "title": "Music: Soundtrack to Connection",
-      "summary": "Music plays a crucial role in Coca-Cola's cultural strategy, with memorable jingles like 'I'd Like to Teach the World to Sing' becoming global anthems of togetherness, and ongoing initiatives like Coke Studio fostering musical collaborations and cultural exchange. [21, 25, 30, 32]"
-    },
-    {
-      "title": "Cinema: Everyday American Symbol",
-      "summary": "Coca-Cola has a long-standing presence in cinema, appearing in countless films and TV shows not just as product placement, but as a subtle, integral part of the narrative, symbolizing Americana and everyday life across various eras and genres. [19, 23]"
-    }
-  ]
-}
-```
-2026-03-16 11:01:41,912 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:01:41,921 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:01:41,940 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:01:41,952 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:01:41,952 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:01:42,412 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:01:57,199 — INFO — 🖼️  UI Layout change requested: ['brand_strategy']
-2026-03-16 11:01:57,209 — INFO — ✅ Layout pushed: ['brand_strategy'] → 200
-2026-03-16 11:01:57,370 — INFO — 🧠 Memory lookup requested: topic='strategy' (session default)
-2026-03-16 11:02:12,965 — INFO — 🖼️  UI Layout change requested: ['brand_last_news']
-2026-03-16 11:02:12,972 — INFO — ✅ Layout pushed: ['brand_last_news'] → 200
-2026-03-16 11:02:13,436 — INFO — 🧠 Memory lookup requested: topic='news' (session default)
-2026-03-16 11:02:24,511 — INFO — 🧠 Memory lookup requested: topic='news' (session default)
-2026-03-16 11:02:36,712 — INFO — 🖼️  UI Layout change requested: ['style_keywords']
-2026-03-16 11:02:36,719 — INFO — ✅ Layout pushed: ['style_keywords'] → 200
-2026-03-16 11:02:36,887 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:02:37,253 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:02:37,253 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:03:15,368 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:03:15,379 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 11:03:15,811 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:03:35,961 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:03:35,969 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:03:43,545 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:03:55,730 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:04:59,411 — INFO — 🚀 Launching sprint for Google Pixel (session default)
-2026-03-16 11:04:59,412 — INFO — Worker 1 (Identity) started for Google Pixel
-2026-03-16 11:04:59,414 — INFO — Worker 5 (Visual Identity) started for Google Pixel
-2026-03-16 11:04:59,415 — INFO — Worker 2 (Philosophy) started for Google Pixel
-2026-03-16 11:04:59,415 — INFO — Worker 3 (News) started for Google Pixel
-2026-03-16 11:04:59,415 — INFO — Worker 4 (Culture) started for Google Pixel
-2026-03-16 11:05:10,374 — INFO — Worker 3 raw output: ```json
-{
-    "brand_last_news": [
-        {
-            "title": "Pixel March update removes feature",
-            "summary": "The March 2026 Pixel update silently removed the ability to access Google Lens for image search and save images directly from the Recents screen, a change some users might dislike."
-        },
-        {
-            "title": "Pixel battery limit not bug",
-            "summary": "A perceived 'bug' where Pixel phones charge slowly after 77% when the 'Limit to 80%' option is enabled is actually intended behavior to preserve battery health, as confirmed by Google."
-        },
-        {
-            "title": "March Pixel Feature Drop released",
-            "summary": "The March Pixel Feature Drop has been released, bringing new functionalities that aim to extend the useful life of older Pixel devices."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Pixel 8 Super Bowl Ad",
-        "Best Phones Forever AI Roadtrip",
-        "Pixel In The Clutch"
-    ]
-}
-```
-2026-03-16 11:05:10,830 — INFO — Worker 1 raw output: ```json
-{
- "brand_name": "Google Pixel",
- "primary_color": [
-  "#4285F4",
-  "#EA4335",
-  "#FBBC05",
-  "#34A853"
- ]
-}
-```
-2026-03-16 11:05:10,866 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:05:10,874 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:05:10,881 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:05:11,091 — INFO — Worker 2 raw output: ```json
-{
-  "brand_slogan": "Smartphones, made by Google.",
+  "brand_slogan": "Bringing smiles through unique entertainment.",
   "brand_mission": [
-    "Deliver the best possible Android experience.",
-    "Pioneer AI technology for mobile innovation.",
-    "Capture stunning photos with smart camera.",
-    "Seamlessly integrate helpful Google services."
+    "Create unique, joyful entertainment experiences.",
+    "Deliver fun and happiness to all.",
+    "Foster community through shared play.",
+    "Prioritize experience, emotion over technology."
   ],
   "brand_common_enemy": [
-    "Bloated software experiences.",
-    "Outdated, slow updates.",
-    "Complex, non-intuitive tech.",
-    "Hardware-only focus."
+    "Boredom, lack of joy.",
+    "Uninspired, complex tech.",
+    "Rushed, low-quality games.",
+    "Exclusive, niche gaming."
   ],
   "style_keywords": [
-    "Intelligent",
-    "Minimalist",
-    "Seamless",
-    "Helpful",
-    "Authentic",
-    "Intuitive"
-  ]
-}
-```
-2026-03-16 11:05:11,313 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:05:12,403 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:05:12,410 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:05:12,410 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:05:12,607 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:05:12,613 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:05:12,613 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:05:16,262 — INFO — Worker 5 raw output: ```json
-{
- "secondary_color": [
-  "#C6FF00",
-  "#5F6368",
-  "#FFFFFF",
-  "#202124",
-  "#4285F4",
-  "#DB4437",
-  "#F4B400",
-  "#0F9D58",
-  "#34A853"
- ],
- "font_family": [
-  "Google Sans"
- ],
- "logo_description": "A stylized capital 'G' featuring a vibrant four-color palette (red, yellow, green, and blue), reflecting Google's commitment to innovation and inclusivity."
-}
-```
-2026-03-16 11:05:17,795 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:05:17,804 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:05:17,812 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:05:18,244 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:05:20,602 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "AI-Powered Intelligence",
-      "summary": "Google Pixel's core strategic direction centers on leveraging advanced artificial intelligence to deliver smart features, particularly in computational photography, personalized assistance, and overall user experience. This focus allows Pixel to differentiate itself in a competitive market by prioritizing software innovation over raw hardware specifications."
-    },
-    {
-      "title": "Seamless Google Ecosystem",
-      "summary": "The brand strategically integrates deeply with the broader Google ecosystem, offering a pure, bloatware-free Android experience. This ensures users have immediate access to the latest Google services, updates, and a cohesive digital environment across devices like Pixel Buds and Pixel Watch."
-    },
-    {
-      "title": "Human-Centric Design",
-      "summary": "Pixel emphasizes a user-centric approach, focusing on intuitive, accessible, and personalized experiences through both its software (Material You) and hardware design. This includes features that cater to diverse users and prioritize ease of use, simplicity, and inclusivity."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "The Google 'G' Logo",
-      "summary": "The iconic multi-colored 'G' logo represents the overarching Google brand, signifying its foundation in search, information, and the vast ecosystem of services that power Pixel devices."
-    },
-    {
-      "title": "Material You Aesthetics",
-      "summary": "This design language, characterized by adaptive colors, rounded elements, and customizable UI, visually embodies Pixel's commitment to personalization and a fluid, responsive user interface."
-    },
-    {
-      "title": "Distinct Camera Bar",
-      "summary": "The prominent horizontal camera visor or bar on the rear of many Pixel phones has become a highly recognizable design signature, symbolizing the brand's advanced computational photography capabilities."
-    },
-    {
-      "title": "Vibrant, Adaptive Colors",
-      "summary": "Beyond the 'G' logo, the dynamic and often bright color palettes offered through Material You, which adapt to user preferences and wallpapers, are a key visual identifier for the brand's personalized experience."
-    },
-    {
-      "title": "Clean, Minimalist Form",
-      "summary": "The overall hardware design of Pixel devices often features a sleek, uncluttered aesthetic with smooth lines and premium materials, reflecting simplicity and modern elegance."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Whispers of Intuition",
-      "summary": "Like a silent poet, Pixel anticipates needs, weaving AI-driven insights into daily life. It translates complex data into simple, helpful suggestions, creating a personalized narrative for each user, much like verses forming a unique story."
-    },
-    {
-      "title": "Painting: Adaptive Canvas",
-      "summary": "Pixel's Material You design transforms the screen into an adaptive canvas, where colors and shapes fluidly respond to the user's mood and preferences. Computational photography acts as a digital painter, capturing and enhancing reality with intelligent brushstrokes, revealing hidden beauty."
-    },
-    {
-      "title": "Music: Harmonious Integration",
-      "summary": "The Pixel experience is a symphony of hardware and software, where every feature plays in perfect harmony. Its seamless integration with the Google ecosystem creates a fluid, intuitive rhythm, making interactions feel like a natural, effortless melody."
-    },
-    {
-      "title": "Metaphor: The Mind's Extension",
-      "summary": "More than a device, Pixel acts as an intelligent extension of the user's mind, anticipating questions, remembering details, and offering solutions before being asked. It's a silent partner, enhancing cognitive abilities and simplifying the complexities of the modern world."
-    },
-    {
-      "title": "Cinema: Director of Moments",
-      "summary": "Pixel empowers users to be the directors of their own lives, capturing cinematic moments with unparalleled clarity and intelligence. Features like Magic Eraser and Night Sight are post-production tools, allowing users to craft perfect visual stories, turning everyday scenes into blockbusters."
-    }
-  ]
-}
-```
-2026-03-16 11:05:22,137 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:05:22,143 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:05:22,163 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:05:22,172 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:05:22,172 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:05:22,613 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:08:32,945 — INFO — 🚀 Launching sprint for Google Pixel (session default)
-2026-03-16 11:08:32,946 — INFO — Worker 1 (Identity) started for Google Pixel
-2026-03-16 11:08:32,949 — INFO — Worker 5 (Visual Identity) started for Google Pixel
-2026-03-16 11:08:32,950 — INFO — Worker 2 (Philosophy) started for Google Pixel
-2026-03-16 11:08:32,950 — INFO — Worker 3 (News) started for Google Pixel
-2026-03-16 11:08:32,951 — INFO — Worker 4 (Culture) started for Google Pixel
-2026-03-16 11:08:42,853 — INFO — Worker 3 raw output: ```json
-{
-  "brand_last_news": [
-    {
-      "title": "Pixel Battery 'Bug' Explained",
-      "summary": "Google clarified that a recent change in Pixel phone charging behavior, where charging slows significantly after 77% when the 'Limit to 80%' option is enabled, is an intended feature to preserve battery health, not a bug."
-    },
-    {
-      "title": "Pixel 10's Rules Feature Rediscovered",
-      "summary": "The 'Rules' feature on Google Pixel 10, which allows for automation based on Wi-Fi or location, is still available and useful for changing phone settings automatically."
-    },
-    {
-      "title": "Pixel 10 Pro 6-Month Review",
-      "summary": "A 6-month review of the Google Pixel 10 Pro highlights its well-integrated AI features, camera quality, and fast Android updates, but criticizes its battery life and the continued offering of 128GB storage."
-    }
-  ],
-  "brand_viral_campaign": [
-    "Super Bowl 2024: Javier in Frame",
-    "#BestPhonesForever Campaign",
-    "Pixel 6 Inclusive Marketing"
-  ]
-}
-```
-2026-03-16 11:08:42,969 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Google Pixel",
-    "primary_color": ["#4285F4", "#EA4335", "#FBBC05", "#34A853"]
-}
-```
-2026-03-16 11:08:42,993 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:08:43,005 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:08:43,016 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:08:43,700 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:08:44,388 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "Your world, smarter, simpler.",
-    "brand_mission": [
-        "Experience Android, pure and intelligent.",
-        "Harness AI for helpful innovation.",
-        "Capture life with smart photography.",
-        "Simplify technology, empower every user."
-    ],
-    "brand_common_enemy": [
-        "Complex, bloated software.",
-        "Unoptimized phone experience.",
-        "Unhelpful, slow tech.",
-        "Hardware-first thinking."
-    ],
-    "style_keywords": [
-        "Intelligent",
-        "Seamless",
-        "Minimalist",
-        "User-centric",
-        "Innovative",
-        "Helpful"
-    ]
-}
-```
-2026-03-16 11:08:44,542 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:08:44,549 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:08:44,549 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:08:45,902 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:08:45,909 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:08:45,909 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:08:49,504 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "AI-Driven Innovation",
-      "summary": "Google Pixel's core strategy centers on leveraging artificial intelligence and machine learning to deliver unique and advanced features, particularly in computational photography and intelligent assistance. This focus on AI differentiates it from competitors by enhancing user experience through smart software capabilities."
-    },
-    {
-      "title": "Seamless Google Ecosystem",
-      "summary": "The brand emphasizes deep integration with the broader Google ecosystem, offering a pure Android experience and optimizing hardware to fully support Google's software and services. This ensures a cohesive and optimized user journey across all Google platforms."
-    },
-    {
-      "title": "User-Centric Design & Experience",
-      "summary": "Pixel's strategy prioritizes a user-friendly and intuitive experience, focusing on clean software, smooth performance, and thoughtful design. This includes developing features that cater to diverse user needs, such as accessibility tools."
-    },
-    {
-      "title": "Inclusivity & Accessibility",
-      "summary": "A significant pillar involves promoting inclusivity through features like Real Tone for accurate skin tone representation and Guided Frame for assisting visually impaired users in photography. This approach highlights Google Pixel's commitment to making technology accessible to everyone."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "The Google 'G' Logo",
-      "summary": "The iconic multi-colored 'G' logo represents Google's overarching brand identity, signifying innovation, search, and a playful yet sophisticated approach to technology. It connects Pixel devices directly to the vast Google universe."
-    },
-    {
-      "title": "Horizontal Camera Bar",
-      "summary": "Introduced with the Pixel 6, the distinctive horizontal camera bar (or 'visor') across the phone's back has become an instantly recognizable and unique aesthetic identifier for Pixel devices. It visually anchors the phone's photographic prowess."
-    },
-    {
-      "title": "Material You Design",
-      "summary": "Material You, Google's adaptable design language, is a key visual symbol, characterized by dynamic color extraction from wallpapers, expressive shapes, and fluid animations. It allows for deep personalization, making each Pixel feel uniquely tailored to its user."
-    },
-    {
-      "title": "Minimalist Aesthetic",
-      "summary": "The overall design language of Pixel phones often features clean lines, simple forms, and a palette of minimal or pastel colors. This minimalist approach conveys sophistication and a focus on essential functionality."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Everyday Magic Unveiled",
-      "summary": "Google Pixel embodies the poetry of everyday life, transforming mundane moments into extraordinary memories through its intelligent camera and seamless AI. It's about finding the hidden beauty in the ordinary, making technology disappear into the art of living, and allowing users to capture their personal narratives with effortless grace."
-    },
-    {
-      "title": "Painting: Dynamic Color Canvas",
-      "summary": "The Pixel is a dynamic canvas, reflecting the vibrant and ever-changing world through its Material You design, which adapts colors to personal expression. Its camera acts as a painter's eye, capturing rich hues and intricate details, preserving light and shadow with computational artistry, and allowing users to 'paint' their reality with unparalleled fidelity."
-    },
-    {
-      "title": "Music: Harmonious Tech Flow",
-      "summary": "Google Pixel orchestrates a harmonious technological flow, where every interaction is a smooth note in a seamless symphony of user experience. The device becomes an intuitive instrument, responding to touch and voice with fluid animations and intelligent assistance, creating a rhythm that enhances daily life without interruption."
-    },
-    {
-      "title": "Metaphor: Your Personal Oracle",
-      "summary": "The Pixel serves as a personal oracle, a device that anticipates needs, answers questions, and intelligently organizes the world around its user through the power of Google AI. It's not just a phone, but a wise companion that understands and adapts, offering insights and capabilities that feel almost prescient."
-    },
-    {
-      "title": "Cinema: Life's Authentic Lens",
-      "summary": "Google Pixel offers life's authentic lens, capturing cinematic stories with raw emotion and accessible technology. Its features, like Guided Frame, enable diverse perspectives to be seen and shared, turning everyday experiences into compelling narratives that resonate with universal human connection."
-    }
-  ]
-}
-```
-2026-03-16 11:08:51,042 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:08:51,052 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:08:51,069 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:08:51,078 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:08:51,078 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:08:51,483 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:08:52,796 — INFO — Worker 5 raw output: ```json
-{
-  "secondary_color": [
-    "#4285F4",
-    "#C6FF00",
-    "#5F6368"
-  ],
-  "font_family": [
-    "Google Sans"
-  ],
-  "logo_description": "The Google Pixel brand features a subtle, debossed capital 'G' on its devices, which is derived from the main Google logo. The overall Google logo is a stylized, multi-colored capital 'G' using a geometric sans-serif typeface."
-}
-```
-2026-03-16 11:08:54,330 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:08:54,339 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:08:54,347 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:09:21,921 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:09:21,932 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:09:26,990 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:09:26,998 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 11:09:37,830 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:12:36,745 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:12:43,413 — INFO — 🚀 Launching sprint for Google Pixel (session default)
-2026-03-16 11:12:43,413 — INFO — Worker 1 (Identity) started for Google Pixel
-2026-03-16 11:12:43,415 — INFO — Worker 5 (Visual Identity) started for Google Pixel
-2026-03-16 11:12:43,415 — INFO — Worker 2 (Philosophy) started for Google Pixel
-2026-03-16 11:12:43,415 — INFO — Worker 3 (News) started for Google Pixel
-2026-03-16 11:12:43,416 — INFO — Worker 4 (Culture) started for Google Pixel
-2026-03-16 11:12:53,863 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Google Pixel",
-    "primary_color": ["#4285F4", "#34A853", "#FBBC05", "#EA4335"]
-}
-```
-2026-03-16 11:12:53,879 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:12:53,887 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:12:53,897 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:12:54,289 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:12:55,638 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "Engineered by Google. Made for everyone.",
-    "brand_mission": [
-        "Deliver best Android experience.",
-        "Advance mobile AI technology.",
-        "Offer premium smartphone photography.",
-        "Ensure user safety with timely updates."
-    ],
-    "brand_common_enemy": [
-        "Hardware-first rivals",
-        "Unnecessary bloatware",
-        "Slow feature rollout",
-        "Limited accessibility"
-    ],
-    "style_keywords": [
-        "AI-powered",
-        "Seamless",
-        "Intuitive",
-        "Minimalist",
-        "Secure",
-        "Accessible"
-    ]
-}
-```
-2026-03-16 11:12:57,152 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:12:57,158 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:12:57,158 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:12:58,830 — INFO — Worker 3 raw output: ```json
-{
-    "brand_last_news": [
-        {
-            "title": "Made By Google 2025 Announcements",
-            "summary": "Google unveiled new Pixel 10 phones (Pro, Pro Fold, and midrange), Pixel Watch 4, and Pixel Buds 2a at its Made By Google 2025 event, featuring a new Tensor G5 processor and improved camera features."
-        },
-        {
-            "title": "Pixel Growth Expected 2026",
-            "summary": "Counterpoint Research predicts strong growth for Google Pixel phones in 2026, driven by AI features and expanding global reach, despite a general slowdown in the smartphone market."
-        },
-        {
-            "title": "March 2026 Pixel Update",
-            "summary": "The March 2026 Pixel Feature Drop brings numerous new features, AI improvements, and system upgrades for Pixel phones and Pixel Watch devices, including enhanced Gemini integration and connected camera features."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Best Phones Forever",
-        "For You, Not Just Anyone",
-        "Pixel In The Clutch"
-    ]
-}
-```
-2026-03-16 11:13:00,344 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:13:00,350 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:13:00,350 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:13:02,294 — INFO — Worker 5 raw output: ```json
-{
- "secondary_color": [
-  "#C6FF00",
-  "#5F6368",
-  "#FFFFFF",
-  "#202124"
- ],
- "font_family": [
-  "Product Sans",
-  "Google Sans"
- ],
- "logo_description": "The Google Pixel logo is a minimalist, stylized capital “G” that incorporates a vibrant four-color palette of red, yellow, green, and blue. Its clean lines and modern design reflect Google's commitment to innovation and inclusivity, complementing the sleek aesthetic of Pixel phones."
-}
-```
-2026-03-16 11:13:03,814 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:13:03,821 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:13:03,829 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:13:04,226 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:13:09,306 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "AI-Driven Smart Experiences",
-      "summary": "Google Pixel's core strategy is to differentiate through cutting-edge AI features, leveraging its Tensor chip for advanced capabilities like AI-powered cameras, Google Assistant integration, and unique software functions such as Magic Eraser and Circle to Search. This approach prioritizes an improved overall smartphone experience over raw hardware specifications."
-    },
-    {
-      "title": "Pure Android, User-Centric",
-      "summary": "The brand emphasizes a clean, intuitive, and bloatware-free Android experience, offering a streamlined interface and timely software updates directly from Google. This user-centric design philosophy extends to the hardware, featuring a minimalist aesthetic and comfortable ergonomics."
-    },
-    {
-      "title": "Computational Photography Excellence",
-      "summary": "A significant pillar is Pixel's superior camera capabilities, driven by computational photography rather than just hardware. Features like Night Sight, Portrait Mode, and Real Tone ensure high-quality images and accurate skin tone representation, making advanced photography accessible to all users."
-    },
-    {
-      "title": "Seamless Google Ecosystem",
-      "summary": "Pixel devices are designed for deep integration within the broader Google ecosystem, providing a cohesive experience across Google services and hardware. This includes seamless interaction with Google Assistant, Google Cloud, and other applications, enhancing productivity and connectivity."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "Material You Design Language",
-      "summary": "This dynamic and personalizable UI/UX system, characterized by rounded corners, expressive shapes, and customizable color palettes that adapt to user preferences, is a signature visual element of Pixel phones. It creates a cohesive and artistic aesthetic across the device's interface."
-    },
-    {
-      "title": "Google's Four-Color Palette",
-      "summary": "The iconic red, yellow, green, and blue color scheme of the Google logo is often subtly integrated into Pixel branding, app icons, and user interface elements, representing the broader Google identity and its playful yet intelligent nature."
-    },
-    {
-      "title": "Prominent Camera Bar",
-      "summary": "The distinctive horizontal camera module spanning the back of newer Pixel models has become an instantly recognizable design feature. It symbolizes the brand's commitment to photographic innovation and computational imaging prowess."
-    },
-    {
-      "title": "Clean, Minimalist Hardware",
-      "summary": "The physical design of Pixel phones often features a simple, understated aesthetic with soft edges and premium materials, reflecting a focus on functionality and user comfort over ostentation. This minimalist approach contributes to its sophisticated image."
-    },
-    {
-      "title": "The Google 'G' Logo",
-      "summary": "The capital letter 'G' in Google's custom sans-serif typeface, often rendered in its multi-colored segments, serves as the overarching brand identifier. It connects Pixel to the vast resources and innovation of its parent company."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Everyday Human Moments",
-      "summary": "Pixel's creative angle in poetry would focus on the subtle magic of everyday life, capturing fleeting emotions and the quiet intelligence that enhances human connection. It would explore how technology can quietly observe, understand, and immortalize personal experiences, making the ordinary extraordinary."
-    },
-    {
-      "title": "Painting: Dynamic Digital Canvas",
-      "summary": "In painting, Pixel would be depicted as a dynamic digital canvas, where Material You's expressive colors and forms come alive, and computational photography 'paints' with light and shadow. It would highlight the device's ability to transform raw reality into art, emphasizing vibrant hues and nuanced details."
-    },
-    {
-      "title": "Music: Intuitive Harmony Flow",
-      "summary": "The musical angle would center on the intuitive harmony and seamless flow of the Pixel experience, where hardware and software work in perfect synchronicity. It would evoke adaptive rhythms and melodies that respond to the user, creating a personal soundtrack for their daily interactions with technology."
-    },
-    {
-      "title": "Metaphor: Intelligent Life Companion",
-      "summary": "Metaphorically, Pixel is an intelligent life companion, a thoughtful assistant that anticipates needs and refines perceptions, rather than just a tool. It acts as a 'lens to reality,' not merely capturing it, but enhancing and interpreting it with subtle brilliance and deep understanding."
-    },
-    {
-      "title": "Cinema: Authentic Storytelling Lens",
-      "summary": "In cinema, Pixel would be presented as an authentic storytelling lens, empowering users to capture and craft their personal narratives with unparalleled clarity and emotional depth. It would showcase AI as a silent, intuitive editor, helping to reveal the hidden stories within everyday moments and elevate them to cinematic quality."
-    }
-  ]
-}
-```
-2026-03-16 11:13:10,821 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:13:10,827 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:13:10,840 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:13:10,846 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:13:10,847 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:13:11,249 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:13:33,622 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:13:33,630 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:13:39,985 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:13:39,995 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 11:13:40,180 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:13:57,780 — INFO — 🧠 Memory lookup requested: topic='images' (session default)
-2026-03-16 11:25:52,811 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:26:06,574 — INFO — 🚀 Launching sprint for Google Pixel (session default)
-2026-03-16 11:26:06,575 — INFO — Worker 1 (Identity) started for Google Pixel
-2026-03-16 11:26:06,578 — INFO — Worker 5 (Visual Identity) started for Google Pixel
-2026-03-16 11:26:06,578 — INFO — Worker 2 (Philosophy) started for Google Pixel
-2026-03-16 11:26:06,579 — INFO — Worker 3 (News) started for Google Pixel
-2026-03-16 11:26:06,579 — INFO — Worker 4 (Culture) started for Google Pixel
-2026-03-16 11:26:18,571 — INFO — Worker 3 raw output: ```json
-{
-    "brand_last_news": [
-        {
-            "title": "Pixel battery 'bug' explained",
-            "summary": "Reports of a 'battery bug' where Pixel phones slow charging at 77% are actually an intended feature of the 'Limit to 80%' charging optimization, designed to preserve battery health."
-        },
-        {
-            "title": "Pixel 10 Pro zoom simplified",
-            "summary": "Google's Pixel Camera 10.3 update renames 'Pro Res Zoom' to 'Pro Zoom' on the Pixel 10 Pro for clearer labeling, with no changes to the feature itself."
-        },
-        {
-            "title": "Android 16 QPR3 image selection changes",
-            "summary": "The latest Android 16 QPR3 update for Pixel phones has downgraded the ability to select and save images directly from the Recents menu, now auto-launching the share screen."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Best Phones Forever: AI Roadtrip",
-        "Pixel 8 Super Bowl Ad",
-        "Pixel In The Clutch"
-    ]
-}
-```
-2026-03-16 11:26:18,980 — INFO — Worker 2 raw output: ```json
-{
-  "brand_slogan": "Engineered by Google. Made for everyone.",
-  "brand_mission": [
-    "Deliver the best Android experience.",
-    "Advance mobile AI, smart features.",
-    "Provide premium, innovative smartphone photography.",
-    "Ensure secure, updated, helpful technology."
-  ],
-  "brand_common_enemy": [
-    "Complex phone experiences.",
-    "Outdated, insecure software.",
-    "Hardware-first approach.",
-    "Limited phone accessibility."
-  ],
-  "style_keywords": [
+    "Joyful",
     "Innovative",
-    "Intuitive",
-    "Personal",
-    "Helpful",
-    "Seamless",
-    "Smart"
+    "Playful",
+    "Accessible",
+    "Creative",
+    "Whimsical"
   ]
 }
 ```
-2026-03-16 11:26:20,145 — INFO — Worker 5 raw output: ```json
+2026-03-18 17:17:46,237 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:46,259 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
+2026-03-18 17:17:46,267 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:46,277 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
+2026-03-18 17:17:46,277 — INFO — Worker 2 (Philosophy) completed ✅
+2026-03-18 17:17:47,075 — INFO — Worker 5 raw output: ```json
 {
   "secondary_color": [
-    "#4285F4",
-    "#DB4437",
-    "#F4B400",
-    "#0F9D58"
+    "#E60012",
+    "#FFFFFF",
+    "#000000",
+    "#8C8C8C",
+    "#A4A1A1"
   ],
   "font_family": [
-    "Google Sans",
-    "Product Sans"
+    "Museo Sans",
+    "Pretendo"
   ],
-  "logo_description": "The Google Pixel logo features a stylized capital “G” adorned with a vibrant four-color palette consisting of red, yellow, green, and blue. Its clean lines and modern design complement the minimalist aesthetic of Pixel phones."
+  "logo_description": "Nintendo's current logo features the company name in white text, often using the Museo Sans font, enclosed within a rounded white rectangle, all set against a red background. This design, sometimes referred to as the \"racetrack\" logo, has been in use since the early 1980s with minor tweaks, and the red and white color scheme has been prominent since 2016."
 }
 ```
-2026-03-16 11:26:20,342 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Google Pixel",
-    "primary_color": ["#4285F4", "#EA4335", "#FBBC05", "#34A853", "#FFFFFF", "#202124"]
-}
-```
-2026-03-16 11:26:20,370 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:26:20,378 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:26:20,393 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:26:20,771 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:26:21,931 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:26:21,936 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:26:21,941 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:26:21,947 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:26:21,947 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:26:21,948 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:26:21,948 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:26:21,948 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:26:21,954 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:26:22,321 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:26:22,321 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:26:26,447 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "AI-Powered Intelligence",
-      "summary": "Google Pixel's core strategy is to differentiate through advanced on-device artificial intelligence, enabling features that anticipate user needs, enhance daily tasks, and provide a smarter, more helpful mobile experience across its ecosystem. This includes innovative AI for photography, translation, and personal assistance."
-    },
-    {
-      "title": "Seamless Google Ecosystem",
-      "summary": "The brand emphasizes a pure Android experience, free of bloatware, with deep and intuitive integration across Google's vast suite of services like Photos, Assistant, and Drive. This ensures users receive timely updates and a cohesive digital life, fostering loyalty through a unified platform."
-    },
-    {
-      "title": "Computational Photography Excellence",
-      "summary": "Pixel stands out by leveraging software-driven computational photography to achieve superior image quality, often surpassing hardware-focused competitors. Features like Night Sight, Magic Eraser, and Real Tone make professional-grade photo and video editing accessible to everyone, enhancing storytelling."
-    },
-    {
-      "title": "User-Centric Accessibility",
-      "summary": "A fundamental pillar is designing for everyone, focusing on intuitive interfaces, personalization, and inclusive features that make technology more accessible. This includes adaptive design languages like Material You and tools like Guided Frame for visually impaired users, emphasizing a human-first approach."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "Subtle 'G' Logo",
-      "summary": "A minimalist, debossed 'G' on the phone's back represents Google's understated presence, signifying quality and innovation without ostentation, allowing the technology and user experience to take center stage. It acts as a quiet assurance of the Google brand's backing."
-    },
-    {
-      "title": "Distinct Camera Bar",
-      "summary": "The prominent horizontal camera bar on the rear of Pixel phones is a unique and recognizable design element. It visually unifies the advanced camera technology and signifies the brand's commitment to photographic excellence."
-    },
-    {
-      "title": "Dynamic Material You Colors",
-      "summary": "The adaptable UI with customizable color palettes, derived from user wallpapers, creates a personalized and expressive visual experience. This symbol represents the phone's ability to reflect and adapt to individual tastes and moods."
-    },
-    {
-      "title": "Clean, Minimalist Aesthetic",
-      "summary": "The overall design language of Pixel devices and their software is characterized by simplicity, ample white space, and clear lines. This aesthetic communicates ease of use, sophistication, and a focus on essential functionality."
-    },
-    {
-      "title": "Pixelated/Geometric Patterns",
-      "summary": "The brand name 'Pixel' itself evokes digital imagery, and some marketing materials incorporate pixelated or mosaic patterns. These elements subtly reinforce the digital, innovative, and image-focused nature of the product."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Echoes of Intelligence",
-      "summary": "Imagine a poem that speaks to the unseen currents of intelligence flowing through the device, anticipating whispers of need, composing perfect moments from fragmented light, and translating disparate voices into a harmonious understanding. It's about the quiet magic of AI, making the complex effortless."
-    },
-    {
-      "title": "Painting: Canvas of Personalization",
-      "summary": "Envision a painting where the user's individuality is the brushstroke, and the phone's interface is a dynamic canvas. Colors shift and blend, shapes adapt, creating a unique, evolving masterpiece that mirrors the owner's personality and preferences, a true extension of self."
-    },
-    {
-      "title": "Music: Harmonies of Integration",
-      "summary": "Picture a symphony where every Google service is a distinct instrument, seamlessly blending into a rich, cohesive melody. The Pixel acts as the conductor, orchestrating a fluid, intuitive experience where all elements work in perfect harmony, creating a delightful and efficient rhythm for daily life."
-    },
-    {
-      "title": "Metaphor: The Thoughtful Companion",
-      "summary": "The Pixel is a wise and empathetic companion, not just a tool. It's the friend who remembers the details, offers a helping hand before you ask, and ensures every memory is captured beautifully, always present but never intrusive, enriching your journey with subtle support."
-    },
-    {
-      "title": "Cinema: Stories Unveiled",
-      "summary": "Visualize a short film celebrating the untold stories and perspectives made visible through Pixel's camera. From capturing the true tones of diverse skin to empowering those with visual impairments to take their own photos, it's about democratizing the art of memory-making and revealing the world in its authentic, vibrant detail."
-    }
-  ]
-}
-```
-2026-03-16 11:26:27,968 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:26:27,976 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:26:27,991 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:26:27,998 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:26:27,999 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:26:28,374 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:26:49,297 — INFO — 🖼️  UI Layout change requested: ['brand_last_news']
-2026-03-16 11:26:49,309 — INFO — ✅ Layout pushed: ['brand_last_news'] → 200
-2026-03-16 11:26:49,680 — INFO — 🧠 Memory lookup requested: topic='news' (session default)
-2026-03-16 11:27:04,760 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:27:04,769 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:40:03,509 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:40:07,926 — INFO — 🚀 Launching sprint for Gucci (session session_id)
-2026-03-16 11:40:07,927 — INFO — Worker 1 (Identity) started for Gucci
-2026-03-16 11:40:07,930 — INFO — Worker 5 (Visual Identity) started for Gucci
-2026-03-16 11:40:07,930 — INFO — Worker 2 (Philosophy) started for Gucci
-2026-03-16 11:40:07,931 — INFO — Worker 3 (News) started for Gucci
-2026-03-16 11:40:07,931 — INFO — Worker 4 (Culture) started for Gucci
-2026-03-16 11:40:12,186 — INFO — 🧠 Memory lookup requested: topic='all' (session session_id)
-2026-03-16 11:40:19,324 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Gucci",
-    "primary_color": ["#000000", "#FFFFFF", "#8f1010", "#204030"]
-}
-```
-2026-03-16 11:40:19,338 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:40:19,347 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:40:19,356 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:40:19,700 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "",
-    "brand_mission": [
-        "Reinventing modern fashion with innovation.",
-        "Redefining luxury for the 21st century.",
-        "Blending heritage, craftsmanship, modern design.",
-        "Setting new standards in style, sustainability."
-    ],
-    "brand_common_enemy": [
-        "Fashion stagnation",
-        "Poor quality",
-        "Fleeting trends",
-        "Lack individuality"
-    ],
-    "style_keywords": [
-        "Eclectic",
-        "Bold",
-        "Maximalist",
-        "Romantic",
-        "Innovative",
-        "Craftsmanship"
-    ]
-}
-```
-2026-03-16 11:40:19,753 — INFO — Worker 3 raw output: ```json
-{
-  "brand_last_news": [
-    {
-      "title": "Gucci's "La Famiglia" Game",
-      "summary": "Gucci transformed its \"La Famiglia\" collection into an immersive game called \"La Famiglia: Mystery Unfolds.\" Developed with Google Gemini, the game invites players to solve a mystery at La Contessa's villa party, evolving Gucci's digital footprint beyond traditional e-commerce."
-    },
-    {
-      "title": "Demna Aims to Revive Gucci",
-      "summary": "Demna, Gucci's new creative director, is tasked with revitalizing the brand after a significant drop in sales. His appointment was a surprise to many, given his streetwear background, but he is now working to redefine Gucci's aesthetic and bring it back to prominence."
-    },
-    {
-      "title": "AI-Generated Ads Spark Debate",
-      "summary": "Gucci's new AI-generated ads for its \"Primavera\" campaign have caused a stir online, with some users criticizing them as \"cheap\" or \"slop.\" Despite the backlash, experts suggest this move positions Gucci at the intersection of fashion, art, and technology, aligning with its history of experimentation."
-    }
-  ],
-  "brand_viral_campaign": [
-    "Tom Ford's Provocative 90s Ads",
-    "Exquisite: Kubrick Film Tribute",
-    "La Famiglia: Mystery Game"
-  ]
-}
-```
-2026-03-16 11:40:19,753 — WARNING — ⚠️ JSON repair failed: Expecting ',' delimiter: line 4 column 26 (char 56)
-2026-03-16 11:40:19,753 — ERROR — ❌ Could not parse JSON from response (1278 chars)
-2026-03-16 11:40:19,779 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:21,237 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:40:21,245 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:40:21,246 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:40:21,254 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:40:23,281 — INFO — Worker 5 raw output: ```json
-{
-    "secondary_color": [
-        "#8f1010",
-        "#204030",
-        "#a11826",
-        "#0f403f",
-        "#BD9302",
-        "#0A6A56",
-        "#A82B11"
-    ],
-    "font_family": [
-        "Granjon Roman",
-        "Modern Sans-serif"
-    ],
-    "logo_description": "The Gucci logo features two interlocking capital 'G's, representing the initials of the founder, Guccio Gucci."
-}
-```
-2026-03-16 11:40:24,799 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:40:24,806 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:40:24,813 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:40:25,261 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:25,694 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:25,694 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:40:26,122 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:26,122 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:40:26,157 — INFO — Worker 4 raw output: ```json
-{
- "brand_strategy": [
-  {
-   "title": "Heritage & Modern Innovation",
-   "summary": "Gucci consistently balances its rich Italian heritage and traditional craftsmanship with modern innovation, digital experimentation, and contemporary cultural relevance to maintain its luxury positioning."
-  },
-  {
-   "title": "Digital-First Engagement",
-   "summary": "The brand heavily invests in its online presence, social media mastery, and innovative digital marketing campaigns, including augmented reality experiences, to engage a global audience, especially younger demographics."
-  },
-  {
-   "title": "Cultural Relevance & Inclusivity",
-   "summary": "Gucci aims for cultural relevance through bold advertising campaigns, diverse casting, strategic influencer partnerships, and addressing social issues like sustainability and diversity, fostering a culture of inclusivity."
-  },
-  {
-   "title": "Artistic Collaboration & Patronage",
-   "summary": "Gucci frequently collaborates with artists, musicians, and other creative entities, integrating art into its campaigns, products, and even establishing platforms for artistic expression and cultural dialogue."
-  }
- ],
- "brand_symbols": [
-  {
-   "title": "Interlocking Double G",
-   "summary": "The iconic 'GG' logo represents the initials of founder Guccio Gucci, symbolizing the brand's legacy, luxury, and instantly recognizable identity across all product categories."
-  },
-  {
-   "title": "Green-Red-Green Web Stripe",
-   "summary": "This distinctive stripe, inspired by equestrian saddle girths, is a highly recognized motif that also pays homage to Italian colors and signifies the brand's heritage."
-  },
-  {
-   "title": "Gucci Horsebit Motif",
-   "summary": "A double-ring and bar design, the Horsebit is directly inspired by equestrianism and is a prominent emblem appearing on loafers, bags, and jewelry, connecting to the brand's origins."
-  },
-  {
-   "title": "Flora Print Pattern",
-   "summary": "The multi-colored botanical Flora print, originally designed for a silk scarf for Grace Kelly, embodies elegance, nature, and artistic flair within Gucci's aesthetic."
-  },
-  {
-   "title": "The Gucci Bee",
-   "summary": "Introduced in the 1970s and revived by Alessandro Michele, the bee symbol represents nobility, aristocracy, and often appears as an embellished detail on various products."
-  }
- ],
- "brand_creative_angle": [
-  {
-   "title": "Poetry: Evocative Narratives & Fantasy",
-   "summary": "Gucci crafts evocative narratives that blend historical romance with contemporary fantasy, inviting consumers into a dreamlike world of self-expression and individual style. The brand's storytelling often uses symbolic imagery and rich emotional depth, akin to poetic verse."
-  },
-  {
-   "title": "Painting: Surreal Visual Artistry",
-   "summary": "Gucci's visual campaigns often possess a surreal and painterly quality, utilizing vibrant colors, intricate compositions, and artistic collaborations to create striking, imaginative tableaux that blur the lines between fashion and fine art."
-  },
-  {
-   "title": "Music: Rhythmic Cultural Resonance",
-   "summary": "Deeply embedded in popular culture, particularly hip-hop, Gucci's brand name and aesthetic resonate rhythmically in music, symbolizing aspiration and luxury. The brand also uses music to set the mood and narrative in its campaigns."
-  },
-  {
-   "title": "Metaphor: Transformative Identity Play",
-   "summary": "Gucci serves as a metaphor for transformative identity, allowing individuals to express themselves through a blend of historical grandeur and rebellious modernity. Its designs and campaigns often play with dualities, representing a fluid and evolving sense of self."
-  },
-  {
-   "title": "Cinema: Grand Cinematic Storytelling",
-   "summary": "Gucci employs grand cinematic storytelling in its advertising, drawing inspiration from classic films and directors to create immersive, star-studded campaigns that evoke Hollywood glamour and dramatic narratives."
-  }
- ]
-}
-```
-2026-03-16 11:40:26,575 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:26,575 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:40:27,015 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:27,015 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:40:27,435 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:40:27,696 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:40:27,704 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:40:27,722 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:40:27,731 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:40:27,731 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:40:28,115 — INFO — 🧠 Memory lookup requested: topic='all' (session session_id)
-2026-03-16 11:40:55,482 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:40:55,490 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:41:00,232 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:00,830 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:01,332 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:01,933 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:02,434 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:02,937 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:03,416 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:03,890 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:04,386 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:04,866 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:05,479 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:05,978 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:06,487 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:06,994 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:07,502 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:07,985 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:08,448 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:08,937 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:09,404 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:09,886 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:10,376 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:10,905 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:11,412 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:11,892 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:12,368 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:12,839 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:13,297 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:13,811 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:14,360 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:14,829 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:15,351 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:15,820 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:16,313 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:16,810 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:17,302 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:17,809 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:18,347 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:18,833 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:19,349 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:19,817 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:20,242 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:41:23,341 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:41:23,351 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 11:47:16,726 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:47:27,022 — INFO — 🚀 Launching sprint for Louis Vuitton (session default)
-2026-03-16 11:47:27,023 — INFO — Worker 1 (Identity) started for Louis Vuitton
-2026-03-16 11:47:27,024 — INFO — Worker 5 (Visual Identity) started for Louis Vuitton
-2026-03-16 11:47:27,024 — INFO — Worker 2 (Philosophy) started for Louis Vuitton
-2026-03-16 11:47:27,025 — INFO — Worker 3 (News) started for Louis Vuitton
-2026-03-16 11:47:27,025 — INFO — Worker 4 (Culture) started for Louis Vuitton
-2026-03-16 11:47:27,666 — ERROR — Worker 2 failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because controlled generation is not supported with Search tool. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}
-2026-03-16 11:47:27,667 — ERROR — Worker 3 failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because controlled generation is not supported with Search tool. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}
-2026-03-16 11:47:27,669 — ERROR — Worker 4 failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because controlled generation is not supported with Search tool. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}
-2026-03-16 11:47:27,684 — ERROR — Worker 5 failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because controlled generation is not supported with Search tool. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}
-2026-03-16 11:47:27,684 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:47:27,688 — ERROR — Worker 1 failed: 400 INVALID_ARGUMENT. {'error': {'code': 400, 'message': 'Unable to submit request because controlled generation is not supported with Search tool. Learn more: https://cloud.google.com/vertex-ai/generative-ai/docs/model-reference/gemini', 'status': 'INVALID_ARGUMENT'}}
-2026-03-16 11:47:27,690 — INFO — ✅ Notification pushed for session default
-2026-03-16 11:47:28,062 — INFO — 🧠 Memory lookup requested: topic='all' (session default)
-2026-03-16 11:47:28,437 — INFO — 🧠 Memory lookup requested: topic='identity' (session default)
-2026-03-16 11:47:28,828 — INFO — 🧠 Memory lookup requested: topic='strategy' (session default)
-2026-03-16 11:47:29,233 — INFO — 🧠 Memory lookup requested: topic='campaigns' (session default)
-2026-03-16 11:48:45,648 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:48:56,527 — INFO — 🚀 Launching sprint for Louis Vuitton (session session_id)
-2026-03-16 11:48:56,528 — INFO — Worker 1 (Identity) started for Louis Vuitton
-2026-03-16 11:48:56,530 — INFO — Worker 5 (Visual Identity) started for Louis Vuitton
-2026-03-16 11:48:56,531 — INFO — Worker 2 (Philosophy) started for Louis Vuitton
-2026-03-16 11:48:56,531 — INFO — Worker 3 (News) started for Louis Vuitton
-2026-03-16 11:48:56,531 — INFO — Worker 4 (Culture) started for Louis Vuitton
-2026-03-16 11:49:08,955 — INFO — Worker 3 raw output: ```json
+2026-03-18 17:17:47,688 — INFO — Worker 3 raw output: ```json
 {
     "brand_last_news": [
         {
-            "title": "LV Fall-Winter 2026 Louvre Show",
-            "summary": "Nicolas Ghesquière presented Louis Vuitton's Fall-Winter 2026 collection at the Louvre, featuring a 'mountain' runway and a 'Super Nature' theme with folklore-inspired designs."
+            "title": "Switch 2 Handheld Boost Mode",
+            "summary": "Nintendo has released a firmware update for Switch 1 and 2, introducing a \"Handheld Boost Mode\" for Switch 2, allowing compatible software to run as if in TV Mode while in handheld. [1]"
         },
         {
-            "title": "J-Hope LV BUTTERSOFT Sneaker",
-            "summary": "KAWS unveiled J-Hope's Louis Vuitton LV BUTTERSOFT sneaker collaboration on Instagram, showcasing a rose-pink suede design reflecting Pharrell Williams' creative direction, with a global launch slated for May."
+            "title": "Pokémon XD now on Switch 2",
+            "summary": "The classic GameCube title, Pokémon XD: Gale of Darkness, is now available to play on Nintendo Switch 2. [2, 4]"
         },
         {
-            "title": "LV Settles Money Laundering Case",
-            "summary": "Louis Vuitton's Dutch arm will pay $595,000 to settle a money laundering case."
+            "title": "Mario Tennis Fever announced",
+            "summary": "Mario Tennis Fever has been announced for Nintendo Switch 2, with a release date set for February 12, 2026. [9]"
         }
     ],
     "brand_viral_campaign": [
-        "Messi, Ronaldo World Cup Luggage",
-        "Louis Vuitton x Kusama Art",
-        "Viral LV Snow Mountain CGI"
+        "Now Playing With Power!",
+        "Wii Would Like To Play",
+        "Switch and Play Anywhere"
     ]
 }
 ```
-2026-03-16 11:49:12,108 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Louis Vuitton",
-    "primary_color": ["#000000", "#453630", "#9B7E4B"]
-}
-```
-2026-03-16 11:49:12,124 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:49:12,131 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:49:12,139 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:49:12,540 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:49:13,656 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:49:13,662 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:49:13,663 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:49:14,536 — INFO — Worker 2 raw output: ```json
-{
-  "brand_slogan": "Crafting dreams, inspiring global journeys.",
-  "brand_mission": [
-    "Representing refined Western Art de Vivre.",
-    "Kindling dreams and fantasy worldwide.",
-    "Blending heritage with continuous, bold innovation.",
-    "Delivering excellence through superior master craftsmanship."
-  ],
-  "brand_common_enemy": [
-    "Poor quality products.",
-    "Fleeting fashion trends.",
-    "Lack of exclusivity.",
-    "Uninspired, dull design."
-  ],
-  "style_keywords": [
-    "Luxury",
-    "Craftsmanship",
-    "Innovation",
-    "Heritage",
-    "Travel",
-    "Elegance"
-  ]
-}
-```
-2026-03-16 11:49:16,058 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:49:16,067 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:49:16,068 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:49:16,127 — INFO — Worker 5 raw output: ```json
-{
-    "secondary_color": ["#3d302d", "#92784e", "#592a15", "#ffcc99"],
-    "font_family": ["Futura", "Bespoke (for LV Monogram, inspired by Roman fonts and Georgia typeface)"],
-    "logo_description": "The Louis Vuitton logo primarily features the 'LV' monogram, an italicized, serif, capitalized 'L' positioned slightly to the left and beneath a capitalized 'V', symbolizing the founder's initials. [2, 4] This monogram is often integrated into a larger pattern that includes Japanese-inspired floral motifs, stars, and geometric shapes, originally designed to prevent counterfeiting. [1, 5]"
-}
-```
-2026-03-16 11:49:17,421 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "Heritage & Craftsmanship",
-      "summary": "Louis Vuitton strategically leverages its rich history and artisanal expertise, emphasizing the meticulous craftsmanship and skilled labor behind each product. This narrative creates deep emotional connections with consumers and justifies the brand's premium pricing and enduring value."
-    },
-    {
-      "title": "Exclusivity & Aspiration",
-      "summary": "The brand maintains an aura of desirability and luxury through controlled production, strategic distribution exclusively via company-owned boutiques and its official website, and a strict no-discount policy. This approach fosters a sense of scarcity, appealing to affluent clients while also drawing aspirational buyers seeking a symbol of status."
-    },
-    {
-      "title": "Cultural Integration & Innovation",
-      "summary": "Louis Vuitton actively engages with contemporary art, music, and pop culture through high-profile collaborations with renowned artists, designers, and celebrities. This strategy keeps the brand culturally relevant, attracts diverse audiences, and positions Louis Vuitton at the intersection of fashion and broader cultural movements, often amplified through digital channels."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "LV Monogram",
-      "summary": "The iconic interlocking 'L' and 'V' initials, designed by Georges Vuitton in 1896, serve as the brand's most recognizable emblem. It is a universal symbol of luxury, tradition, and sophistication, often appearing on various products and representing the founder's legacy."
-    },
-    {
-      "title": "Monogram Flower (Quatrefoil)",
-      "summary": "This four-petaled blossom or stylized four-leaf clover motif, introduced alongside the LV Monogram, symbolizes joy, protection, and the absolute. It is an integral part of the Monogram Canvas, contributing to the brand's unique identity and aesthetic."
-    },
-    {
-      "title": "Four-Point Star",
-      "summary": "Often found within a diamond shape, this symbol represents passion and fortune within the Louis Vuitton iconography. It is part of the original motifs designed by Georges Vuitton, drawing inspiration from various cultural elements."
-    },
-    {
-      "title": "Damier Canvas",
-      "summary": "The distinctive checkerboard pattern, introduced in 1888, predates the Monogram and was initially created to combat counterfeiting. Available in variations like Damier Ebene, Azur, and Graphite, it signifies understated elegance, durability, and the brand's heritage of innovative design."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Journey's Elegant Ode",
-      "summary": "Louis Vuitton's narrative evokes a poetic sense of journey and discovery, where each meticulously crafted piece becomes a silent companion on life's grand adventures. The brand's storytelling carries not just possessions, but also aspirations and memories across time and diverse landscapes."
-    },
-    {
-      "title": "Painting: Craftsmanship's Canvas",
-      "summary": "The brand's iconic patterns, such as the Monogram and Damier, function as a visual language, akin to a painter's signature style. Collaborations with artists transform products into wearable art, blurring the lines between fashion and fine art, making each item a stroke on a larger cultural canvas."
-    },
-    {
-      "title": "Music: Aspiration's Rhythmic Pulse",
-      "summary": "Louis Vuitton's presence in cultural moments and its collaborations with influential figures create a rhythmic pulse in the luxury world. Its campaigns often resonate with a sophisticated, aspirational melody, forming a soundtrack to modern elegance and timeless allure."
-    },
-    {
-      "title": "Metaphor: Trunks of Timeless Dreams",
-      "summary": "Originating from trunk-making, Louis Vuitton metaphorically offers 'trunks of dreams,' where each product is a vessel for personal aspirations, memories, and future journeys. This symbolizes a curated life of luxury, enduring style, and the unlocking of new experiences."
-    },
-    {
-      "title": "Cinema: Grand Narratives Unfolding",
-      "summary": "Louis Vuitton's campaigns frequently employ cinematic storytelling, presenting products within grand narratives of exploration, romance, and self-discovery. The brand itself becomes a character, weaving its rich heritage into compelling visual sagas that captivate and inspire audiences globally."
-    }
-  ]
-}
-```
-2026-03-16 11:49:17,643 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:49:17,650 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:49:17,655 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:49:18,059 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:49:18,944 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:49:18,953 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:49:18,971 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:49:18,980 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:49:18,980 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:49:19,387 — INFO — 🧠 Memory lookup requested: topic='all' (session session_id)
-2026-03-16 11:49:41,824 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:49:41,835 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:49:48,460 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:49:49,020 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:49:49,027 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 11:56:27,046 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 11:56:36,256 — INFO — 🚀 Launching sprint for Loewe (session session_id)
-2026-03-16 11:56:36,257 — INFO — Worker 1 (Identity) started for Loewe
-2026-03-16 11:56:36,258 — INFO — Worker 5 (Visual Identity) started for Loewe
-2026-03-16 11:56:36,259 — INFO — Worker 2 (Philosophy) started for Loewe
-2026-03-16 11:56:36,259 — INFO — Worker 3 (News) started for Loewe
-2026-03-16 11:56:36,259 — INFO — Worker 4 (Culture) started for Loewe
-2026-03-16 11:56:43,168 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "LOEWE",
-    "primary_color": ["#000000", "#FFFFFF"]
-}
-```
-2026-03-16 11:56:43,185 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 11:56:43,193 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 11:56:43,203 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:56:43,914 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:56:46,937 — INFO — Worker 2 raw output: ```json
-{
-  "brand_slogan": "Past, Present and Future",
-  "brand_mission": [
-    "Celebrate craft, creativity, Spanish heritage.",
-    "Blend tradition with modern, innovative design.",
-    "Obsessive focus on leather expertise.",
-    "Support contemporary art and culture."
-  ],
-  "brand_common_enemy": [
-    "Mass production",
-    "Fleeting trends",
-    "Lack of quality",
-    "Cultural superficiality"
-  ],
-  "style_keywords": [
-    "Craftsmanship",
-    "Modernity",
-    "Spanish Heritage",
-    "Artistic",
-    "Luxury",
-    "Innovative"
-  ]
-}
-```
-2026-03-16 11:56:48,457 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 11:56:48,464 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 11:56:48,464 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 11:56:49,084 — INFO — Worker 3 raw output: ```json
-{
-    "brand_last_news": [
-        {
-            "title": "New Era in Paris",
-            "summary": "Loewe's Autumn/Winter 2026/2027 collection, presented by new creative directors Jack McCollough and Lazaro Hernandez at Paris Fashion Week, unveiled their first menswear pieces and a new creative direction for the brand."
-        },
-        {
-            "title": "Prado Museum Uniforms Designed",
-            "summary": "Loewe has designed new uniforms for the restoration team of the Prado Museum, showcasing a unique collaboration between fashion and cultural heritage."
-        },
-        {
-            "title": "2026 Craft Prize Finalists",
-            "summary": "Loewe has announced the finalists for its 2026 Craft Prize, highlighting the brand's continued commitment to celebrating excellence in craftsmanship."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Loewe's TikTok Dominance",
-        "Decades of Confusion Film",
-        "Dame Maggie Smith Campaign"
-    ]
-}
-```
-2026-03-16 11:56:50,603 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 11:56:50,609 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 11:56:50,610 — INFO — Worker 3 (News) completed ✅
-2026-03-16 11:56:51,988 — INFO — Worker 5 raw output: ```json
-{
-  "secondary_color": [],
-  "font_family": ["1937 Pegasus"],
-  "logo_description": "The Loewe logo comprises two main elements: a wordmark and an Anagram. The wordmark, \"LOEWE,\" is presented in an elegant, custom serif typeface inspired by Berthold Wolpe's 1937 Pegasus font. The Anagram, also known as the \"four-L\" emblem, features four intertwined calligraphic L's, originally designed by Vicente Vela in 1970 and later streamlined. It symbolizes the brand's heritage in Spanish craftsmanship, representing the weaving, looping, and folding techniques of leather artisans, and is inspired by branding irons used for leather."
-}
-```
-2026-03-16 11:56:53,504 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 11:56:53,510 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 11:56:53,517 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:56:53,952 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:56:54,435 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
-2026-03-16 11:56:54,435 — INFO — 🧠 Debounce: duplicate call for 'identity' ignored (within 2.0s)
-2026-03-16 11:56:55,521 — INFO — Worker 4 raw output: ```json
-{
-  "brand_strategy": [
-    {
-      "title": "Craftsmanship & Heritage Preservation",
-      "summary": "Loewe's strategy is deeply rooted in its 1846 origins as a Spanish leather collective, emphasizing meticulous hand-sewing, premium materials, and the preservation of artisanal techniques. This commitment is reinforced through initiatives like the Loewe Foundation Craft Prize, celebrating global craftsmanship."
-    },
-    {
-      "title": "Art & Culture Integration",
-      "summary": "The brand actively integrates art and culture into its identity, transforming stores into cultural hubs and collaborating with renowned artists and studios. This approach, championed by Jonathan Anderson, blurs the lines between fashion, fine art, photography, and design, positioning Loewe as a significant cultural contributor."
-    },
-    {
-      "title": "Modernity & Innovation Forward",
-      "summary": "Loewe balances its rich heritage with a forward-thinking vision, embracing contemporary design, experimental silhouettes, and innovative campaigns. Under Jonathan Anderson's creative direction, the brand has been revitalized to be relevant and exciting, pushing boundaries in luxury fashion while maintaining its core values."
-    },
-    {
-      "title": "Luxury & Exclusivity Positioning",
-      "summary": "Loewe maintains its position as a high-quality luxury brand by attracting discerning consumers who value exclusivity, superior materials, and timeless design. Its strategic pricing and distribution through exclusive boutiques reinforce an image of opulence and refinement."
-    }
-  ],
-  "brand_symbols": [
-    {
-      "title": "The Anagram (Four L's)",
-      "summary": "The Anagram, consisting of four intertwined 'L's, is Loewe's most iconic visual symbol, representing the intricate weaving, looping, and folding gestures of leather artisans. Originally designed by Vicente Vela and later refined, it reflects the brand's heritage and craftsmanship, inspired by cattle branding irons."
-    },
-    {
-      "title": "Premium Leather Materials",
-      "summary": "Leather itself serves as a fundamental symbol of Loewe's identity, embodying its historical roots in Spanish leather craftsmanship and unwavering commitment to quality. The brand's focus on sourcing the finest leathers and meticulous leatherworking is central to its luxurious appeal."
-    },
-    {
-      "title": "Loewe Wordmark Typography",
-      "summary": "The classic serif wordmark, updated in collaboration with M/M (Paris), visually evokes 19th-century typography and pays homage to the brand's origins in Madrid. This design choice reinforces Loewe's deep-seated heritage and traditional excellence."
-    },
-    {
-      "title": "The Puzzle Bag",
-      "summary": "The Puzzle Bag, an iconic creation under Jonathan Anderson, symbolizes Loewe's innovative design ethos and its rich history of leatherwork. Its geometric silhouette and impeccable craftsmanship have made it a recognizable cultural symbol, blending modernity with artisanal skill."
-    }
-  ],
-  "brand_creative_angle": [
-    {
-      "title": "Poetry: Artisanal Narrative",
-      "summary": "Loewe's narrative often takes a poetic form, describing its dedication to craftsmanship as an 'ode' and its legacy as 'rich artisanal.' This angle emphasizes the lyrical beauty and emotional depth embedded in the creation of each piece, celebrating the human touch and enduring value."
-    },
-    {
-      "title": "Painting: Visual Artistry",
-      "summary": "The brand's connection to painting is evident through its collaborations with artists, its transformation of store windows into art installations, and Jonathan Anderson's inspiration from diverse art forms. Loewe's campaigns frequently feature striking, art-inspired visuals, creating a dialogue between fashion and fine art."
-    },
-    {
-      "title": "Music: Harmonious Cultural Blend",
-      "summary": "Loewe's ability to create a 'vibrant chemistry' by blending tradition with innovation and engaging with diverse contemporary cultures can be likened to the harmonious composition of music. The brand's distinct 'vibe' resonates widely, much like a well-composed piece of music that appeals to a broad audience."
-    },
-    {
-      "title": "Metaphor: Fusion of Eras",
-      "summary": "Loewe serves as a powerful metaphor for the seamless fusion of past and present, tradition and innovation. The brand's identity, particularly through the Anagram, metaphorically represents the interwoven materials and artistic finesse that define its unique 'world-building' approach."
-    },
-    {
-      "title": "Cinema: Immersive Storytelling",
-      "summary": "Loewe engages with cinema through collaborations, such as those with Studio Ghibli for collections inspired by animated films. Jonathan Anderson's runway shows are often described as surreal and theatrical, offering immersive experiences akin to cinematic storytelling."
-    }
-  ]
-}
-```
-2026-03-16 11:56:57,052 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 11:56:57,060 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 11:56:57,076 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 11:56:57,082 — INFO — ✅ Notification pushed for session session_id
-2026-03-16 11:56:57,082 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 11:56:57,527 — INFO — 🧠 Memory lookup requested: topic='all' (session session_id)
-2026-03-16 11:57:15,074 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
-2026-03-16 11:57:15,082 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
-2026-03-16 11:57:20,545 — INFO — 🧠 Memory lookup requested: topic='images' (session session_id)
-2026-03-16 11:57:31,574 — INFO — 🖼️  UI Layout change requested: ['all']
-2026-03-16 11:57:31,579 — INFO — ✅ Layout pushed: ['all'] → 200
-2026-03-16 15:22:19,300 — INFO — 🚀 Starting Mimesis MCP Server (stdio)...
-2026-03-16 15:22:32,622 — INFO — 🚀 Launching sprint for Nike (session )
-2026-03-16 15:22:32,625 — INFO — Worker 1 (Identity) started for Nike
-2026-03-16 15:22:32,630 — INFO — Worker 5 (Visual Identity) started for Nike
-2026-03-16 15:22:32,631 — INFO — Worker 2 (Philosophy) started for Nike
-2026-03-16 15:22:32,632 — INFO — Worker 3 (News) started for Nike
-2026-03-16 15:22:32,634 — INFO — Worker 4 (Culture) started for Nike
-2026-03-16 15:22:38,098 — INFO — Worker 1 raw output: ```json
-{
-    "brand_name": "Nike, Inc.",
-    "primary_color": ["#000000", "#FFFFFF"]
-}
-```
-2026-03-16 15:22:38,113 — INFO — ✅ State synced (agent + ADK): ['brand_name', 'primary_color']
-2026-03-16 15:22:38,121 — INFO — ✅ Layout pushed: ['brand_name', 'primary_color'] → 200
-2026-03-16 15:22:40,132 — INFO — ✅ Notification pushed for session 
-2026-03-16 15:22:40,240 — INFO — Worker 3 raw output: ```json
-{
-    "brand_last_news": [
-        {
-            "title": "Barclays Upgrades Nike Stock",
-            "summary": "Barclays upgraded Nike stock to 'overweight' on March 11, 2026, citing a clear North America recovery, stronger wholesale bookings, and a refreshed product pipeline. The bank also raised its price target to $73 from $64, suggesting the company may be near a fundamental bottom."
-        },
-        {
-            "title": "Nike Partners Texas Athletes",
-            "summary": "On March 13, 2026, Nike announced a partnership with 16 top University of Texas athletes through its new Blue Ribbon Elite NIL Program."
-        },
-        {
-            "title": "Air Force 1 Low Update",
-            "summary": "Nike is releasing a new Air Force 1 Low 'Black Patent' in Summer 2026, featuring a high-gloss finish. This follows other Air Force 1 updates in early 2026."
-        }
-    ],
-    "brand_viral_campaign": [
-        "Just Do It",
-        "Dream Crazy",
-        "So Win"
-    ]
-}
-```
-2026-03-16 15:22:40,519 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:40,527 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:40,527 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:40,899 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:40,906 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:40,906 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:41,331 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:41,346 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:41,346 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:41,734 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:41,740 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:41,740 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:41,756 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
-2026-03-16 15:22:41,762 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
-2026-03-16 15:22:41,763 — INFO — Worker 3 (News) completed ✅
-2026-03-16 15:22:42,115 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:42,122 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:42,122 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:42,495 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:42,503 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:42,503 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:42,670 — INFO — Worker 2 raw output: ```json
-{
-    "brand_slogan": "Just Do It",
-    "brand_mission": [
-        "Bring inspiration to every world athlete.",
-        "Bring innovation to every world athlete.",
-        "Empower all people with a body.",
-        "Move the world forward through sport."
-    ],
-    "brand_common_enemy": [
-        "Personal physical limits",
-        "Inactivity and inertia",
-        "Lack of innovation",
-        "Social inequality"
-    ],
-    "style_keywords": [
-        "Innovative",
-        "Empowering",
-        "Athletic",
-        "Inspirational",
-        "Performance-driven",
-        "Bold"
-    ]
-}
-```
-2026-03-16 15:22:42,877 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:42,885 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:42,885 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:43,285 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:43,292 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:43,292 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:43,694 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:43,702 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:43,702 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:44,140 — INFO — Worker 5 raw output: ```json
-{
- "secondary_color": [
-  "#ea553b",
-  "#E5E5E5",
-  "#111111"
- ],
- "font_family": [
-  "Futura Bold Condensed",
-  "Trade Gothic Bold Condensed",
-  "Helvetica",
-  "Nike TG"
- ],
- "logo_description": "The Nike logo, known as the 'Swoosh,' is a simple, curved checkmark design inspired by the wing of the Greek goddess of victory, Nike, symbolizing speed, movement, and athleticism."
-}
-```
-2026-03-16 15:22:44,142 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:44,157 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:44,157 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:44,189 — INFO — ✅ State synced (agent + ADK): ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords']
-2026-03-16 15:22:44,196 — INFO — ✅ Layout appended: ['brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords'] → 200
-2026-03-16 15:22:44,197 — INFO — Worker 2 (Philosophy) completed ✅
-2026-03-16 15:22:45,657 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
-2026-03-16 15:22:45,665 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
-2026-03-16 15:22:47,673 — INFO — ✅ Notification pushed for session 
-2026-03-16 15:22:48,051 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:48,058 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:48,059 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:48,485 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:48,494 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:48,494 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:48,885 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:48,891 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:48,892 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:49,262 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:49,269 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:49,269 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:49,648 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:49,666 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:49,667 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:50,045 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:50,052 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:50,052 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:50,426 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:50,434 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:50,434 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:50,835 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:50,842 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:50,843 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:51,227 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:51,239 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:51,239 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:51,624 — INFO — 🧠 Memory lookup requested: topic='identity' (session )
-2026-03-16 15:22:51,631 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:51,631 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:54,249 — INFO — Worker 4 raw output: ```json
+2026-03-18 17:17:48,584 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:48,603 — INFO — ✅ State synced (agent + ADK): ['secondary_color', 'font_family', 'logo_description']
+2026-03-18 17:17:48,612 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:48,620 — INFO — ✅ Layout appended: ['secondary_color', 'font_family', 'logo_description'] → 200
+2026-03-18 17:17:49,197 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:49,212 — INFO — ✅ State synced (agent + ADK): ['brand_last_news', 'brand_viral_campaign']
+2026-03-18 17:17:49,218 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:49,226 — INFO — ✅ Layout appended: ['brand_last_news', 'brand_viral_campaign'] → 200
+2026-03-18 17:17:49,226 — INFO — Worker 3 (News) completed ✅
+2026-03-18 17:17:50,639 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:50,652 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:17:51,408 — INFO — Worker 4 raw output: ```json
 {
     "brand_strategy": [
         {
-            "title": "Inspire Through Storytelling",
-            "summary": "Nike's core strategy is to sell a feeling rather than just a product, focusing on emotional narratives of human struggle, perseverance, and triumph. This approach casts the customer as the hero of their own story, fostering a deep emotional connection and reinforcing the 'Just Do It' philosophy."
+            "title": "Joyful, Innovative Experiences",
+            "summary": "Nintendo's core strategic direction is to create new, unique entertainment that brings smiles to faces and delivers fun and happiness to a broad audience. This prioritizes emotional connection and innovative experiences over purely technological advancements."
         },
         {
-            "title": "Relentless Product Innovation",
-            "summary": "Nike maintains its market leadership through a continuous pursuit of performance innovation, integrating marketing with research and development to create cutting-edge technologies like Air Max and Flyknit. This commitment to advanced product design keeps the brand relevant and exciting for consumers."
+            "title": "Universal, Family-Friendly Appeal",
+            "summary": "Nintendo aims to engage a multi-generational audience, including children, parents, and casual gamers, fostering a sense of community through shared play. Their commitment to family-friendly content and strict guidelines ensures a welcoming and inclusive gaming environment."
         },
         {
-            "title": "Strategic Athlete Partnerships",
-            "summary": "The brand strategically aligns with high-profile athletes and cultural figures, transforming sponsorships into authentic cultural statements that embody determination and excellence. These partnerships extend Nike's influence across sports, fashion, and music, creating strong brand loyalty and expanding its global reach."
+            "title": "Iconic IP & Storytelling",
+            "summary": "A significant pillar involves leveraging memorable characters and rich, cross-media narratives to build strong emotional connections and ensure brand longevity. These iconic franchises extend beyond games into merchandise, theme parks, and films, deepening fan engagement."
         },
         {
-            "title": "Champion Inclusivity & Community",
-            "summary": "Nike promotes a broad vision of athleticism, asserting that 'if you have a body, you are an athlete,' and actively builds a sense of belonging through community engagement. The brand emphasizes diversity, equity, and sustainability, making these values central to its corporate identity and consumer outreach."
+            "title": "Hardware-Software Integration",
+            "summary": "Nintendo differentiates itself by offering unique gaming experiences through proprietary hardware-software integration, such as the hybrid design of the Nintendo Switch. This strategy emphasizes innovative gameplay and accessibility, distinguishing them from competitors."
         }
     ],
     "brand_symbols": [
         {
-            "title": "The Iconic Swoosh",
-            "summary": "The Swoosh logo is a simple yet powerful symbol representing motion, speed, and victory, inspired by the wing of the Greek goddess Nike. Its widespread recognition allows it to stand alone without the brand name, signifying aspiration and athletic excellence."
+            "title": "Mario",
+            "summary": "The iconic plumber in red cap and blue overalls, Mario symbolizes adventure, optimism, and the pure joy of gaming, serving as Nintendo's most recognizable ambassador."
         },
         {
-            "title": "Just Do It Tagline",
-            "summary": "The 'Just Do It' slogan is a universally recognized call to action that embodies determination, perseverance, and the courage to overcome challenges. It functions as a powerful motivational phrase that resonates with both elite athletes and everyday individuals."
+            "title": "Link",
+            "summary": "The courageous hero from The Legend of Zelda, often depicted in a green tunic, represents exploration, heroism, and the spirit of epic quests."
         },
         {
-            "title": "Air Jordan Jumpman",
-            "summary": "The 'Jumpman' logo, featuring Michael Jordan's silhouette, symbolizes unparalleled athletic aspiration, excellence, and the pinnacle of basketball performance. It represents a groundbreaking partnership that revolutionized the sneaker industry and sports marketing."
+            "title": "Pikachu",
+            "summary": "The electric-type Pokémon with yellow cheeks, Pikachu embodies companionship, loyalty, and the widespread appeal of the Pokémon universe, recognized globally."
         },
         {
-            "title": "Signature Shoe Silhouettes",
-            "summary": "Specific shoe designs like the Air Max, Air Force 1, and Dunk have transcended their original athletic purpose to become cultural icons in fashion and lifestyle. These silhouettes are instantly recognizable and carry significant cultural weight beyond their functional utility."
+            "title": "Nintendo Logo",
+            "summary": "The distinctive red wordmark, often set against a white background, evokes excitement, energy, and a long history of quality and innovation in entertainment."
         },
         {
-            "title": "Dynamic Color Palette",
-            "summary": "While not a single symbol, Nike's consistent use of a dynamic color palette, particularly red, white, and black, conveys passion, energy, nobility, and strength. These colors are frequently employed in branding and product design to evoke strong emotional responses."
+            "title": "Triforce",
+            "summary": "A golden, three-pronged sacred relic from The Legend of Zelda, symbolizing the virtues of Power, Wisdom, and Courage, and representing balance and destiny within Nintendo's lore."
         }
     ],
     "brand_creative_angle": [
         {
-            "title": "Ode to Effort",
-            "summary": "Nike's brand essence can be captured in poetry that celebrates the raw, unglamorous effort behind achievement, the solitude of training, and the internal dialogue of pushing limits. It would speak to the universal human experience of striving, resilience, and the quiet dignity found in the pursuit of personal greatness, echoing the brand's focus on struggle and triumph."
+            "title": "Poetry: Epic Journeys",
+            "summary": "Nintendo's brand narrative can be expressed through poetry as an epic journey, where each game is a stanza, and every player's experience forms a unique verse. It speaks of courage in the face of Bowser's castles, the quiet wonder of exploring Hyrule, and the joyful rhythm of racing through Rainbow Road, all culminating in a shared ode to play and imagination."
         },
         {
-            "title": "Dynamic Human Form",
-            "summary": "Visual art inspired by Nike would depict the human body in dynamic motion, emphasizing power, grace, and the fluidity of athletic movement through bold strokes and vibrant colors. It could range from abstract representations of speed and energy to realistic portrayals of athletes mid-action, highlighting the aesthetic beauty of sport and the innovative design of Nike's products."
+            "title": "Painting: Vibrant Dreamscapes",
+            "summary": "Visually, Nintendo's world is a vibrant dreamscape, painted with bold, primary colors and whimsical designs. Imagine a canvas where the lush greens of the Mushroom Kingdom meet the stark, beautiful landscapes of Hyrule, rendered with a playful, almost impressionistic brushstroke that emphasizes wonder and accessible artistry over photorealism."
         },
         {
-            "title": "Rhythmic Drive, Anthem",
-            "summary": "Nike's musical angle is characterized by empowering anthems and rhythmic beats that motivate and energize, often drawing from hip-hop and pop culture collaborations. This music would serve as a soundtrack to personal journeys of overcoming challenges, reflecting the brand's deep ties to musicians who influence fashion and lifestyle."
+            "title": "Music: Nostalgic Harmonies",
+            "summary": "Nintendo's music is a symphony of nostalgic harmonies and adventurous melodies, instantly recognizable and deeply embedded in pop culture. It's the 8-bit fanfare of a discovered secret, the soaring orchestral themes of a heroic triumph, and the catchy tunes that define entire generations of gaming, creating an emotional soundtrack to countless memories."
         },
         {
-            "title": "Journey, Not Destination",
-            "summary": "The brand serves as a powerful metaphor for life's continuous journey of self-improvement and the courage to take the first step, embodying the spirit of 'Just Do It' as a philosophy for tackling any challenge. It suggests that the act of striving and the process of overcoming obstacles are as significant as the ultimate achievement."
+            "title": "Metaphor: The Infinite Playground",
+            "summary": "Metaphorically, Nintendo is an infinite playground—a boundless space where rules are bent, creativity thrives, and every corner holds a new discovery. It's a place where adults can rediscover childhood wonder, and children can embark on their first grand adventures, fostering connection and shared joy across all ages and experiences."
         },
         {
-            "title": "Epic Tales of Triumph",
-            "summary": "Nike's cinematic presence involves epic narratives of athletes overcoming adversity, inspirational documentaries, and strategic product integration in films that embody ambition and success. These stories often highlight the transformative power of sport and the human spirit, such as the film 'AIR' which depicted the groundbreaking partnership with Michael Jordan."
+            "title": "Cinema: Hero's Whimsical Quest",
+            "summary": "In cinematic terms, Nintendo's brand is a whimsical hero's quest, often starring an unlikely protagonist on a vibrant, fantastical adventure. These narratives are filled with charming characters, clear stakes, and a blend of humor and heartfelt moments, culminating in a satisfying triumph that leaves audiences with a sense of hope and delight, much like a classic family-friendly blockbuster."
         }
     ]
 }
 ```
-2026-03-16 15:22:55,772 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
-2026-03-16 15:22:55,781 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
-2026-03-16 15:22:55,801 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
-2026-03-16 15:22:58,809 — INFO — ✅ Notification pushed for session 
-2026-03-16 15:22:58,809 — INFO — Worker 4 (Culture) completed ✅
-2026-03-16 15:22:59,214 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:22:59,221 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:59,221 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:22:59,613 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:22:59,625 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:22:59,625 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:00,011 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:00,019 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:00,019 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:00,411 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:00,419 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:00,419 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:00,816 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:00,823 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:00,823 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:01,279 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:01,295 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:01,295 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:01,699 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:01,706 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:01,706 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:02,106 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:02,113 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:02,113 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:02,556 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:02,563 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:02,563 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
-2026-03-16 15:23:02,975 — INFO — 🧠 Memory lookup requested: topic='all' (session )
-2026-03-16 15:23:02,983 — WARNING — ❌ Failed to fetch state: Client error '404 Not Found' for url 'http://localhost:8000/api/state/'
-For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/404
-2026-03-16 15:23:02,983 — WARNING — 🧠 Memory lookup EMPTY STATE for session ''
+2026-03-18 17:17:52,926 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:52,947 — INFO — ✅ State synced (agent + ADK): ['brand_strategy', 'brand_symbols', 'brand_creative_angle']
+2026-03-18 17:17:52,953 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:52,961 — INFO — ✅ Layout appended: ['brand_strategy', 'brand_symbols', 'brand_creative_angle'] → 200
+2026-03-18 17:17:52,971 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:52,994 — INFO — ✅ State synced (agent + ADK): ['all_research_complete']
+2026-03-18 17:17:56,003 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:17:56,011 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:17:56,011 — INFO — Worker 4 (Culture) completed ✅
+2026-03-18 17:18:16,615 — INFO — 🧠 Memory lookup requested: topic='news' (session session_id)
+2026-03-18 17:18:16,628 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:16,635 — INFO — 🧠 State fetched OK — keys present: ['brand_name', 'primary_color', 'visible_components', 'brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords', 'secondary_color', 'font_family', 'logo_description', 'brand_last_news', 'brand_viral_campaign', 'brand_strategy', 'brand_symbols', 'brand_creative_angle', 'all_research_complete']
+2026-03-18 17:18:16,635 — INFO — 🧠 Returning topic='news' — data found
+2026-03-18 17:18:16,868 — INFO — 🖼️  UI Layout change requested: ['brand_last_news']
+2026-03-18 17:18:16,875 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:16,882 — INFO — ✅ Layout pushed: ['brand_last_news'] → 200
+2026-03-18 17:18:17,224 — INFO — ⚠️ Dedup: set_ui_layout(['brand_last_news']) skipped (duplicate call in 2.0s)
+2026-03-18 17:18:27,723 — INFO — 🖼️  UI Layout change requested: ['style_keywords']
+2026-03-18 17:18:27,732 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:27,740 — INFO — ✅ Layout pushed: ['style_keywords'] → 200
+2026-03-18 17:18:28,163 — INFO — 🧠 Memory lookup requested: topic='identity' (session session_id)
+2026-03-18 17:18:28,171 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:28,179 — INFO — 🧠 State fetched OK — keys present: ['brand_name', 'primary_color', 'visible_components', 'brand_slogan', 'brand_mission', 'brand_common_enemy', 'style_keywords', 'secondary_color', 'font_family', 'logo_description', 'brand_last_news', 'brand_viral_campaign', 'brand_strategy', 'brand_symbols', 'brand_creative_angle', 'all_research_complete']
+2026-03-18 17:18:28,179 — INFO — 🧠 Returning topic='identity' — 5 keys
+2026-03-18 17:18:35,650 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:35,668 — INFO — ✅ State synced (agent + ADK): ['current_phase']
+2026-03-18 17:18:35,668 — INFO — 🔄 Phase set to 'brief' for session session_id
+2026-03-18 17:18:35,847 — INFO — 🖼️  UI Layout change requested: ['all']
+2026-03-18 17:18:35,857 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:35,865 — INFO — ✅ Layout pushed: ['all'] → 200
+2026-03-18 17:18:36,224 — INFO — ⚠️ Dedup: set_ui_layout(['all']) skipped (duplicate call in 2.0s)
+2026-03-18 17:18:51,436 — INFO — 🖼️  UI Layout change requested: ['uploaded_images']
+2026-03-18 17:18:51,457 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:18:51,465 — INFO — ✅ Layout pushed: ['uploaded_images'] → 200
+2026-03-18 17:19:14,018 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:19:14,054 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:14,095 — INFO — ✅ State synced (agent + ADK): ['ad_objective', 'ad_objective_summary', 'product_name', 'product_visual_anchor', 'current_phase']
+2026-03-18 17:19:14,119 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:14,132 — INFO — ✅ Layout appended: ['ad_product', 'ad_objective'] → 200
+2026-03-18 17:19:14,155 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:14,175 — INFO — 📝 Brief saved: ['ad_objective', 'ad_objective_summary', 'product_name', 'product_visual_anchor', 'current_phase'] | Filled: 4/21 | Missing: ['ad_duration', 'ad_emotion_primary', 'ad_emotion_secondary', 'ad_mandatories', 'ad_music_direction', 'ad_platform', 'ad_tone', 'ad_tone_references', 'audience_age_range', 'audience_gender', 'audience_mindset', 'audience_persona_name', 'audience_persona_summary', 'audience_relationship_to_brand', 'product_category', 'product_image_ref', 'product_key_feature']
+2026-03-18 17:19:14,217 — INFO — 🖼️  UI Layout change requested: ['all']
+2026-03-18 17:19:14,231 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:14,247 — INFO — ✅ Layout pushed: ['all'] → 200
+2026-03-18 17:19:14,837 — INFO — ⚠️ Dedup: set_ui_layout(['all']) skipped (duplicate call in 2.0s)
+2026-03-18 17:19:33,489 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:19:33,500 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,518 — INFO — ✅ State synced (agent + ADK): ['audience_age_range', 'audience_gender', 'audience_mindset', 'audience_persona_name', 'audience_persona_summary', 'product_key_feature', 'product_category', 'current_phase']
+2026-03-18 17:19:33,525 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,532 — INFO — ✅ Layout appended: ['ad_audience', 'ad_product'] → 200
+2026-03-18 17:19:33,540 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,549 — INFO — 📝 Brief saved: ['audience_age_range', 'audience_gender', 'audience_mindset', 'audience_persona_name', 'audience_persona_summary', 'product_key_feature', 'product_category', 'current_phase'] | Filled: 11/21 | Missing: ['ad_duration', 'ad_emotion_primary', 'ad_emotion_secondary', 'ad_mandatories', 'ad_music_direction', 'ad_platform', 'ad_tone', 'ad_tone_references', 'audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:19:33,892 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:19:33,901 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,919 — INFO — ✅ State synced (agent + ADK): ['ad_emotion_primary', 'ad_emotion_secondary', 'ad_tone', 'current_phase']
+2026-03-18 17:19:33,927 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,935 — INFO — ✅ Layout appended: ['ad_emotion'] → 200
+2026-03-18 17:19:33,943 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:33,953 — INFO — 📝 Brief saved: ['ad_emotion_primary', 'ad_emotion_secondary', 'ad_tone', 'current_phase'] | Filled: 14/21 | Missing: ['ad_duration', 'ad_mandatories', 'ad_music_direction', 'ad_platform', 'ad_tone_references', 'audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:19:57,834 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:19:57,844 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:57,866 — INFO — ✅ State synced (agent + ADK): ['ad_duration', 'ad_platform', 'current_phase']
+2026-03-18 17:19:57,878 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:57,888 — INFO — ✅ Layout appended: ['ad_format'] → 200
+2026-03-18 17:19:57,897 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:19:57,912 — INFO — 📝 Brief saved: ['ad_duration', 'ad_platform', 'current_phase'] | Filled: 16/21 | Missing: ['ad_mandatories', 'ad_music_direction', 'ad_tone_references', 'audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:20:01,345 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:20:01,355 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:01,374 — INFO — ✅ State synced (agent + ADK): ['ad_music_direction', 'ad_tone_references', 'current_phase']
+2026-03-18 17:20:01,381 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:01,391 — INFO — ✅ Layout appended: ['ad_emotion', 'ad_format'] → 200
+2026-03-18 17:20:01,400 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:01,408 — INFO — 📝 Brief saved: ['ad_music_direction', 'ad_tone_references', 'current_phase'] | Filled: 18/21 | Missing: ['ad_mandatories', 'audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:20:09,562 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:20:09,571 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:09,591 — INFO — ✅ State synced (agent + ADK): ['ad_music_direction', 'current_phase']
+2026-03-18 17:20:09,603 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:09,699 — INFO — ✅ Layout appended: ['ad_format'] → 200
+2026-03-18 17:20:09,707 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:09,720 — INFO — 📝 Brief saved: ['ad_music_direction', 'current_phase'] | Filled: 18/21 | Missing: ['ad_mandatories', 'audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:20:19,583 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:20:19,592 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:19,611 — INFO — ✅ State synced (agent + ADK): ['ad_mandatories', 'current_phase']
+2026-03-18 17:20:19,620 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:19,628 — INFO — ✅ Layout appended: ['ad_format'] → 200
+2026-03-18 17:20:19,636 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:19,645 — INFO — 📝 Brief saved: ['ad_mandatories', 'current_phase'] | Filled: 19/21 | Missing: ['audience_relationship_to_brand', 'product_image_ref']
+2026-03-18 17:20:20,159 — INFO — 💡 Scenario ideas save requested (session session_id)
+2026-03-18 17:20:20,170 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:20,191 — INFO — ✅ State synced (agent + ADK): ['user_scenario_ideas']
+2026-03-18 17:20:20,191 — INFO — 💡 No user scenario ideas — will generate from scratch
+2026-03-18 17:20:20,278 — INFO — 🎬 Master sequence generation requested (session session_id)
+2026-03-18 17:20:20,285 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:20:20,621 — INFO — 🎬 Master sequence generation requested (session session_id)
+2026-03-18 17:20:20,630 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:41,468 — INFO — 📝 Brief data save requested (session session_id)
+2026-03-18 17:21:41,492 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:41,518 — INFO — ✅ State synced (agent + ADK): ['audience_relationship_to_brand', 'current_phase']
+2026-03-18 17:21:41,527 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:41,535 — INFO — ✅ Layout appended: ['ad_audience'] → 200
+2026-03-18 17:21:41,542 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:41,551 — INFO — 📝 Brief saved: ['audience_relationship_to_brand', 'current_phase'] | Filled: 20/21 | Missing: ['product_image_ref']
+2026-03-18 17:21:41,908 — INFO — 💡 Scenario ideas save requested (session session_id)
+2026-03-18 17:21:41,925 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:41,947 — INFO — ✅ State synced (agent + ADK): ['user_scenario_ideas']
+2026-03-18 17:21:41,948 — INFO — 💡 User scenario ideas saved: Alex, a high school student stressed by school, finds escape and happiness in his new Nintendo conso...
+2026-03-18 17:21:42,075 — INFO — 🎬 Master sequence generation requested (session session_id)
+2026-03-18 17:21:42,082 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:42,097 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:42,118 — INFO — ✅ State synced (agent + ADK): ['current_phase']
+2026-03-18 17:21:42,131 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:42,131 — INFO — Worker 7 (Sequence Generator) started for Nintendo (session: demo_session_kop5zp)
+2026-03-18 17:21:42,692 — INFO — ⚠️ Sequence generation already running — skipping duplicate call
+2026-03-18 17:21:46,840 — INFO — ⚠️ Sequence generation already running — skipping duplicate call
+2026-03-18 17:21:53,544 — INFO — Worker 7 raw output: {
+    "master_sequence": [
+        {
+            "scene_number": 1,
+            "beat_name": "HOOK",
+            "emotion": "Overwhelm",
+            "action_summary": "The oppressive weight of unfinished assignments crushes Alex, his face a canvas of youthful stress amidst a chaotic desk of textbooks and scattered papers.",
+            "duration_estimate": "0:00–0:03"
+        },
+        {
+            "scene_number": 2,
+            "beat_name": "CONTEXT",
+            "emotion": "Disillusionment",
+            "action_summary": "A close-up lens captures the monotonous reality of schoolwork, each ticking second on a wall clock amplifying Alex's yearning for an escape from the mundane.",
+            "duration_estimate": "0:03–0:06"
+        },
+        {
+            "scene_number": 3,
+            "beat_name": "PRODUCT ENTRY",
+            "emotion": "Anticipation",
+            "action_summary": "A hand reaches out, finding solace in the sleek, black form of the new Nintendo console, its vibrant translucent blue and red controllers promising a gateway to a 'Vibrant Dreamscape'.",
+            "duration_estimate": "0:06–0:09"
+        },
+        {
+            "scene_number": 4,
+            "beat_name": "TRANSFORMATION",
+            "emotion": "Wonder",
+            "action_summary": "As the console powers on with a distinct chiptune-inspired fanfare, the drab surroundings subtly melt away, replaced by the first glimmers of a 'Hero's Whimsical Quest' unfolding on its dual screens.",
+            "duration_estimate": "0:09–0:13"
+        },
+        {
+            "scene_number": 5,
+            "beat_name": "CLIMAX",
+            "emotion": "Exhilaration",
+            "action_summary": "Alex's laughter echoes as he is fully immersed, a whirlwind montage of iconic Nintendo worlds (Mario's jumps, Link's sword swings, Pikachu's thunderbolt) flashing across the screen, his face radiating the pure 'Joyful, Innovative Experiences' the brand promises.",
+            "duration_estimate": "0:13–0:20"
+        },
+        {
+            "scene_number": 6,
+            "beat_name": "RESOLUTION",
+            "emotion": "Connection",
+            "action_summary": "The scene resolves with Alex and his friends sharing collective laughter, the console now a vibrant hub of shared play, as the Nintendo logo appears, 'Bringing smiles through unique entertainment' — a testament to 'The Infinite Playground'.",
+            "duration_estimate": "0:20–0:27"
+        }
+    ]
+}
+2026-03-18 17:21:53,570 — INFO — ✅ State synced (agent + ADK): ['master_sequence', 'master_sequence_validated', 'current_phase']
+2026-03-18 17:21:53,584 — INFO — ✅ Layout appended: ['master_sequence'] → 200
+2026-03-18 17:21:55,607 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:21:55,607 — INFO — Worker 7 (Sequence Generator) completed ✅
+2026-03-18 17:21:56,149 — INFO — 🖼️  UI Layout change requested: ['master_sequence']
+2026-03-18 17:21:56,163 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:21:56,173 — INFO — ✅ Layout pushed: ['master_sequence'] → 200
+2026-03-18 17:22:31,972 — INFO — ✅ Sequence feedback: validated=True, notes=''
+2026-03-18 17:22:31,987 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:22:32,014 — INFO — ✅ State synced (agent + ADK): ['master_sequence_validated', 'current_phase']
+2026-03-18 17:22:32,100 — INFO — 🏭 Production workshop launch requested (session session_id)
+2026-03-18 17:22:32,109 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:22:32,176 — INFO — ✅ State synced (agent + ADK): ['current_phase']
+2026-03-18 17:22:32,191 — INFO — 🎬 Worker Director started for Nintendo (resolved session: demo_session_kop5zp)
+2026-03-18 17:22:32,486 — INFO — 🏭 Production workshop launch requested (session session_id)
+2026-03-18 17:22:32,499 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:22:32,499 — INFO — ⚠️ Production already running for demo_session_kop5zp — skipping duplicate call
+2026-03-18 17:23:18,032 — INFO — 🎬 Director raw output length: 9178 chars
+2026-03-18 17:23:18,068 — INFO — ✅ State synced (agent + ADK): ['visual_style_guide', 'enriched_scenes']
+2026-03-18 17:23:18,068 — INFO — 🎬 Style guide + 6 enriched scenes generated
+2026-03-18 17:23:19,158 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/51sZpE5vjzL.jpg (59622 bytes)
+2026-03-18 17:23:19,160 — INFO — 📸 Product image loaded as reference for anchor generation
+2026-03-18 17:23:29,291 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/anchor_image.png (1167403 bytes)
+2026-03-18 17:23:29,423 — INFO — ✅ State synced (agent + ADK): ['anchor_image_uri']
+2026-03-18 17:23:30,639 — INFO — ✅ Layout appended: ['anchor_image'] → 200
+2026-03-18 17:23:30,656 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:23:30,656 — INFO — 🎬 Worker Director completed ✅
+2026-03-18 17:23:31,196 — INFO — 🖼️  UI Layout change requested: ['anchor_image']
+2026-03-18 17:23:31,210 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:23:31,222 — INFO — ✅ Layout pushed: ['anchor_image'] → 200
+2026-03-18 17:24:13,387 — INFO — 🖼️ Anchor validation: approved=True, feedback=''
+2026-03-18 17:24:13,402 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:24:13,454 — INFO — ✅ State synced (agent + ADK): ['anchor_validated']
+2026-03-18 17:24:14,672 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/anchor_image.png (1167403 bytes)
+2026-03-18 17:24:15,730 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/51sZpE5vjzL.jpg (59622 bytes)
+2026-03-18 17:24:15,784 — INFO — 🎬 Scene Worker 1 started — HOOK — Overwhelm (session: demo_session_kop5zp)
+2026-03-18 17:24:15,796 — INFO — 🎬 Scene Worker 5 started — CLIMAX — Exhilaration (session: demo_session_kop5zp)
+2026-03-18 17:24:15,805 — INFO — 🎬 Scene Worker 2 started — CONTEXT — Disillusionment (session: demo_session_kop5zp)
+2026-03-18 17:24:15,812 — INFO — 🎬 Scene Worker 6 started — RESOLUTION — Connection (session: demo_session_kop5zp)
+2026-03-18 17:24:15,819 — INFO — 🎬 Scene Worker 3 started — PRODUCT ENTRY — Anticipation (session: demo_session_kop5zp)
+2026-03-18 17:24:15,826 — INFO — 🎬 Scene Worker 4 started — TRANSFORMATION — Wonder (session: demo_session_kop5zp)
+2026-03-18 17:24:15,835 — INFO — 🏭 Production workshop launch requested (session session_id)
+2026-03-18 17:24:15,847 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:24:16,218 — INFO — 🏭 Production workshop launch requested (session session_id)
+2026-03-18 17:24:16,227 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:24:20,182 — INFO — 🏭 Production workshop launch requested (session session_id)
+2026-03-18 17:24:20,191 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:24:27,860 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_start.png (1143579 bytes)
+2026-03-18 17:24:27,861 — INFO — 📸 Scene 2 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_start.png
+2026-03-18 17:24:29,702 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_start.png (1101863 bytes)
+2026-03-18 17:24:29,703 — INFO — 📸 Scene 3 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_start.png
+2026-03-18 17:24:30,931 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_start.png (1349264 bytes)
+2026-03-18 17:24:30,931 — INFO — 📸 Scene 4 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_start.png
+2026-03-18 17:24:32,319 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_start.png (1786394 bytes)
+2026-03-18 17:24:32,319 — INFO — 📸 Scene 5 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_start.png
+2026-03-18 17:24:34,003 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_start.png (1565537 bytes)
+2026-03-18 17:24:34,004 — INFO — 📸 Scene 1 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_start.png
+2026-03-18 17:24:35,232 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_start.png (1206928 bytes)
+2026-03-18 17:24:35,232 — INFO — 📸 Scene 6 start keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_start.png
+2026-03-18 17:24:44,158 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_end.png (1109222 bytes)
+2026-03-18 17:24:44,158 — INFO — 📸 Scene 2 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_end.png
+2026-03-18 17:24:45,267 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_end.png (984635 bytes)
+2026-03-18 17:24:45,267 — INFO — 📸 Scene 3 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_end.png
+2026-03-18 17:24:45,315 — INFO — ✅ State synced (agent + ADK): ['scene_2_keyframe_start', 'scene_2_keyframe_end']
+2026-03-18 17:24:47,008 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_end.png (1186291 bytes)
+2026-03-18 17:24:47,008 — INFO — 📸 Scene 1 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_end.png
+2026-03-18 17:24:49,057 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_end.png (1343062 bytes)
+2026-03-18 17:24:49,057 — INFO — 📸 Scene 4 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_end.png
+2026-03-18 17:24:49,084 — INFO — ✅ State synced (agent + ADK): ['scene_3_keyframe_start', 'scene_3_keyframe_end']
+2026-03-18 17:24:50,387 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_end.png (1197938 bytes)
+2026-03-18 17:24:50,387 — INFO — 📸 Scene 6 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_end.png
+2026-03-18 17:24:50,661 — INFO — ✅ Layout appended: ['scene_2'] → 200
+2026-03-18 17:24:50,668 — INFO — 🎬 Scene Worker 2 completed ✅
+2026-03-18 17:24:52,481 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_end.png (1735221 bytes)
+2026-03-18 17:24:52,481 — INFO — 📸 Scene 5 end keyframe generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_end.png
+2026-03-18 17:24:52,800 — INFO — ✅ Layout appended: ['scene_3'] → 200
+2026-03-18 17:24:52,800 — INFO — 🎬 Scene Worker 3 completed ✅
+2026-03-18 17:24:52,810 — INFO — ✅ State synced (agent + ADK): ['scene_1_keyframe_start', 'scene_1_keyframe_end']
+2026-03-18 17:24:55,734 — INFO — ✅ State synced (agent + ADK): ['scene_4_keyframe_start', 'scene_4_keyframe_end']
+2026-03-18 17:24:55,742 — INFO — ✅ State synced (agent + ADK): ['scene_6_keyframe_start', 'scene_6_keyframe_end']
+2026-03-18 17:24:56,655 — INFO — ✅ Layout appended: ['scene_1'] → 200
+2026-03-18 17:24:56,655 — INFO — ✅ State synced (agent + ADK): ['scene_5_keyframe_start', 'scene_5_keyframe_end']
+2026-03-18 17:24:56,660 — INFO — 🎬 Scene Worker 1 completed ✅
+2026-03-18 17:24:58,791 — INFO — ✅ Layout appended: ['scene_6'] → 200
+2026-03-18 17:24:58,791 — INFO — 🎬 Scene Worker 6 completed ✅
+2026-03-18 17:24:58,791 — INFO — ✅ Layout appended: ['scene_4'] → 200
+2026-03-18 17:24:58,792 — INFO — 🎬 Scene Worker 4 completed ✅
+2026-03-18 17:24:58,811 — INFO — ✅ Layout appended: ['scene_5'] → 200
+2026-03-18 17:24:58,811 — INFO — 🎬 Scene Worker 5 completed ✅
+2026-03-18 17:24:58,811 — INFO — 🎬 All scene workers done: 6/6 succeeded
+2026-03-18 17:24:58,830 — INFO — ✅ Notification pushed for session demo_session_kop5zp
+2026-03-18 17:24:59,355 — INFO — 🖼️  UI Layout change requested: ['production_workshop']
+2026-03-18 17:24:59,363 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:24:59,372 — INFO — ✅ Layout pushed: ['production_workshop'] → 200
+2026-03-18 17:25:31,498 — INFO — 🔒 All scenes validation requested (session session_id)
+2026-03-18 17:25:31,511 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:25:31,555 — INFO — ✅ State synced (agent + ADK): ['scene_1_locked', 'scene_2_locked', 'scene_3_locked', 'scene_4_locked', 'scene_5_locked', 'scene_6_locked', 'current_phase', 'all_scenes_validated']
+2026-03-18 17:25:31,555 — INFO — 🔒 All 6 scenes locked — Production Workshop complete ✅
+2026-03-18 17:25:31,657 — INFO — 🎥 Final video generation requested (session session_id)
+2026-03-18 17:25:31,666 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:25:31,728 — INFO — ✅ State synced (agent + ADK): ['current_phase', 'is_generating_video', 'video_generation_progress']
+2026-03-18 17:25:31,728 — INFO — Worker 8 (Video Generator) started for Nintendo (session: demo_session_kop5zp)
+2026-03-18 17:25:31,826 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:25:32,909 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/anchor_image.png (1167403 bytes)
+2026-03-18 17:25:32,910 — INFO — 📸 Anchor image loaded: 1167403 bytes
+2026-03-18 17:25:33,840 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_start.png (1565537 bytes)
+2026-03-18 17:25:33,841 — INFO — 📸 Loaded scene_1_keyframe_start: 1565537 bytes
+2026-03-18 17:25:34,851 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_1_keyframe_end.png (1186291 bytes)
+2026-03-18 17:25:34,852 — INFO — 📸 Loaded scene_1_keyframe_end: 1186291 bytes
+2026-03-18 17:25:36,014 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_start.png (1143579 bytes)
+2026-03-18 17:25:36,014 — INFO — 📸 Loaded scene_2_keyframe_start: 1143579 bytes
+2026-03-18 17:25:36,897 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_2_keyframe_end.png (1109222 bytes)
+2026-03-18 17:25:36,897 — INFO — 📸 Loaded scene_2_keyframe_end: 1109222 bytes
+2026-03-18 17:25:37,832 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_start.png (1101863 bytes)
+2026-03-18 17:25:37,832 — INFO — 📸 Loaded scene_3_keyframe_start: 1101863 bytes
+2026-03-18 17:25:38,749 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_3_keyframe_end.png (984635 bytes)
+2026-03-18 17:25:38,749 — INFO — 📸 Loaded scene_3_keyframe_end: 984635 bytes
+2026-03-18 17:25:39,656 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_start.png (1349264 bytes)
+2026-03-18 17:25:39,656 — INFO — 📸 Loaded scene_4_keyframe_start: 1349264 bytes
+2026-03-18 17:25:40,612 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_4_keyframe_end.png (1343062 bytes)
+2026-03-18 17:25:40,612 — INFO — 📸 Loaded scene_4_keyframe_end: 1343062 bytes
+2026-03-18 17:25:41,725 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_start.png (1786394 bytes)
+2026-03-18 17:25:41,726 — INFO — 📸 Loaded scene_5_keyframe_start: 1786394 bytes
+2026-03-18 17:25:42,644 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_5_keyframe_end.png (1735221 bytes)
+2026-03-18 17:25:42,644 — INFO — 📸 Loaded scene_5_keyframe_end: 1735221 bytes
+2026-03-18 17:25:43,554 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_start.png (1206928 bytes)
+2026-03-18 17:25:43,554 — INFO — 📸 Loaded scene_6_keyframe_start: 1206928 bytes
+2026-03-18 17:25:45,298 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/scene_6_keyframe_end.png (1197938 bytes)
+2026-03-18 17:25:45,299 — INFO — 📸 Loaded scene_6_keyframe_end: 1197938 bytes
+2026-03-18 17:25:45,308 — INFO — 🎥 Final video generation requested (session session_id)
+2026-03-18 17:25:45,334 — INFO — 🔄 Session ID resolved: 'session_id' → 'demo_session_kop5zp'
+2026-03-18 17:25:45,356 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:26:39,965 — INFO — 📝 Gemini generated 10 clip prompts
+2026-03-18 17:26:39,994 — INFO — ✅ State synced (agent + ADK): ['extended_sequence']
+2026-03-18 17:26:39,994 — INFO — ✅ Phase 1 complete: 10 clips planned.
+2026-03-18 17:26:40,014 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:26:40,014 — INFO — 🎥 Generating clip 1/10 — main_scene: HOOK — Overwhelm
+2026-03-18 17:26:40,016 — INFO — 🎥 Calling Veo API: type=main_scene, duration=4s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:26:41,922 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:26:52,354 — ERROR — 🎥 Veo operation error: code=3, message=The prompt could not be submitted. This prompt contains sensitive words that violate Google's Responsible AI practices. Try rephrasing your prompt, or contact your Google representative to request allowlisting. Support codes: 58061214
+2026-03-18 17:26:52,355 — ERROR — ❌ Clip 1 generation failed
+2026-03-18 17:26:52,395 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:26:52,395 — INFO — 🎥 Generating clip 2/10 — insert_shot: Texture transition — messy desk detail
+2026-03-18 17:26:52,395 — INFO — 🎥 Calling Veo API: type=insert_shot, duration=4s, has_image=False, has_video=False, has_last_frame=False, has_ref_images=True
+2026-03-18 17:26:53,163 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:27:03,617 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:27:14,008 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:27:24,500 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:27:34,944 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/6795063136825401522/sample_0.mp4
+2026-03-18 17:27:34,945 — INFO — ✅ Clip 2 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/6795063136825401522/sample_0.mp4
+2026-03-18 17:27:34,990 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:27:34,990 — INFO — 🎥 Generating clip 3/10 — main_scene: CONTEXT — Disillusionment
+2026-03-18 17:27:34,990 — INFO — 🎥 Calling Veo API: type=main_scene, duration=4s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:27:36,174 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:27:46,632 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:27:57,061 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:28:07,522 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:28:17,961 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:28:28,402 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:28:38,945 — INFO — 🎥 Waiting for Veo... (attempt 7/60)
+2026-03-18 17:28:49,390 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/146477267132327844/sample_0.mp4
+2026-03-18 17:28:49,391 — INFO — ✅ Clip 3 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/146477267132327844/sample_0.mp4
+2026-03-18 17:28:49,425 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:28:49,425 — INFO — 🎥 Generating clip 4/10 — main_scene: PRODUCT ENTRY — Anticipation
+2026-03-18 17:28:49,426 — INFO — 🎥 Calling Veo API: type=main_scene, duration=4s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:28:50,428 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:29:00,856 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:29:11,301 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:29:21,753 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:29:32,191 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:29:42,431 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:29:52,876 — ERROR — 🎥 Veo returned empty generated_videos.
+2026-03-18 17:29:52,877 — ERROR — ❌ Clip 4 generation failed
+2026-03-18 17:29:52,911 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:29:52,911 — INFO — 🎥 Generating clip 5/10 — insert_shot: Console controller detail
+2026-03-18 17:29:52,911 — INFO — 🎥 Calling Veo API: type=insert_shot, duration=4s, has_image=False, has_video=False, has_last_frame=False, has_ref_images=True
+2026-03-18 17:29:53,596 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:30:04,040 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:30:14,484 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:30:24,927 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:30:35,448 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/10155680407688105200/sample_0.mp4
+2026-03-18 17:30:35,452 — INFO — ✅ Clip 5 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/10155680407688105200/sample_0.mp4
+2026-03-18 17:30:35,519 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:30:35,519 — INFO — 🎥 Generating clip 6/10 — main_scene: TRANSFORMATION — Wonder
+2026-03-18 17:30:35,520 — INFO — 🎥 Calling Veo API: type=main_scene, duration=4s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:30:36,704 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:30:47,147 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:30:57,617 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:31:08,064 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:31:18,494 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:31:28,938 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:31:39,395 — INFO — 🎥 Waiting for Veo... (attempt 7/60)
+2026-03-18 17:31:49,816 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/14710242222095271525/sample_0.mp4
+2026-03-18 17:31:49,816 — INFO — ✅ Clip 6 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/14710242222095271525/sample_0.mp4
+2026-03-18 17:31:49,843 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:31:49,843 — INFO — 🎥 Generating clip 7/10 — main_scene: CLIMAX — Exhilaration
+2026-03-18 17:31:49,844 — INFO — 🎥 Calling Veo API: type=main_scene, duration=6s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:31:51,454 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:32:01,852 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:32:12,344 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:32:22,793 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:32:33,233 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:32:43,689 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:32:54,123 — INFO — 🎥 Waiting for Veo... (attempt 7/60)
+2026-03-18 17:33:04,520 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/13315359640101644440/sample_0.mp4
+2026-03-18 17:33:04,521 — INFO — ✅ Clip 7 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/13315359640101644440/sample_0.mp4
+2026-03-18 17:33:04,558 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:33:04,558 — INFO — 🎥 Generating clip 8/10 — insert_shot: Alex's joyful face
+2026-03-18 17:33:04,559 — INFO — 🎥 Calling Veo API: type=insert_shot, duration=4s, has_image=False, has_video=True, has_last_frame=False, has_ref_images=False
+2026-03-18 17:33:04,773 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:33:15,228 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:33:25,824 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:33:36,312 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:33:46,770 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:33:57,226 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:34:07,600 — ERROR — 🎥 Veo returned empty generated_videos.
+2026-03-18 17:34:07,600 — ERROR — ❌ Clip 8 generation failed
+2026-03-18 17:34:07,630 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:34:07,630 — INFO — 🎥 Generating clip 9/10 — main_scene: RESOLUTION — Connection
+2026-03-18 17:34:07,630 — INFO — 🎥 Calling Veo API: type=main_scene, duration=4s, has_image=True, has_video=False, has_last_frame=True, has_ref_images=False
+2026-03-18 17:34:08,876 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:34:19,321 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:34:29,766 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:34:40,215 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:34:50,654 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:35:01,100 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:35:11,499 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/4553905118593298085/sample_0.mp4
+2026-03-18 17:35:11,499 — INFO — ✅ Clip 9 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/4553905118593298085/sample_0.mp4
+2026-03-18 17:35:11,529 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:35:11,529 — INFO — 🎥 Generating clip 10/10 — insert_shot: Nintendo logo graphic
+2026-03-18 17:35:11,529 — INFO — 🎥 Calling Veo API: type=insert_shot, duration=4s, has_image=False, has_video=True, has_last_frame=False, has_ref_images=False
+2026-03-18 17:35:11,703 — INFO — 🎥 Waiting for Veo... (attempt 1/60)
+2026-03-18 17:35:22,145 — INFO — 🎥 Waiting for Veo... (attempt 2/60)
+2026-03-18 17:35:32,638 — INFO — 🎥 Waiting for Veo... (attempt 3/60)
+2026-03-18 17:35:43,085 — INFO — 🎥 Waiting for Veo... (attempt 4/60)
+2026-03-18 17:35:53,530 — INFO — 🎥 Waiting for Veo... (attempt 5/60)
+2026-03-18 17:36:03,974 — INFO — 🎥 Waiting for Veo... (attempt 6/60)
+2026-03-18 17:36:14,433 — INFO — 🎥 Waiting for Veo... (attempt 7/60)
+2026-03-18 17:36:24,880 — INFO — 🎥 Veo clip generated to URI: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/15472502724640910049/sample_0.mp4
+2026-03-18 17:36:24,880 — INFO — ✅ Clip 10 generated: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/15472502724640910049/sample_0.mp4
+2026-03-18 17:36:24,940 — INFO — ✅ State synced (agent + ADK): ['extended_sequence']
+2026-03-18 17:36:24,940 — INFO — 🎬 Phase 2 complete: 7/10 clips generated.
+2026-03-18 17:36:24,981 — INFO — ✅ State synced (agent + ADK): ['video_generation_progress']
+2026-03-18 17:36:24,982 — INFO — 🎬 Stitching 7 clips with ffmpeg...
+2026-03-18 17:36:26,709 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/6795063136825401522/sample_0.mp4 (2487442 bytes)
+2026-03-18 17:36:26,710 — INFO — 🎬 Downloaded clip 1/7: 2487442 bytes
+2026-03-18 17:36:27,781 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/146477267132327844/sample_0.mp4 (3287962 bytes)
+2026-03-18 17:36:27,877 — INFO — 🎬 Downloaded clip 2/7: 3287962 bytes
+2026-03-18 17:36:28,959 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/10155680407688105200/sample_0.mp4 (3071496 bytes)
+2026-03-18 17:36:28,960 — INFO — 🎬 Downloaded clip 3/7: 3071496 bytes
+2026-03-18 17:36:30,135 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/14710242222095271525/sample_0.mp4 (5492203 bytes)
+2026-03-18 17:36:30,138 — INFO — 🎬 Downloaded clip 4/7: 5492203 bytes
+2026-03-18 17:36:31,630 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/13315359640101644440/sample_0.mp4 (9793781 bytes)
+2026-03-18 17:36:31,635 — INFO — 🎬 Downloaded clip 5/7: 9793781 bytes
+2026-03-18 17:36:32,649 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/4553905118593298085/sample_0.mp4 (3393331 bytes)
+2026-03-18 17:36:32,651 — INFO — 🎬 Downloaded clip 6/7: 3393331 bytes
+2026-03-18 17:36:33,811 — INFO — 📸 Downloaded image from GCS: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/15472502724640910049/sample_0.mp4 (4068740 bytes)
+2026-03-18 17:36:33,813 — INFO — 🎬 Downloaded clip 7/7: 4068740 bytes
+2026-03-18 17:36:45,974 — INFO — 🎬 Running ffmpeg concat: 7 clips
+2026-03-18 17:36:46,115 — INFO — 🎬 Final video: 14.7 MB
+2026-03-18 17:36:49,978 — INFO — 📸 Generated image uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/final_commercial.mp4 (15465266 bytes)
+2026-03-18 17:36:49,978 — INFO — 🎬 Final video uploaded: gs://gemini-live-hack/mimesis/sessions/demo_session_kop5zp/generated/final_commercial.mp4
+2026-03-18 17:36:50,005 — INFO — ✅ State synced (agent + ADK): ['is_generating_video', 'video_generation_progress', 'final_video_uri', 'clip_uris', 'current_phase']
+2026-03-18 17:36:50,005 — INFO — ✅ Worker 8 completed. 7/10 clips generated.
+2026-03-18 17:36:50,018 — INFO — ✅ Notification pushed for session demo_session_kop5zp

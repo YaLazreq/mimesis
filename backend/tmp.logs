@@ -1,0 +1,507 @@
+=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='afb5a60f-3a1a-4ea1-96ff-14c281844939' timestamp=1773841050.510682
+2026-03-18 06:37:30,510 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:30,529 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [85 bytes]
+2026-03-18 06:37:30,529 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    text=' it.'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,529 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=True turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=False,
+  text=' it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='1576def5-a1b9-473e-b41d-9ebc09733a14' timestamp=1773841050.529632
+2026-03-18 06:37:30,558 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:30,558 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x07\x00\x05\x00\x04\x00\x02\x00\x00\x00\xff\xff\xfb\xff\xfa\xff\xfa\xff\xf8\xff\xf7\xff\xf7\xff\xf5\xff\xf5\xff\xf6\xff\xf4\xff\xf2\xff\xf0\xff\xee\xff\xed\xff\xec\xff\xeb\xff\xeb\xff\xeb\xff\xeb\xff\xe9\xff\xeb\xff\xec\xff\xeb\xff\xeb\xff\xec\xff\xec\xff\xed\xff\xed\xff\xed\xff\xed\xff\xee\xff\xed\xff\xed\xff\xed\xff\xee\xff\xef\xff\xee\xff\xed\xff\xec\xff\xec\xff\xed\xff\xed\xff\xed...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:30,558 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 59
+2026-03-18 06:37:30,558 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:30,559 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "B...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:30,569 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [18140 bytes]
+2026-03-18 06:37:30,570 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b'\xe6\t\x16\nO\n\x95\t\x0b\x08Z\x06\xb8\x05\xea\x03B\x03\x82\x01\xb3\x00\xb0\xfe\xb0\xfc\xb3\xf9\xe2\xf77\xf6\xb4\xf4\xc8\xf3\x0f\xf1~\xed\xfb\xea4\xe9\xac\xe9\xc5\xe9)\xe8\xad\xe6z\xe5*\xe5W\xe6\xa9\xe7K\xe8\x1a\xea\xdf\xeb\x1f\xee\xe9\xf1\x9f\xf4\x0b\xf8\xa2\xfb\x8e\xfe\x16\xff\n\xff\xdf\xfe\xd8\xff\xa2\x03\\\x06\xa6\x08\xaa\t\x04\n\xbd...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,570 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b'\xe6\t\x16\nO\n\x95\t\x0b\x08Z\x06\xb8\x05\xea\x03B\x03\x82\x01\xb3\x00\xb0\xfe\xb0\xfc\xb3\xf9\xe2\xf77\xf6\xb4\xf4\xc8\xf3\x0f\xf1~\xed\xfb\xea4\xe9\xac\xe9\xc5\xe9)\xe8\xad\xe6z\xe5*\xe5W\xe6\xa9\xe7K\xe8\x1a\xea\xdf\xeb\x1f\xee\xe9\xf1\x9f\xf4\x0b\xf8\xa2\xfb\x8e\xfe\x16\xff\n\xff\xdf\xfe\xd8\xff\xa2\x03\\\x06\xa6\x08\xaa\t\x04\n\xbd...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='a97d4c63-4223-462b-be27-908c1b2c18ea' timestamp=1773841050.570222
+2026-03-18 06:37:30,570 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:30,582 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [87 bytes]
+2026-03-18 06:37:30,582 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 65 0a 20 20 7d 0a 7d 0a [60 bytes]
+2026-03-18 06:37:30,582 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    finished=True
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,582 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=False turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=True,
+  text='My team is on it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='d38a6c46-aeb4-4109-89dc-24efc967ab23' timestamp=1773841050.58261
+2026-03-18 06:37:30,582 - google_adk.google.adk.runners - DEBUG - Appending transcription finished event: model_version=None content=None grounding_metadata=None partial=False turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=True,
+  text='My team is on it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='d38a6c46-aeb4-4109-89dc-24efc967ab23' timestamp=1773841050.58261
+2026-03-18 06:37:30,582 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  generation_complete=True
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,583 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 5d 0a 20 20 7d 0a 7d 0a [557 bytes]
+2026-03-18 06:37:30,584 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  grounding_metadata=GroundingMetadata(),
+  turn_complete=True
+) tool_call=None tool_call_cancellation=None usage_metadata=UsageMetadata(
+  prompt_token_count=1256,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1162
+    ),
+  ],
+  response_token_count=52,
+  response_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=26
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=26
+    ),
+  ],
+  total_token_count=1308
+) go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,584 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version='gemini-live-2.5-flash-native-audio' content=None grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=GenerateContentResponseUsageMetadata(
+  prompt_token_count=1256,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1162
+    ),
+  ],
+  total_token_count=1308
+) live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='6bc580e0-ab85-4611-be93-857b77daa9de' timestamp=1773841050.584252
+2026-03-18 06:37:30,584 - google_adk.google.adk.runners - DEBUG - Appending non-buffered event: model_version='gemini-live-2.5-flash-native-audio' content=None grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=GenerateContentResponseUsageMetadata(
+  prompt_token_count=1256,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1162
+    ),
+  ],
+  total_token_count=1308
+) live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='6bc580e0-ab85-4611-be93-857b77daa9de' timestamp=1773841050.584252
+2026-03-18 06:37:30,584 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=None turn_complete=True finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='b44ffb45-9ef5-468f-be28-10e96075f18f' timestamp=1773841050.584554
+2026-03-18 06:37:30,584 - google_adk.google.adk.runners - DEBUG - Appending non-buffered event: model_version=None content=None grounding_metadata=None partial=None turn_complete=True finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='b44ffb45-9ef5-468f-be28-10e96075f18f' timestamp=1773841050.584554
+2026-03-18 06:37:30,589 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 73 73 69 6f 6e 52 65 73 75 ... 65 0a 20 20 7d 0a 7d 0a [118 bytes]
+2026-03-18 06:37:30,589 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=None tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=LiveServerSessionResumptionUpdate(
+  new_handle='5c69fa21-6a22-4150-ad0a-dc5d91346d7d',
+  resumable=True
+) voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,589 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Received session resumption message: setup_complete=None server_content=None tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=LiveServerSessionResumptionUpdate(
+  new_handle='5c69fa21-6a22-4150-ad0a-dc5d91346d7d',
+  resumable=True
+) voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:30,589 - google_adk.google.adk.flows.llm_flows.base_llm_flow - INFO - Update session resumption handle: new_handle='5c69fa21-6a22-4150-ad0a-dc5d91346d7d' resumable=True last_consumed_client_message_index=None.
+2026-03-18 06:37:30,692 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:30,692 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x08\x00\x07\x00\x07\x00\x08\x00\x06\x00\x08\x00\t\x00\t\x00\t\x00\x07\x00\x07\x00\x06\x00\x05\x00\x06\x00\x06\x00\x05\x00\x05\x00\x05\x00\x03\x00\x02\x00\x02\x00\x01\x00\x02\x00\x02\x00\x01\x00\x01\x00\x01\x00\x00\x00\x00\x00\x01\x00\x02\x00\x02\x00\x04\x00\x05\x00\x05\x00\x07\x00\x06\x00\x08\x00\n\x00\t\x00\t\x00\x08\x00\t\x00\x0b\x00\x0b\x00\x0c\x00\x0c\x00\x0b\x00\r...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:30,692 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 60
+2026-03-18 06:37:30,692 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:30,692 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "C...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:30,820 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:30,820 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x04\x00\x03\x00\x03\x00\x03\x00\x02\x00\x04\x00\x02\x00\x02\x00\x02\x00\x00\x00\x00\x00\xff\xff\xfd\xff\xfa\xff\xf9\xff\xf9\xff\xf8\xff\xf7\xff\xf6\xff\xf5\xff\xf4\xff\xf3\xff\xf3\xff\xf6\xff\xf5\xff\xf4\xff\xf5\xff\xf4\xff\xf3\xff\xf5\xff\xf5\xff\xf5\xff\xf9\xff\xf9\xff\xf9\xff\xfd\xff\xfd\xff\xfc\xff\xff\xff\x00\x00\x00\x00\x00\x00\x03\x00\x01\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:30,820 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 61
+2026-03-18 06:37:30,820 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:30,821 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "B...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:30,938 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:30,938 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\xfb\xff\xfa\xff\xf9\xff\xfc\xff\xfb\xff\xfa\xff\xfb\xff\xfa\xff\xfc\xff\xfb\xff\xfc\xff\xfe\xff\xfe\xff\x00\x00\x02\x00\x02\x00\x01\x00\x04\x00\x03\x00\x04\x00\x08\x00\x06\x00\x05\x00\x06\x00\x03\x00\x04\x00\x03\x00\x00\x00\x01\x00\x00\x00\x02\x00\x00\x00\xff\xff\xfe\xff\xfe\xff\xfe\xff\xfc\xff\xfd\xff\xfb\xff\xfb\xff\xfb\xff\xfc\xff\xfb\xff\xfc\xff\xfd\xff\xfe\xff\xff\xff\xfe\xff\x02...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:30,939 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 62
+2026-03-18 06:37:30,939 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:30,940 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "-...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,071 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,071 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x00\x00\x00\x00\xff\xff\xff\xff\xfe\xff\xfd\xff\xfd\xff\xfc\xff\xfc\xff\xfa\xff\xfa\xff\xf8\xff\xf8\xff\xf7\xff\xf6\xff\xf5\xff\xf4\xff\xf2\xff\xf1\xff\xf1\xff\xf1\xff\xf0\xff\xf0\xff\xf1\xff\xf1\xff\xf1\xff\xf1\xff\xf2\xff\xf2\xff\xf2\xff\xf3\xff\xf4\xff\xf6\xff\xf6\xff\xf7\xff\xf7\xff\xf8\xff\xf9\xff\xf9\xff\xf9\xff\xfa\xff\xfb\xff\xfb\xff\xfb\xff\xfc\xff\xfd\xff\xfd\xff\xfe\xff\xfe...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,071 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 63
+2026-03-18 06:37:31,071 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,071 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "A...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,079 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [88 bytes]
+2026-03-18 06:37:31,079 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    text='My team'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,079 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=True turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=False,
+  text='My team'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='d05cb7ec-a255-4bd6-93a1-77d7b0fff66b' timestamp=1773841051.079924
+2026-03-18 06:37:31,138 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [15040 bytes]
+2026-03-18 06:37:31,138 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b'\xef\xff\xec\xff\xf2\xff\xf4\xff\xf9\xff\xfb\xff\xfe\xff\x00\x00\x02\x00\x08\x00\x04\x00\x0b\x00\x0c\x00\x0e\x00\x11\x00\x0f\x00\x14\x00\x14\x00\x16\x00\x16\x00\x16\x00\x18\x00\x17\x00\x15\x00\x13\x00\x16\x00\x11\x00\x13\x00\x0f\x00\x0b\x00\x0f\x00\x08\x00\x07\x00\x05\x00\x00\x00\xfc\xff\xf9\xff\xf8\xff\xf1\xff\xeb\xff\xf0\xff\xeb\xff\xea\xff\xe4\xff\xe2\xff\xe4\xff\xe5\xff\xe3\xff\xeb...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,138 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b'\xef\xff\xec\xff\xf2\xff\xf4\xff\xf9\xff\xfb\xff\xfe\xff\x00\x00\x02\x00\x08\x00\x04\x00\x0b\x00\x0c\x00\x0e\x00\x11\x00\x0f\x00\x14\x00\x14\x00\x16\x00\x16\x00\x16\x00\x18\x00\x17\x00\x15\x00\x13\x00\x16\x00\x11\x00\x13\x00\x0f\x00\x0b\x00\x0f\x00\x08\x00\x07\x00\x05\x00\x00\x00\xfc\xff\xf9\xff\xf8\xff\xf1\xff\xeb\xff\xf0\xff\xeb\xff\xea\xff\xe4\xff\xe2\xff\xe4\xff\xe5\xff\xe3\xff\xeb...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='bb0e3c7a-ed7c-489a-8b5c-fdbb8e96893b' timestamp=1773841051.1389
+2026-03-18 06:37:31,139 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:31,197 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [15580 bytes]
+2026-03-18 06:37:31,198 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b'\xd4\xe2\xfe\xdf\xee\xdc\xfc\xda\x90\xdb(\xde^\xe1Q\xe3\xb5\xe4\x9f\xe6{\xe9+\xed\x97\xf0\xba\xf3\x06\xf7W\xfa\x0f\xfdo\xfeU\xfeu\xfei\xff5\x01\x1d\x030\x04\xfb\x04\xcc\x06\xcc\t\x1d\rR\x10?\x13\r\x16\xab\x19K\x1d1 \xe3!q"##\xbe#%$\xfd#"#\xca!# d\x1e\x85\x1c\x01\x1b\xdb\x19\x0f\x19\xb0...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,198 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b'\xd4\xe2\xfe\xdf\xee\xdc\xfc\xda\x90\xdb(\xde^\xe1Q\xe3\xb5\xe4\x9f\xe6{\xe9+\xed\x97\xf0\xba\xf3\x06\xf7W\xfa\x0f\xfdo\xfeU\xfeu\xfei\xff5\x01\x1d\x030\x04\xfb\x04\xcc\x06\xcc\t\x1d\rR\x10?\x13\r\x16\xab\x19K\x1d1 \xe3!q"##\xbe#%$\xfd#"#\xca!# d\x1e\x85\x1c\x01\x1b\xdb\x19\x0f\x19\xb0...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='6da34e3b-9658-4d09-8057-36ee0a198d8f' timestamp=1773841051.198248
+2026-03-18 06:37:31,198 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:31,199 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,199 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x01\x00\x01\x00\x02\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\xfe\xff\xfd\xff\xfd\xff\xfe\xff\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xff\xff\xfd\xff\xfe\xff\xfd\xff\xfd\xff\xfd\xff\xfd\xff\xfd\xff\xfd\xff\xfd\xff\xfe\xff\xfe\xff\xfe\xff\x00\x00\x00\x00\x01\x00\x02\x00\x02\x00\x03\x00\x04...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,199 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 64
+2026-03-18 06:37:31,199 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,199 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "A...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,245 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [87 bytes]
+2026-03-18 06:37:31,245 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    text=' is on'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,245 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=True turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=False,
+  text=' is on'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='3be82d52-4814-4f78-9447-e42d2063cf39' timestamp=1773841051.245361
+2026-03-18 06:37:31,256 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [15580 bytes]
+2026-03-18 06:37:31,257 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b"\xe6\xfa\xd4\xfa\xb7\xf9l\xf9\x9f\xf9Y\xf9\x0f\xfd`\x00\x04\x00\xdc\xff\x8c\xfe\x85\xfc0\xfd=\xff)\x00C\x00y\x00\xcc\xff\x94\xfd\xd5\xfc'\xfb\xa7\xfa\x9c\xfa\xb4\xf8O\xf9g\xf6H\xf3U\xf1L\xef\xda\xee_\xec+\xe9v\xe2\xa1\xdcp\xdc2\xdc\xe8\xe1I\xe3\xba\xe1|\xde\xed\xd22\xd2\x8e\xd0\x05\xd6\xd8\xe3\xa3\xe5\x10\xe6\xbb\xe0j...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,257 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b"\xe6\xfa\xd4\xfa\xb7\xf9l\xf9\x9f\xf9Y\xf9\x0f\xfd`\x00\x04\x00\xdc\xff\x8c\xfe\x85\xfc0\xfd=\xff)\x00C\x00y\x00\xcc\xff\x94\xfd\xd5\xfc'\xfb\xa7\xfa\x9c\xfa\xb4\xf8O\xf9g\xf6H\xf3U\xf1L\xef\xda\xee_\xec+\xe9v\xe2\xa1\xdcp\xdc2\xdc\xe8\xe1I\xe3\xba\xe1|\xde\xed\xd22\xd2\x8e\xd0\x05\xd6\xd8\xe3\xa3\xe5\x10\xe6\xbb\xe0j...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='8af221eb-3eec-47d4-8ec3-0a29a7a21606' timestamp=1773841051.257346
+2026-03-18 06:37:31,257 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:31,303 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [85 bytes]
+2026-03-18 06:37:31,303 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    text=' it.'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,303 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=True turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=False,
+  text=' it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='38a74743-d42d-4047-acfd-671c116ff34e' timestamp=1773841051.303683
+2026-03-18 06:37:31,315 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [15580 bytes]
+2026-03-18 06:37:31,316 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b".\xe6\x8b\xe0V\xd6\xbd\xc5\x06\xbf\x9e\xbd\xda\xc7K\xd9R\xebT\xf86\x06\xc1\x16/,\xefA\xf2O\x0cS\xe2J\xd8?\xee2\r&\xa1\x16\xd3\x05j\xf2,\xe2A\xd6\xa4\xd0\x8f\xcf\x86\xd2\xca\xd7\xbf\xdeb\xe7/\xf0.\xf9\xbe\x00\x17\tl\x10w\x16\x9d\x1at\x1d\xa0\x1e\x90 \xc7#\xd0&\x81(o'\xd3$C %\x1c\x00...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,316 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b".\xe6\x8b\xe0V\xd6\xbd\xc5\x06\xbf\x9e\xbd\xda\xc7K\xd9R\xebT\xf86\x06\xc1\x16/,\xefA\xf2O\x0cS\xe2J\xd8?\xee2\r&\xa1\x16\xd3\x05j\xf2,\xe2A\xd6\xa4\xd0\x8f\xcf\x86\xd2\xca\xd7\xbf\xdeb\xe7/\xf0.\xf9\xbe\x00\x17\tl\x10w\x16\x9d\x1at\x1d\xa0\x1e\x90 \xc7#\xd0&\x81(o'\xd3$C %\x1c\x00...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='4e5bcd7b-0f3b-40d2-baa1-76b7422e2e96' timestamp=1773841051.316587
+2026-03-18 06:37:31,317 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:31,332 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,332 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x06\x00\x04\x00\x03\x00\x02\x00\x02\x00\x02\x00\x02\x00\x02\x00\x00\x00\x00\x00\x00\x00\x00\x00\xfe\xff\xfd\xff\xfd\xff\xfa\xff\xf9\xff\xfa\xff\xf8\xff\xf5\xff\xf5\xff\xf6\xff\xf5\xff\xf4\xff\xf4\xff\xf5\xff\xf5\xff\xf5\xff\xf6\xff\xf8\xff\xf9\xff\xf9\xff\xfa\xff\xfb\xff\xfd\xff\xfd\xff\xfc\xff\xfd\xff\xfd\xff\xfc\xff\xfd\xff\xff\xff\xff\xff\x00\x00\x01\x00\x02\x00\x01\x00\x02\x00\x04...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,332 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 65
+2026-03-18 06:37:31,332 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,332 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "B...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,373 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [15580 bytes]
+2026-03-18 06:37:31,374 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  model_turn=Content(
+    parts=[
+      Part(
+        inline_data=Blob(
+          data=b'\x03\x00\xfe\xff\x10\x00\r\x00\xfb\xff\x12\x00\x12\x00\x15\x00\x1c\x00\x04\x00\x0e\x00\x11\x00\xff\xff\t\x00\x0c\x00\x03\x00\x0c\x00\x05\x00\x19\x00\x17\x00\x19\x00\x10\x00\t\x00\x1e\x00\t\x00\r\x00\x0e\x00\t\x00\x11\x00\x11\x00\x14\x00\x12\x00\x02\x00!\x00\n\x00\x12\x00\x06\x00\t\x00\x11\x00\x08\x00\x0f\x00\xfc\xff\n\x00\xff\xff\xf9\xff\x00\x00\x01\x00\xfd\xff\xfe...',
+          mime_type='audio/pcm'
+        )
+      ),
+    ],
+    role='model'
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,374 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=Content(
+  parts=[
+    Part(
+      inline_data=Blob(
+        data=b'\x03\x00\xfe\xff\x10\x00\r\x00\xfb\xff\x12\x00\x12\x00\x15\x00\x1c\x00\x04\x00\x0e\x00\x11\x00\xff\xff\t\x00\x0c\x00\x03\x00\x0c\x00\x05\x00\x19\x00\x17\x00\x19\x00\x10\x00\t\x00\x1e\x00\t\x00\r\x00\x0e\x00\t\x00\x11\x00\x11\x00\x14\x00\x12\x00\x02\x00!\x00\n\x00\x12\x00\x06\x00\t\x00\x11\x00\x08\x00\x0f\x00\xfc\xff\n\x00\xff\xff\xf9\xff\x00\x00\x01\x00\xfd\xff\xfe...',
+        mime_type='audio/pcm'
+      )
+    ),
+  ],
+  role='model'
+) grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='6c1784e9-b8b1-42ba-8a87-425226e99107' timestamp=1773841051.374171
+2026-03-18 06:37:31,374 - main - DEBUG - 🔊 AUDIO [audio/pcm]: chunk received
+2026-03-18 06:37:31,384 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 7d 0a 20 20 7d 0a 7d 0a [87 bytes]
+2026-03-18 06:37:31,384 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 65 0a 20 20 7d 0a 7d 0a [60 bytes]
+2026-03-18 06:37:31,384 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  output_transcription=Transcription(
+    finished=True
+  )
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,384 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=False turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=True,
+  text='My team is on it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='18e06edd-cd57-4c1d-adb7-8addc476ed97' timestamp=1773841051.384733
+2026-03-18 06:37:31,384 - google_adk.google.adk.runners - DEBUG - Appending transcription finished event: model_version=None content=None grounding_metadata=None partial=False turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=Transcription(
+  finished=True,
+  text='My team is on it.'
+) avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='18e06edd-cd57-4c1d-adb7-8addc476ed97' timestamp=1773841051.384733
+2026-03-18 06:37:31,385 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  generation_complete=True
+) tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,385 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 72 76 65 72 43 6f 6e 74 65 ... 5d 0a 20 20 7d 0a 7d 0a [556 bytes]
+2026-03-18 06:37:31,385 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=LiveServerContent(
+  grounding_metadata=GroundingMetadata(),
+  turn_complete=True
+) tool_call=None tool_call_cancellation=None usage_metadata=UsageMetadata(
+  prompt_token_count=1330,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1236
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+  ],
+  response_token_count=36,
+  response_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=30
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=6
+    ),
+  ],
+  total_token_count=1366
+) go_away=None session_resumption_update=None voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,386 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version='gemini-live-2.5-flash-native-audio' content=None grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=GenerateContentResponseUsageMetadata(
+  prompt_token_count=1330,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1236
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+  ],
+  total_token_count=1366
+) live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='63d8f564-ccc0-4309-9159-9d1e26c4250b' timestamp=1773841051.385933
+2026-03-18 06:37:31,386 - google_adk.google.adk.runners - DEBUG - Appending non-buffered event: model_version='gemini-live-2.5-flash-native-audio' content=None grounding_metadata=None partial=None turn_complete=None finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=GenerateContentResponseUsageMetadata(
+  prompt_token_count=1330,
+  prompt_tokens_details=[
+    ModalityTokenCount(
+      modality=<MediaModality.TEXT: 'TEXT'>,
+      token_count=1236
+    ),
+    ModalityTokenCount(
+      modality=<MediaModality.AUDIO: 'AUDIO'>,
+      token_count=94
+    ),
+  ],
+  total_token_count=1366
+) live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='63d8f564-ccc0-4309-9159-9d1e26c4250b' timestamp=1773841051.385933
+2026-03-18 06:37:31,386 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Receive new event: model_version=None content=None grounding_metadata=None partial=None turn_complete=True finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='17b23ca2-aa43-4e5d-8a8b-f5251e344f28' timestamp=1773841051.386409
+2026-03-18 06:37:31,386 - google_adk.google.adk.runners - DEBUG - Appending non-buffered event: model_version=None content=None grounding_metadata=None partial=None turn_complete=True finish_reason=None error_code=None error_message=None interrupted=None custom_metadata=None usage_metadata=None live_session_resumption_update=None input_transcription=None output_transcription=None avg_logprobs=None logprobs_result=None cache_metadata=None citation_metadata=None interaction_id=None invocation_id='e-4245b8ab-655a-4f00-acc0-b490265315e7' author='mimesis_senior_creative_director_agent' actions=EventActions(skip_summarization=None, state_delta={}, artifact_delta={}, transfer_to_agent=None, escalate=None, requested_auth_configs={}, requested_tool_confirmations={}, compaction=None, end_of_agent=None, agent_state=None, rewind_before_invocation_id=None) long_running_tool_ids=None branch=None id='17b23ca2-aa43-4e5d-8a8b-f5251e344f28' timestamp=1773841051.386409
+2026-03-18 06:37:31,391 - websockets.client - DEBUG - < BINARY 7b 0a 20 20 22 73 65 73 73 69 6f 6e 52 65 73 75 ... 65 0a 20 20 7d 0a 7d 0a [118 bytes]
+2026-03-18 06:37:31,392 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Got LLM Live message: setup_complete=None server_content=None tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=LiveServerSessionResumptionUpdate(
+  new_handle='e42fe579-0b72-4dba-912a-3d82794a7167',
+  resumable=True
+) voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,392 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Received session resumption message: setup_complete=None server_content=None tool_call=None tool_call_cancellation=None usage_metadata=None go_away=None session_resumption_update=LiveServerSessionResumptionUpdate(
+  new_handle='e42fe579-0b72-4dba-912a-3d82794a7167',
+  resumable=True
+) voice_activity_detection_signal=None voice_activity=None
+2026-03-18 06:37:31,392 - google_adk.google.adk.flows.llm_flows.base_llm_flow - INFO - Update session resumption handle: new_handle='e42fe579-0b72-4dba-912a-3d82794a7167' resumable=True last_consumed_client_message_index=None.
+2026-03-18 06:37:31,461 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,462 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\xfe\xff\xfd\xff\xfc\xff\xfb\xff\xfa\xff\xf9\xff\xf8\xff\xf6\xff\xf4\xff\xf3\xff\xf1\xff\xef\xff\xed\xff\xec\xff\xec\xff\xec\xff\xec\xff\xec\xff\xed\xff\xee\xff\xef\xff\xf1\xff\xf3\xff\xf3\xff\xf5\xff\xf7\xff\xf7\xff\xf7\xff\xf9\xff\xfb\xff\xfb\xff\xfb\xff\xfd\xff\xfe\xff\xfe\xff\xfe\xff\xfd\xff\xfd\xff\xfc\xff\xfb\xff\xfc\xff\xfd\xff\xff\xff\x00\x00\x01\x00\x02\x00\x03\x00\x05\x00\x06...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,462 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 66
+2026-03-18 06:37:31,462 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,462 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "_...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,579 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,580 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x15\x00\x17\x00\x17\x00\x17\x00\x16\x00\x17\x00\x16\x00\x15\x00\x15\x00\x14\x00\x13\x00\x12\x00\x12\x00\x11\x00\x11\x00\x13\x00\x14\x00\x16\x00\x1a\x00\x1c\x00 \x00"\x00$\x00&\x00\'\x00(\x00*\x00*\x00)\x00(\x00\'\x00&\x00$\x00"\x00\x1f\x00\x1e\x00\x1c\x00\x1a\x00\x1a\x00\x1a\x00\x1a\x00\x19\x00\x1a\x00\x1c\x00\x1d\x00\x1d\x00\x1e\x00\x1f\x00\x1f...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,580 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 67
+2026-03-18 06:37:31,580 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,580 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "F...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,715 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,715 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x00\x00\x08\x00\x08\x00\x03\x00\x05\x00\x07\x00\x08\x00\x0c\x00\x0c\x00\x0e\x00\x06\x00\x00\x00\x05\x00\t\x00\x0e\x00\x0b\x00\xff\xff\xfd\xff\xfe\xff\x02\x00\xff\xff\xfb\xff\xf1\xff\xf1\xff\xf4\xff\xee\xff\xf4\xff\xed\xff\xe9\xff\xe5\xff\xe7\xff\xea\xff\xef\xff\xeb\xff\xde\xff\xe0\xff\xde\xff\xe8\xff\xe4\xff\xe3\xff\xe6\xff\xdf\xff\xdf\xff\xe5\xff\xe6\xff\xe5\xff\xe8\xff\xe3\xff\xe9...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,715 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 68
+2026-03-18 06:37:31,715 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,715 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "A...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,839 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,839 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x10\x00\x11\x00\x10\x00\x0f\x00\x0e\x00\r\x00\r\x00\r\x00\x0b\x00\n\x00\n\x00\t\x00\x08\x00\x08\x00\x07\x00\x06\x00\x06\x00\x05\x00\x03\x00\x03\x00\x03\x00\x02\x00\x01\x00\x00\x00\x00\x00\x00\x00\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\x01\x00\x00\x00\x01\x00\x01\x00\x01\x00\x01\x00\x00\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,839 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 69
+2026-03-18 06:37:31,839 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,839 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "E...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:31,973 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:31,973 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x08\x00\x08\x00\x08\x00\x08\x00\x07\x00\x08\x00\x07\x00\x07\x00\x06\x00\x05\x00\x03\x00\x03\x00\x02\x00\x00\x00\x00\x00\xff\xff\xfe\xff\xfc\xff\xfb\xff\xfa\xff\xf9\xff\xf8\xff\xf8\xff\xf9\xff\xf9\xff\xf9\xff\xf8\xff\xf7\xff\xf7\xff\xf6\xff\xf6\xff\xf6\xff\xf5\xff\xf5\xff\xf6\xff\xf6\xff\xf6\xff\xf6\xff\xf8\xff\xf9\xff\xfa\xff\xfa\xff\xf9\xff\xf9\xff\xf9\xff\xf9\xff\xf8\xff\xf7\xff\xf8...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:31,973 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 70
+2026-03-18 06:37:31,973 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:31,974 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "C...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:32,100 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:32,100 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\xf2\xff\xf5\xff\xf3\xff\xf4\xff\xf5\xff\xf2\xff\xf4\xff\xf5\xff\xf3\xff\xf5\xff\xf2\xff\xf2\xff\xf3\xff\xf6\xff\xf3\xff\xf0\xff\xf3\xff\xf1\xff\xf0\xff\xf2\xff\xf1\xff\xef\xff\xec\xff\xed\xff\xee\xff\xeb\xff\xed\xff\xed\xff\xed\xff\xee\xff\xf1\xff\xf0\xff\xf4\xff\xf7\xff\xf8\xff\xfb\xff\xfb\xff\xfc\xff\x00\x00\x00\x00\x00\x00\x02\x00\x03\x00\x02\x00\x02\x00\x05\x00\x05\x00\x03\x00\x05...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:32,101 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 71
+2026-03-18 06:37:32,101 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:32,101 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "8...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:32,217 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:32,218 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x01\x00\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x01\x00\x00\x00\xff\xff\xfe\xff\xfe\xff\xfd\xff\xfc\xff\xfd\xff\xfd\xff\xfc\xff\xfb\xff\xfb\xff\xfb\xff\xfb\xff\xfc\xff\xfc\xff\xfb\xff\xfb\xff\xfc\xff\xfb\xff\xfa\xff\xf9\xff\xf7\xff\xf8\xff\xf7\xff\xf6\xff\xf6\xff\xf5\xff\xf5\xff\xf5\xff\xf5\xff\xf4\xff\xf5\xff\xf6\xff\xf6\xff\xf5\xff\xf6\xff\xf7\xff\xf6\xff\xf6\xff\xf6\xff\xf7\xff\xf8...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:32,218 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 72
+2026-03-18 06:37:32,218 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:32,218 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "A...dio/pcm;rate=16000"}]}}' [5552 bytes]
+2026-03-18 06:37:32,351 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:32,351 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\x0b\x00\n\x00\x07\x00\x07\x00\x05\x00\x04\x00\x04\x00\x03\x00\x03\x00\x04\x00\x04\x00\x03\x00\x03\x00\x04\x00\x05\x00\x04\x00\x04\x00\x04\x00\x03\x00\x03\x00\x06\x00\x05\x00\x03\x00\x05\x00\x04\x00\x04\x00\x02\x00\x02\x00\x03\x00\x02\x00\x03\x00\x03\x00\x04\x00\x03\x00\x02\x00\x00\x00\x01\x00\x01\x00\x00\x00\x00\x00\xfd\xff\xfd\xff\xfc\xff\xfb\xff\xf9\xff\xf9\xff\xf9\xff\xf8\xff\xf5...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:32,351 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 73
+2026-03-18 06:37:32,351 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:32,351 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "C...dio/pcm;rate=16000"}]}}' [5552 bytes]
+^C2026-03-18 06:37:32,483 - main - DEBUG - Received binary audio chunk: 4096 bytes
+2026-03-18 06:37:32,484 - google_adk.google.adk.flows.llm_flows.base_llm_flow - DEBUG - Sending live request content=None blob=Blob(
+  data=b'\xff\xff\xff\xff\xff\xff\xfe\xff\xfd\xff\xfc\xff\xfc\xff\xfe\xff\xfd\xff\xfa\xff\xf9\xff\xf8\xff\xf7\xff\xf5\xff\xf4\xff\xf4\xff\xf3\xff\xf3\xff\xf2\xff\xf2\xff\xf2\xff\xf2\xff\xf1\xff\xef\xff\xef\xff\xf0\xff\xf1\xff\xf1\xff\xf0\xff\xf1\xff\xf3\xff\xf4\xff\xf7\xff\xf7\xff\xf5\xff\xf5\xff\xf5\xff\xf8\xff\xfa\xff\xfb\xff\xfb\xff\xfb\xff\xfd\xff\xff\xff\x00\x00\x02\x00\x03\x00\x02\x00\x03...',
+  mime_type='audio/pcm;rate=16000'
+) activity_start=None activity_end=None close=False to active streams: None
+2026-03-18 06:37:32,484 - google_adk.google.adk.flows.llm_flows.audio_cache_manager - DEBUG - Cached input audio chunk: 4096 bytes, cache size: 74
+2026-03-18 06:37:32,484 - google_adk.google.adk.models.gemini_llm_connection - DEBUG - Sending LLM Blob.
+2026-03-18 06:37:32,484 - websockets.client - DEBUG - > TEXT '{"realtime_input": {"mediaChunks": [{"data": "_...dio/pcm;rate=16000"}]}}' [5552 bytes]
+INFO:     Shutting down
+2026-03-18 06:37:32,506 - main - DEBUG - Client disconnected (upstream)
+INFO:     connection closed
+INFO:     connection closed
+INFO:     Waiting for background tasks to complete. (CTRL+C to force quit)
+^CINFO:     Finished server process [45208]
+INFO:     Stopping reloader process [45204]
