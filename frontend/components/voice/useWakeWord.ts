@@ -93,6 +93,12 @@ export function useWakeWord({ onDetected, enabled = true }: UseWakeWordOptions):
         recognition.onerror = (event: Event & { error: string }) => {
             if (event.error === 'no-speech' || event.error === 'aborted') return;
             console.warn('Speech recognition error:', event.error);
+            // Stop retrying on fatal errors — mic not available or blocked
+            if (event.error === 'not-allowed' || event.error === 'service-not-allowed' || event.error === 'audio-capture') {
+                console.warn('[WakeWord] Mic not available, stopping wake word detection. Use click instead.');
+                shouldRestartRef.current = false;
+                setIsActive(false);
+            }
         };
 
         recognition.onend = () => {

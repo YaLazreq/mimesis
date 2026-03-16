@@ -10,12 +10,13 @@ import ZeroGravitySpace from "@/components/ui/ZeroGravitySpace";
 import CentralEntity from "@/components/ui/CentralEntity";
 import FloatingGroup from "@/components/ui/FloatingGroup";
 import FloatingItem from "@/components/ui/FloatingItem";
+import ImageUpload from "@/components/ui/ImageUpload";
 import { useAgentState } from "@/contexts/AgentStateContext";
 import { ExternalLink, X, Database, Braces } from 'lucide-react';
 
 export default function StudioPage() {
     const router = useRouter();
-    const { state, isComponentVisible } = useAgentState();
+    const { state, isComponentVisible, sessionId: agentSessionId } = useAgentState();
     const [isExplorerOpen, setIsExplorerOpen] = useState(false);
     const [isJsonOpen, setIsJsonOpen] = useState(false);
     const [agentStatus, setAgentStatus] = useState<'listening' | 'speaking' | 'thinking'>('listening');
@@ -36,6 +37,7 @@ export default function StudioPage() {
         brand_common_enemy: 'group-enemy',
         brand_last_news: 'group-news',
         brand_viral_campaign: 'group-campaigns',
+        uploaded_images: 'group-images',
     };
 
     const prevVisibleRef = useRef<string[] | undefined>(undefined);
@@ -136,11 +138,11 @@ export default function StudioPage() {
 
                         {/* ── Zero Gravity Space ────────────────────────────────────────── */}
                         <ZeroGravitySpace onFocusChange={(id) => setFocusedElementId(id)}>
-                            {/* 1. The Central Entity (Brand Name & Slogan) */}
-                            {(isComponentVisible('brand_name') && state.brand_name) && (
+                            {/* 1. The Central Entity (Brand Name & Slogan) — always visible */}
+                            {state.brand_name && (
                                 <CentralEntity
                                     name={state.brand_name}
-                                    slogan={isComponentVisible('brand_slogan') ? state.brand_slogan : undefined}
+                                    slogan={state.brand_slogan}
                                 />
                             )}
 
@@ -295,6 +297,22 @@ export default function StudioPage() {
                             )}
                         </ZeroGravitySpace>
 
+                        {/* ── Image Upload Zone — only shown when agent focuses on it ── */}
+                        {isComponentVisible('uploaded_images') && state.brand_name && (
+                            <div
+                                className="fixed inset-0 z-40 flex items-center justify-center pointer-events-none"
+                                style={{ animation: 'fadeIn 0.6s ease-out forwards' }}
+                            >
+                                <div className="pointer-events-auto">
+                                    <ImageUpload
+                                        sessionId={agentSessionId || "default"}
+                                        onUploadComplete={(uri) => console.log('Image uploaded:', uri)}
+                                        onAnalyzing={() => setAgentStatus('thinking')}
+                                    />
+                                </div>
+                            </div>
+                        )}
+
                         {/* Summary Left Panel */}
                         <div
                             className={`absolute left-10 top-1/2 -translate-y-1/2 w-[340px] bg-black/60 backdrop-blur-3xl border border-white/10 p-6 rounded-2xl shadow-2xl text-left transition-all duration-700 pointer-events-none z-50 ${hasSummaryToDisplay ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}
@@ -333,6 +351,99 @@ export default function StudioPage() {
                                     .map(([key, value]) => {
                                         if (value === undefined || value === null || (Array.isArray(value) && value.length === 0) || (typeof value === 'object' && Object.keys(value).length === 0)) return null;
 
+                                        // ── Custom renderer for uploaded_images ──
+                                        if (key === 'uploaded_images' && Array.isArray(value)) {
+                                            return (
+                                                <div key={key} className="flex flex-col gap-1.5" style={{ animation: 'fadeIn 0.5s ease-out forwards' }}>
+                                                    <span className="text-white/40 text-[10px] uppercase font-mono tracking-wider">uploaded_images</span>
+                                                    <div className="flex flex-col gap-3">
+                                                        {value.map((img: any, i: number) => {
+                                                            const analysis = img?.analysis;
+                                                            const gcsUri = img?.gcs_uri || '';
+                                                            // Convert gs://bucket/path → https://storage.googleapis.com/bucket/path
+                                                            const publicUrl = gcsUri.startsWith('gs://')
+                                                                ? `https://storage.googleapis.com/${gcsUri.slice(5)}`
+                                                                : gcsUri;
+
+                                                            return (
+                                                                <div key={i} className="bg-white/5 rounded-xl border border-white/10 overflow-hidden">
+                                                                    {/* Image preview */}
+                                                                    {publicUrl && (
+                                                                        <div className="w-full h-[140px] bg-black/30 overflow-hidden">
+                                                                            <img
+                                                                                src={publicUrl}
+                                                                                alt={`Product ${i + 1}`}
+                                                                                className="w-full h-full object-cover"
+                                                                                onError={(e) => {
+                                                                                    (e.target as HTMLImageElement).style.display = 'none';
+                                                                                }}
+                                                                            />
+                                                                        </div>
+                                                                    )}
+                                                                    <div className="p-3 flex flex-col gap-2">
+                                                                        {/* User context */}
+                                                                        {img?.user_context && (
+                                                                            <div className="text-white/60 text-xs italic leading-relaxed border-l-2 border-blue-400/30 pl-2">
+                                                                                &quot;{img.user_context}&quot;
+                                                                            </div>
+                                                                        )}
+                                                                        {/* Visual mood */}
+                                                                        {analysis?.visual_mood && (
+                                                                            <div className="flex flex-col gap-0.5">
+                                                                                <span className="text-white/30 text-[9px] uppercase tracking-wider">Mood</span>
+                                                                                <span className="text-white/80 text-sm">{analysis.visual_mood}</span>
+                                                                            </div>
+                                                                        )}
+                                                                        {/* Color swatches */}
+                                                                        {analysis?.image_colors && analysis.image_colors.length > 0 && (
+                                                                            <div className="flex flex-col gap-1">
+                                                                                <span className="text-white/30 text-[9px] uppercase tracking-wider">Colors</span>
+                                                                                <div className="flex gap-1.5 flex-wrap">
+                                                                                    {analysis.image_colors.map((color: string, ci: number) => (
+                                                                                        <div key={ci} className="flex items-center gap-1 bg-black/30 rounded px-1.5 py-0.5">
+                                                                                            <div className="w-3 h-3 rounded-sm border border-white/20" style={{ backgroundColor: color }} />
+                                                                                            <span className="text-white/50 text-[10px] font-mono">{color}</span>
+                                                                                        </div>
+                                                                                    ))}
+                                                                                </div>
+                                                                            </div>
+                                                                        )}
+                                                                        {/* Product description */}
+                                                                        {analysis?.product_description && (
+                                                                            <div className="flex flex-col gap-0.5">
+                                                                                <span className="text-white/30 text-[9px] uppercase tracking-wider">Product</span>
+                                                                                <span className="text-white/70 text-xs leading-relaxed">{analysis.product_description}</span>
+                                                                            </div>
+                                                                        )}
+                                                                        {/* Creative directions */}
+                                                                        {analysis?.creative_directions && analysis.creative_directions.length > 0 && (
+                                                                            <div className="flex flex-col gap-1">
+                                                                                <span className="text-white/30 text-[9px] uppercase tracking-wider">Creative Directions</span>
+                                                                                {analysis.creative_directions.map((dir: any, di: number) => (
+                                                                                    <div key={di} className="bg-black/20 rounded-md p-2 border border-white/5">
+                                                                                        <span className="text-white/90 text-xs font-medium">{dir.title}</span>
+                                                                                        <p className="text-white/50 text-[11px] leading-relaxed mt-0.5">{dir.description}</p>
+                                                                                    </div>
+                                                                                ))}
+                                                                            </div>
+                                                                        )}
+                                                                        {/* Brand alignment */}
+                                                                        {analysis?.brand_alignment && (
+                                                                            <div className="flex flex-col gap-0.5">
+                                                                                <span className="text-white/30 text-[9px] uppercase tracking-wider">Brand Fit</span>
+                                                                                <span className="text-white/60 text-xs leading-relaxed">{analysis.brand_alignment}</span>
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+
+                                        // ── Default generic renderer ──
                                         return (
                                             <div key={key} className="flex flex-col gap-1.5" style={{ animation: 'fadeIn 0.5s ease-out forwards' }}>
                                                 <span className="text-white/40 text-[10px] uppercase font-mono tracking-wider">{key}</span>
@@ -412,10 +523,18 @@ export default function StudioPage() {
                         <div className="absolute top-6 right-6 z-50 flex flex-col gap-2">
                             <button
                                 onClick={() => setIsExplorerOpen(true)}
-                                className="flex items-center justify-center w-10 h-10 rounded-full bg-black/50 border border-white/10 text-white/50 hover:text-white hover:bg-black/80 transition-all backdrop-blur-md cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
+                                className="relative flex items-center justify-center w-10 h-10 rounded-full bg-black/50 border border-white/10 text-white/50 hover:text-white hover:bg-black/80 transition-all backdrop-blur-md cursor-pointer shadow-[0_4px_15px_rgba(0,0,0,0.3)]"
                                 title="Open Agent State Explorer"
                             >
                                 <Database size={18} />
+                                {(() => {
+                                    const count = Object.entries(state).filter(([k, v]) => k !== 'visible_components' && v !== undefined && v !== null && v !== '' && !(Array.isArray(v) && v.length === 0)).length;
+                                    return count > 0 ? (
+                                        <span className="absolute -top-1 -right-1 min-w-[18px] h-[18px] flex items-center justify-center text-[10px] font-bold bg-emerald-500 text-black rounded-full px-1 animate-pulse">
+                                            {count}
+                                        </span>
+                                    ) : null;
+                                })()}
                             </button>
                             <button
                                 onClick={() => setIsJsonOpen(true)}
@@ -426,6 +545,38 @@ export default function StudioPage() {
                             </button>
                         </div>
                     )}
+
+                    {/* ── Memory Status Bar ── persistent bottom-left indicator */}
+                    <div className="fixed bottom-[110px] left-6 z-40 flex flex-col gap-1.5 bg-black/60 backdrop-blur-xl border border-white/10 rounded-xl p-3 shadow-[0_4px_20px_rgba(0,0,0,0.4)] max-w-[200px]">
+                        <span className="text-white/30 text-[9px] uppercase tracking-widest font-semibold mb-0.5">Memory</span>
+                        <div className="flex flex-wrap gap-x-2 gap-y-1">
+                            {[
+                                'brand_name', 'brand_slogan', 'primary_color', 'secondary_color',
+                                'brand_mission', 'brand_common_enemy', 'brand_strategy',
+                                'brand_symbols', 'brand_creative_angle',
+                                'brand_last_news', 'brand_viral_campaign',
+                                'style_keywords', 'font_family', 'logo_description',
+                                'uploaded_images',
+                            ].map((key) => {
+                                const hasData = state[key as keyof typeof state] !== undefined
+                                    && state[key as keyof typeof state] !== null
+                                    && state[key as keyof typeof state] !== ''
+                                    && !(Array.isArray(state[key as keyof typeof state]) && (state[key as keyof typeof state] as unknown[]).length === 0);
+                                return (
+                                    <div
+                                        key={key}
+                                        className="flex items-center gap-1 cursor-default"
+                                        title={hasData ? `${key}: loaded` : `${key}: empty`}
+                                    >
+                                        <div className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${hasData ? 'bg-emerald-400 shadow-[0_0_4px_rgba(52,211,153,0.6)]' : 'bg-white/15'}`} />
+                                        <span className={`text-[9px] font-mono transition-colors duration-500 ${hasData ? 'text-white/60' : 'text-white/20'}`}>
+                                            {key.replace('brand_', '').replace('_', ' ')}
+                                        </span>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
                 </div>
 
                 {/* Voice session bar — fixed at bottom */}

@@ -41,16 +41,22 @@ export function AgentStateProvider({ children }: { children: React.ReactNode }) 
      *
      * Rules:
      * - If `visible_components` is undefined/empty → show everything (default)
-     * - If `visible_components` includes "all" → show everything
+     * - If `visible_components` includes "all" → show everything EXCEPT uploaded_images
+     * - `uploaded_images` is a special case: only visible when explicitly listed
      * - Otherwise → only show if the component ID is in the list
      */
     const isComponentVisible = useCallback((componentId: ComponentId): boolean => {
         const vc = state.visible_components;
 
+        // Special: uploaded_images must ALWAYS be explicitly listed
+        if (componentId === 'uploaded_images') {
+            return vc?.includes('uploaded_images') ?? false;
+        }
+
         // No layout set yet → show all by default
         if (!vc || vc.length === 0) return true;
 
-        // "all" shortcut
+        // "all" shortcut (excludes uploaded_images, handled above)
         if (vc.includes('all')) return true;
 
         // Check if this specific component is in the list

@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+tools.log
+mcp_server/tools.log
+pyrefly.toml
+test_*.py
+Makefile
+.git/

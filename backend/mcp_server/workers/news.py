@@ -28,7 +28,7 @@ async def _worker_news(session_id: str, brand_name: str, await_event: Optional[a
             """,
             config=types.GenerateContentConfig(
                 tools=[{"google_search": {}}],
-                temperature=0.2
+                temperature=0.2,
             ),
         )
         logger.info(f"Worker 3 raw output: {response.text}")

@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import json
 from typing import Optional
 from google.genai import types
 
@@ -32,7 +33,7 @@ async def _worker_visual_identity(session_id: str, brand_name: str, await_event:
             """,
             config=types.GenerateContentConfig(
                 tools=[{"google_search": {}}],
-                temperature=0.2
+                temperature=0.2,
             ),
         )
         logger.info(f"Worker 5 raw output: {response.text}")
@@ -53,13 +54,16 @@ async def _worker_visual_identity(session_id: str, brand_name: str, await_event:
         await _push_state(session_id, data)
         await _push_ui_layout_add(session_id, list(data.keys()))
 
-        # Signal notification — data is already in session.state, do NOT re-send it
-        keys_found = list(data.keys())
+        # Build a concise summary of the data for the notification
+        data_summary = json.dumps(data, ensure_ascii=False, indent=None)
+        
+        # Brief delay to let the model finish processing previous notifications
+        await asyncio.sleep(2.0)
+        
         await _push_session_notify(
             session_id,
-            f"[WORKER NOTIFICATION]: Visual identity details are now available for {brand_name}. "
-            f"New keys: {keys_found}. "
-            f"Use get_brand_memory(topic='identity') if you need to reference the data. "
+            f"[WORKER NOTIFICATION — VISUAL IDENTITY]: Visual identity details are now available for {brand_name}. "
+            f"Here is the data:\n{data_summary}\n\n"
             f"DO NOT repeat any analysis you have already given about the brand identity."
         )
 

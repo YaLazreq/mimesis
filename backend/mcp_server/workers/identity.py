@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import json
 from typing import Optional
 from google.genai import types
 
@@ -31,7 +32,7 @@ async def _worker_identity(session_id: str, brand_name: str, set_event: Optional
             """,
             config=types.GenerateContentConfig(
                 tools=[{"google_search": {}}],
-                temperature=0.2
+                temperature=0.2,
             ),
         )
         logger.info(f"Worker 1 raw output: {response.text}")
@@ -47,18 +48,24 @@ async def _worker_identity(session_id: str, brand_name: str, set_event: Optional
         await _push_state(session_id, data)
         await _push_ui_layout(session_id, list(data.keys()))
 
-        # Signal notification — data is already in session.state, do NOT re-send it
-        keys_found = list(data.keys())
-        await _push_session_notify(
-            session_id,
-            f"[WORKER NOTIFICATION]: Brand identity found for {brand_name}. "
-            f"Available keys: {keys_found}. "
-            f"Use get_brand_memory(topic='identity') if you need to reference the data. "
-            f"DO NOT repeat any analysis you have already given."
-        )
-
+        # Signal phase 2 workers can start pushing UI (before notification delay)
         if set_event:
             set_event.set()
+
+        # Build a concise summary of the data for the notification
+        # The Live model can't easily call tools mid-speech, so we include the data directly
+        data_summary = json.dumps(data, ensure_ascii=False, indent=None)
+        
+        # Brief delay to let the model finish its current speech turn
+        await asyncio.sleep(2.0)
+        
+        await _push_session_notify(
+            session_id,
+            f"[WORKER NOTIFICATION — IDENTITY]: Brand identity research is complete for {brand_name}. "
+            f"Here is the data:\n{data_summary}\n\n"
+            f"React to the actual colors and brand name you see. Keep it SHORT and punchy. "
+            f"DO NOT repeat any analysis you have already given."
+        )
     except Exception as e:
         logger.error(f"Worker 1 failed: {e}")
         if set_event:

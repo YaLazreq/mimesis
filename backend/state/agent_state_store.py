@@ -47,6 +47,7 @@ ALL_COMPONENT_IDS = frozenset(
         "primary_color",
         "secondary_color",
         "style_keywords",
+        "uploaded_images",
     }
 )
 
@@ -136,11 +137,18 @@ class AgentStateStore:
         current = self._state[resolved]
 
         # Shallow-merge only non-empty values
+        # Special: uploaded_images is an APPEND-only list
+        APPEND_KEYS = {"uploaded_images"}
         clean_patch: dict[str, Any] = {}
         for key, value in partial_update.items():
             if value is not None and value != "" and value != []:
-                current[key] = value
-                clean_patch[key] = value
+                if key in APPEND_KEYS and isinstance(value, list):
+                    # Append to existing list instead of replacing
+                    existing = current.get(key, [])
+                    current[key] = existing + value
+                else:
+                    current[key] = value
+                clean_patch[key] = current[key]
 
         if clean_patch:
             await self._broadcast(
@@ -174,9 +182,11 @@ class AgentStateStore:
         if resolved not in self._state:
             self._state[resolved] = {}
 
-        # Resolve "all" shortcut
+        # Resolve "all" shortcut — uploaded_images is NEVER included in "all"
+        # (it must always be explicitly requested by the agent)
+        EXCLUDED_FROM_ALL = {"uploaded_images"}
         if "all" in components:
-            resolved_components = list(ALL_COMPONENT_IDS)
+            resolved_components = [c for c in ALL_COMPONENT_IDS if c not in EXCLUDED_FROM_ALL]
         else:
             resolved_components = [c for c in components if c in ALL_COMPONENT_IDS]
 
@@ -208,9 +218,10 @@ class AgentStateStore:
             
         current = self._state[resolved].get("visible_components", [])
 
-        # Resolve "all" shortcut
+        # Resolve "all" shortcut — uploaded_images is NEVER included in "all"
+        EXCLUDED_FROM_ALL = {"uploaded_images"}
         if "all" in components:
-            resolved_components = list(ALL_COMPONENT_IDS)
+            resolved_components = [c for c in ALL_COMPONENT_IDS if c not in EXCLUDED_FROM_ALL]
         else:
             resolved_components = [c for c in components if c in ALL_COMPONENT_IDS and c not in current]
 

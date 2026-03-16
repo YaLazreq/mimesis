@@ -71,6 +71,7 @@ TOPIC_KEY_MAP = {
     "colors": ["primary_color", "secondary_color"],
     "name": "brand_name",
     "slogan": "brand_slogan",
+    "images": "uploaded_images",
 }
 
 # ========================================
@@ -122,10 +123,8 @@ async def launch_brand_research_sprint(session_id: str, brand_name: str) -> dict
         "message": f"Brand research sprint launched. Workers are now hunting for {brand_name}."
     }
 
-# ── Debounce cache for get_brand_memory (Live API sends duplicate calls) ──────
-import time
-_memory_cache: dict[str, tuple[float, dict]] = {}  # key → (timestamp, result)
-_DEBOUNCE_SECONDS = 2.0
+
+
 
 
 @mcp.tool()
@@ -149,6 +148,7 @@ async def get_brand_memory(session_id: str, topic: str = "all") -> dict:
         colors    — Primary and secondary brand colors
         name      — Official brand name
         slogan    — Brand tagline
+        images    — Uploaded product image analysis results
 
     Args:
         session_id: The current session ID.
@@ -159,42 +159,35 @@ async def get_brand_memory(session_id: str, topic: str = "all") -> dict:
     """
     logger.info(f"🧠 Memory lookup requested: topic='{topic}' (session {session_id})")
 
-    # ── Debounce: skip duplicate calls within 2s ─────────────────────────
-    cache_key = f"{session_id}:{topic.strip().lower()}"
-    now = time.monotonic()
-    if cache_key in _memory_cache:
-        last_time, last_result = _memory_cache[cache_key]
-        if now - last_time < _DEBOUNCE_SECONDS:
-            logger.info(f"🧠 Debounce: duplicate call for '{topic}' ignored (within {_DEBOUNCE_SECONDS}s)")
-            return {"status": "already_returned", "message": "You already have this data from the previous call. No need to repeat your analysis."}
-
     state = await _fetch_state(session_id)
 
     if not state:
+        logger.warning(f"🧠 Memory lookup EMPTY STATE for session '{session_id}'")
         return {
             "status": "no_data",
             "message": "No brand data has been collected yet. Launch a research sprint first."
         }
 
+    logger.info(f"🧠 State fetched OK — keys present: {list(state.keys())}")
+
     topic_lower = topic.strip().lower()
     keys = TOPIC_KEY_MAP.get(topic_lower)
 
-    # "all" → return everything (excluding internal keys like visible_components)
+    # "all" → return everything (excluding internal keys)
     if keys is None:
-        internal_keys = {"visible_components"}
+        internal_keys = {"visible_components", "all_research_complete"}
         filtered = {k: v for k, v in state.items() if k not in internal_keys}
-        result = {"status": "ok", "topic": "all", "data": filtered}
-        _memory_cache[cache_key] = (now, result)
-        return result
+        logger.info(f"🧠 Returning ALL data — {len(filtered)} keys")
+        return {"status": "ok", "topic": "all", "data": filtered}
 
     # Single key
     if isinstance(keys, str):
         value = state.get(keys)
         if value is None:
+            logger.warning(f"🧠 Key '{keys}' not found in state for topic '{topic}'")
             return {"status": "not_available", "message": f"Data for '{topic}' has not been collected yet. Workers may still be in progress."}
-        result = {"status": "ok", "topic": topic, "key": keys, "data": value}
-        _memory_cache[cache_key] = (now, result)
-        return result
+        logger.info(f"🧠 Returning topic='{topic}' — data found")
+        return {"status": "ok", "topic": topic, "key": keys, "data": value}
 
     # Multiple keys (e.g. identity, colors)
     multi_result = {}
@@ -204,10 +197,10 @@ async def get_brand_memory(session_id: str, topic: str = "all") -> dict:
             multi_result[k] = v
 
     if not multi_result:
+        logger.warning(f"🧠 No keys found for topic '{topic}'")
         return {"status": "not_available", "message": f"Data for '{topic}' has not been collected yet. Workers may still be in progress."}
-    result = {"status": "ok", "topic": topic, "data": multi_result}
-    _memory_cache[cache_key] = (now, result)
-    return result
+    logger.info(f"🧠 Returning topic='{topic}' — {len(multi_result)} keys")
+    return {"status": "ok", "topic": topic, "data": multi_result}
 
 
 @mcp.tool()

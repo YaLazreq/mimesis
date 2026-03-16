@@ -4,7 +4,7 @@ import logging
 
 logger = logging.getLogger("mimesis.tools")
 
-STATE_API_URL = os.getenv("STATE_API_URL", "http://localhost:8000")
+STATE_API_URL = os.getenv("STATE_API_URL", f"http://localhost:{os.getenv('PORT', '8000')}")
 
 
 # ========================================
@@ -130,15 +130,37 @@ async def _push_session_notify(session_id: str, message: str) -> bool:
 # ========================================
 
 async def _fetch_state(session_id: str) -> dict:
-    """GET the full current state for a session from the AgentStateStore."""
-    url = f"{STATE_API_URL}/api/state/{session_id}"
+    """GET the full current state for a session from the AgentStateStore.
 
+    Falls back to the /_active endpoint when session_id is empty or the
+    direct lookup returns nothing — this handles the common case where the
+    model doesn't know (or passes an empty) session_id to MCP tools.
+    """
+    # Strategy 1: direct lookup (if we actually have a session_id)
+    if session_id:
+        url = f"{STATE_API_URL}/api/state/{session_id}"
+        try:
+            async with httpx.AsyncClient() as client:
+                resp = await client.get(url, timeout=5.0)
+                resp.raise_for_status()
+                data = resp.json()
+                if data:
+                    return data
+        except Exception as e:
+            logger.warning(f"⚠️ Direct state fetch failed for '{session_id}': {e}")
+
+    # Strategy 2: fallback to the active session (always works)
+    url_active = f"{STATE_API_URL}/api/state/_active"
     try:
         async with httpx.AsyncClient() as client:
-            resp = await client.get(url, timeout=5.0)
+            resp = await client.get(url_active, timeout=5.0)
             resp.raise_for_status()
-            return resp.json()
+            data = resp.json()
+            if data:
+                logger.info(f"✅ State fetched via _active fallback ({len(data)} keys)")
+                return data
     except Exception as e:
-        logger.warning(f"❌ Failed to fetch state: {e}")
-        return {}
+        logger.warning(f"❌ Active state fetch also failed: {e}")
+
+    return {}
 

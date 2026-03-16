@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useAgentState } from '@/contexts/AgentStateContext';
+import { setVoiceSocket } from './voiceSocket';
 
 export interface UseVoiceAudioProps {
     onStatusChange?: (status: 'listening' | 'speaking' | 'thinking') => void;
@@ -38,6 +39,7 @@ export function useVoiceAudio({ onStatusChange }: UseVoiceAudioProps = {}) {
 
         const ws = new WebSocket(wsUrl);
         socketRef.current = ws;
+        setVoiceSocket(ws);
 
         ws.onopen = () => {
             console.log("WebSocket connected ✅", wsUrl);
@@ -223,6 +225,7 @@ export function useVoiceAudio({ onStatusChange }: UseVoiceAudioProps = {}) {
                 socketRef.current.close();
                 socketRef.current = null;
             }
+            setVoiceSocket(null);
             if (recorderNode) {
                 recorderNode.disconnect();
             }

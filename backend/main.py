@@ -10,7 +10,7 @@ from google.genai import errors as genai_errors
 from pathlib import Path
 
 from dotenv import load_dotenv
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, UploadFile, File, Form
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from google.adk.agents.live_request_queue import LiveRequestQueue
@@ -40,6 +40,24 @@ warnings.filterwarnings("ignore", category=UserWarning, module="pydantic")
 APP_NAME = "mimesis"
 
 app = FastAPI()
+
+# Allow cross-origin requests from the Next.js frontend
+from fastapi.middleware.cors import CORSMiddleware
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=os.getenv(
+        "ALLOWED_ORIGINS", "http://localhost:3000,http://localhost:3001"
+    ).split(","),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
+@app.get("/health")
+async def health():
+    """Health check endpoint for Cloud Run."""
+    return {"status": "ok"}
 
 # Define your session service
 session_service = InMemorySessionService()
@@ -118,17 +136,51 @@ async def receive_layout_add(payload: LayoutUpdatePayload):
 @app.post("/api/session/notify")
 async def receive_session_notification(payload: SessionNotifyPayload):
     """Endpoint to inject a system event notification into an active session's LiveRequestQueue."""
-    # Use resolve_session_id since MCP server might not have the correct WebSocket session ID
-    resolved_session_id = state_store.resolve_session_id(payload.session_id)
-    target_session_id = resolved_session_id or payload.session_id
-    
-    logger.info(f"📨 Notification for {target_session_id}: {payload.message}")
-    
-    live_queue = active_queues.get(target_session_id)
+    logger.info(
+        f"📨 Notification request: payload.session_id='{payload.session_id}', "
+        f"active_queues={list(active_queues.keys())}, "
+        f"active_adk_session={active_adk_session}"
+    )
+
+    # Try multiple resolution strategies to find the right LiveRequestQueue
+    live_queue = None
+    target_session_id = None
+
+    # Strategy 1: Direct lookup
+    if payload.session_id in active_queues:
+        target_session_id = payload.session_id
+        live_queue = active_queues[target_session_id]
+
+    # Strategy 2: Resolve via state_store (maps to active subscriber session)
     if not live_queue:
-        logger.warning(f"⚠️ Cannot notify session {target_session_id} - no active LiveRequestQueue found.")
+        resolved = state_store.resolve_session_id(payload.session_id)
+        if resolved and resolved in active_queues:
+            target_session_id = resolved
+            live_queue = active_queues[target_session_id]
+
+    # Strategy 3: Use the tracked ADK voice session
+    if not live_queue:
+        adk_sid = active_adk_session.get("session_id")
+        if adk_sid and adk_sid in active_queues:
+            target_session_id = adk_sid
+            live_queue = active_queues[target_session_id]
+            logger.info(f"📨 Resolved via active_adk_session fallback → {target_session_id}")
+
+    # Strategy 4: Last resort — if there's only one queue, use it
+    if not live_queue and len(active_queues) == 1:
+        target_session_id = next(iter(active_queues))
+        live_queue = active_queues[target_session_id]
+        logger.info(f"📨 Resolved via single-queue fallback → {target_session_id}")
+
+    if not live_queue:
+        logger.warning(
+            f"⚠️ Cannot notify session '{payload.session_id}' - no active LiveRequestQueue found. "
+            f"active_queues={list(active_queues.keys())}"
+        )
         return {"status": "ignored", "reason": "no active queue"}
-    
+
+    logger.info(f"📨 Delivering notification to {target_session_id}: {payload.message[:120]}...")
+
     # Inject message directly into the queue so the ADK runner sends it to the Gemini Live agent
     notification_content = types.Content(
         parts=[types.Part(text=payload.message)],
@@ -180,12 +232,101 @@ async def receive_adk_state_update(payload: AdkStatePayload):
     return {"status": "ok", "keys_updated": list(payload.data.keys())}
 
 
+# ========================================
+# Image Upload Endpoint
+# ========================================
+
+@app.post("/api/session/upload-image")
+async def upload_image(
+    file: UploadFile = File(...),
+    session_id: str = Form("default"),
+    user_context: str = Form(""),
+):
+    """Upload a product image, store in GCS, and launch analysis worker.
+
+    The image is stored in gs://{bucket}/mimesis/sessions/{session_id}/
+    and a background worker analyzes it with Gemini Vision.
+    """
+    from mcp_server.helpers.gcs_helpers import upload_image as gcs_upload
+    from mcp_server.workers.image_analysis import _worker_image_analysis
+
+    # Use the same logger as tools.log so everything is in one place
+    tools_logger = logging.getLogger("mimesis.tools")
+
+    # Read file bytes
+    file_bytes = await file.read()
+    content_type = file.content_type or "image/jpeg"
+    filename = file.filename or "upload.jpg"
+
+    tools_logger.info(f"📸 Image upload received: {filename} ({len(file_bytes)} bytes) for session {session_id}")
+
+    # Upload to GCS (sync call — run in executor to avoid blocking)
+    gcs_uri = ""
+    try:
+        loop = asyncio.get_event_loop()
+        gcs_uri = await loop.run_in_executor(
+            None, lambda: gcs_upload(session_id, filename, file_bytes, content_type)
+        )
+        tools_logger.info(f"📸 GCS upload OK: {gcs_uri}")
+    except Exception as e:
+        tools_logger.error(f"❌ GCS upload failed (will continue with analysis anyway): {e}")
+        gcs_uri = f"local://{filename}"  # Fallback — analysis still works without GCS
+
+    # Determine current brand name from state
+    brand_name = state_store.get_state(
+        state_store.resolve_session_id(session_id) or session_id
+    ).get("brand_name", "Unknown Brand")
+
+    tools_logger.info(f"📸 Launching Worker 6 for brand={brand_name}, gcs_uri={gcs_uri}")
+
+    # Launch image analysis worker in background
+    asyncio.create_task(
+        _worker_image_analysis(
+            session_id=session_id,
+            brand_name=brand_name,
+            image_bytes=file_bytes,
+            image_mime_type=content_type,
+            gcs_uri=gcs_uri,
+            user_context=user_context,
+        )
+    )
+
+    return {
+        "status": "ok",
+        "gcs_uri": gcs_uri,
+        "filename": filename,
+        "message": f"Image uploaded and analysis started for {brand_name}.",
+    }
+
+
+@app.get("/api/state/_active")
+async def get_active_state():
+    """Return state for the currently active session — no session_id needed.
+
+    This endpoint is the reliable fallback for MCP tools that don't know
+    (or receive an empty) session_id from the model.
+    """
+    active_id = state_store.active_session_id
+    if not active_id:
+        return {}
+    return state_store.get_state(active_id)
+
+
 @app.get("/api/state/{session_id}")
 async def get_state(session_id: str):
-    """Debug endpoint — inspect the current state for a session."""
+    """Inspect the current state for a session.
+    
+    Falls back to the active session if the given session_id is unknown.
+    """
     resolved = state_store.resolve_session_id(session_id)
     target = resolved or session_id
-    return state_store.get_state(target)
+    state = state_store.get_state(target)
+    # If direct lookup failed, try active session as last resort
+    if not state:
+        active_id = state_store.active_session_id
+        if active_id:
+            state = state_store.get_state(active_id)
+    return state
 
 
 # ========================================
@@ -388,21 +529,40 @@ async def websocket_endpoint(
                         )
                         live_request_queue.send_content(content)
 
-                    # Handle image data
+                    # Handle image data — send to Live model via realtime input
+                    # The Live API accepts JPEG/PNG frames via send_realtime_input
+                    # (max 1 fps). Frontend converts all images to JPEG first.
                     elif json_message.get("type") == "image":
-                        logger.debug("Received image data")
-
-                        # Decode base64 image data
                         image_data = base64.b64decode(json_message["data"])
                         mime_type = json_message.get("mimeType", "image/jpeg")
 
-                        logger.debug(
-                            f"Sending image: {len(image_data)} bytes, " f"type: {mime_type}"
+                        logger.info(
+                            f"📸 Image received via WebSocket: "
+                            f"{len(image_data)} bytes, type: {mime_type}"
                         )
 
-                        # Send image as blob
-                        image_blob = types.Blob(mime_type=mime_type, data=image_data)
+                        # 1. Send image as a realtime frame so the Live
+                        #    model can actually SEE the image
+                        image_blob = types.Blob(
+                            mime_type=mime_type, data=image_data
+                        )
                         live_request_queue.send_realtime(image_blob)
+
+                        # 2. Send a text prompt to trigger the model
+                        #    to react to what it sees in the image
+                        react_prompt = types.Content(
+                            parts=[types.Part.from_text(
+                                text=(
+                                    "[USER ACTION]: The user just dropped a product "
+                                    "image into the studio. You can see the image "
+                                    "now via the visual feed. React to what you see "
+                                    "— describe the product, the colors, the mood. "
+                                    "Then give your creative direction."
+                                )
+                            )],
+                            role="user",
+                        )
+                        live_request_queue.send_content(react_prompt)
         except (WebSocketDisconnect, RuntimeError):
             logger.debug("Client disconnected (upstream)")
 

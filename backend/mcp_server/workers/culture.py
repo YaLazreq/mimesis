@@ -1,5 +1,6 @@
 import logging
 import asyncio
+import json
 from typing import Optional
 from google.genai import types
 
@@ -34,7 +35,7 @@ async def _worker_culture(session_id: str, brand_name: str, await_event: Optiona
             """,
             config=types.GenerateContentConfig(
                 tools=[{"google_search": {}}],
-                temperature=0.5
+                temperature=0.5,
             ),
         )
         logger.info(f"Worker 4 raw output: {response.text}")
@@ -51,14 +52,20 @@ async def _worker_culture(session_id: str, brand_name: str, await_event: Optiona
         # Mark all research as done
         await _push_state(session_id, {"all_research_complete": True})
 
-        # Signal notification — data is already in session.state, do NOT re-send it
+        # Build a concise summary of the culture data for the notification
+        culture_summary = json.dumps(data, ensure_ascii=False, indent=None) if data else "(no culture data)"
+        
+        # Brief delay to let the model finish processing previous notifications
+        await asyncio.sleep(3.0)
+        
+        # Signal notification with actual data included
         await _push_session_notify(
             session_id,
-            f"[WORKER NOTIFICATION]: All research is now complete for {brand_name}. "
-            f"The dashboard now includes: identity, visual identity, philosophy (slogan, mission, enemy), news, campaigns, strategy, symbols, and creative angles. "
-            f"Use get_brand_memory to recall any specific data you need. "
+            f"[WORKER NOTIFICATION — ALL RESEARCH COMPLETE]: All research is now complete for {brand_name}. "
+            f"Here is the final batch of data (strategy, symbols, creative angles):\n{culture_summary}\n\n"
+            f"You now have EVERYTHING: identity, visual identity, philosophy (slogan, mission, enemy), news, campaigns, strategy, symbols, and creative angles. "
             f"Deliver your global creative pitch — connect the dots across ALL the data. "
-            f"IMPORTANT: Do NOT repeat anything you have already said. Focus only on NEW insights."
+            f"IMPORTANT: Do NOT repeat anything you have already said. Focus only on NEW insights from this final data batch."
         )
 
         logger.info("Worker 4 (Culture) completed ✅")

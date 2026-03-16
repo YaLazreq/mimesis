@@ -9,6 +9,8 @@ dependencies = [
     "python-dotenv",
     "mcp",
     "httpx",
+    "google-cloud-storage>=3.9.0",
+    "python-multipart>=0.0.22",
 ]
 
 [tool.ruff]
