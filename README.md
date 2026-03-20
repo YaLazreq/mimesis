@@ -11,19 +11,6 @@ Built on an **Event-Driven architecture**, Mimesis leverages the full power of *
 
 ---
 
-## 🔗 Live Demo
-
-> ⚠️ IMPORTANT:
-> This application runs on Cloud Run. Due to "cold starts," the backend may sometimes take longer to respond, resulting in a backend error.
-> Therefore, you must close the page and reopen it. This will create a new session, allowing you to resume.
-
-| Service | URL |
-| :--- | :--- |
-| **Frontend** | [Test Live Demo](https://mimesis-frontend-980118844637.us-central1.run.app) |
-| **Backend** | [API Gateway](https://mimesis-backend-980118844637.us-central1.run.app) |
-
----
-
 ## ✨ Key Features
 
 * **Real-time Voice Collaboration**: Converse directly with Mimesis via **Gemini Live (ADK)**.
